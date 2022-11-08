@@ -68,17 +68,18 @@ void loop() {
   // Get the sensor data
   Serial.print("Reading a measurement...");
   lox.rangingTest(&value, false);
+  uint16_t valueCentimeter = value.RangeMilliMeter/10;
   // If we get a valid measurement, send it to the screen
   if(value.RangeStatus != 4) {
     if(characterToSend1 == 1 && characterToSend0 == 1){
-        SerialPort.print(String(value.RangeMilliMeter/100));
+        SerialPort.print(String(valueCentimeter/100));
     } else if (characterToSend1 == 1 && characterToSend0 == 0){
-        SerialPort.print(String((value.RangeMilliMeter%100)/10));
+        SerialPort.print(String((valueCentimeter%100)/10));
     } else if (characterToSend1 == 0 && characterToSend0 == 1){
-        SerialPort.print(String(value.RangeMilliMeter%10));
+        SerialPort.print(String(valueCentimeter%10));
     }
     // SerialPort.print(String(value.RangeMilliMeter) + " ");
-    output = String(value.RangeMilliMeter) + " mm";
+    output = String(valueCentimeter) + " cm";
     Serial.print("Distance: ");
     Serial.println(output);
   } else {
