@@ -18,8 +18,8 @@ entity interface_esp32_uc is
 end interface_esp32_uc;
 
 architecture fsm_arch of interface_esp32_uc is
-    type tipo_estado is (inicial, preparacao, solicita_unidade, 
-                         aguarda_unidade, solicita_dezena, aguarda_dezena, solicita_centena, aguarda_centena, final);
+    type tipo_estado is (inicial, preparacao, 
+                         aguarda_unidade, armazena_unidade, aguarda_dezena, aramzena_dezena, aguarda_centena, aramazena_centena, final);
     signal Eatual, Eprox: tipo_estado;
 begin
 
