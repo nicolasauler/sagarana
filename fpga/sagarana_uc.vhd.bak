@@ -1,0 +1,44 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity sagarana_uc is
+	 port (
+		clock : in std_logic;
+		reset : in std_logic;
+		ligar: in std_logic;
+		pronto_medicao: in std_logic;
+		pronto_transmissao: in std_logic;
+		sel_transmissao: in std_logic;
+		pronto2s: in std_logic;
+		recebe_serial: in std_logic_vector(1 downto 0);
+		conta_pos: out std_logic;
+		zera2s: out std_logic;
+		transmite: out std_logic;
+		medir: out std_logic;
+		sel_caractere: out std_logic_vector (1 downto 0);
+		set_ff: out std_logic;
+		reset_ff: out std_logic;
+		reseta_tudo: out std_logic;
+		db_estado: out std_logic_vector (3 downto 0);
+		fim_posicao: out std_logic
+	 );
+end entity sagarana_uc;
+
+architecture sonar_uc_arch of sonar_uc is
+
+    type tipo_estado is (inicial, preparacao, conta2s, espera2s, medida, aguarda_medida, transmite_centena,
+	 espera_centena, transmite_dezena, espera_dezena, transmite_unidade, espera_unidade,transmite_especial, espera_especial, muda_transmissao, fim_pos, espera_r);
+								
+    signal Eatual, Eprox: tipo_estado;
+	 
+begin
+
+    -- estado
+    process (reset, ligar, clock)
+    begin
+        if reset = '1' or ligar = '0' then
+            Eatual <= inicial;
+        elsif clock'event and clock = '1' then
+            Eatual <= Eprox; 
+        end if;
+    end process;

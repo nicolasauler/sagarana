@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity interface_esp32_fd is 
+    port ( 
+        clock       : in  std_logic;
+		  medir		  : in std_logic;
+        distancia   : out std_logic_vector(11 downto 0);
+		  fim         : out std_logic;
+        start       : out std_logic
+    );
+end interface_esp32_fd;
+
+architecture arch_interface_esp32_fd of interface_esp32_fd is
+
+component
