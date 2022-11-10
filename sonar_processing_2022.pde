@@ -27,6 +27,8 @@ int    index1=0; //posicao para limitar o valor do angulo
 int    index2=0; //posicao para limitar o valor de distancai
 PFont  orcFont; //fonte de texto
 
+ArrayList<Integer> medidas = new ArrayList<Integer>();
+
 // keystroke
 int whichKey = -1;  // variavel mantem tecla acionada
 
@@ -39,12 +41,12 @@ void setup() {
     //translate(0,20); 
     smooth();
     
-    orcFont = loadFont("OCRAExtended-24.vlw");
+    //orcFont = loadFont("OCRAExtended-24.vlw");
     
     // interface serial
-    myPort = new Serial(this, porta, baudrate, parity, databits, stopbits);  // inicia comunicacao serial 
+    //myPort = new Serial(this, porta, baudrate, parity, databits, stopbits);  // inicia comunicacao serial 
     // leitura de dados da porta serial até o caractere '#' (para leitura de "angulo,distancia#"
-    myPort.bufferUntil('#'); 
+    //myPort.bufferUntil('#'); 
 
 }
 
@@ -52,17 +54,20 @@ void setup() {
 // funcao draw
 // ========================================================================
 void draw() {
+    iDistance = iDistance+1;
+    if(iDistance > 40){
+      iDistance = 0;
+    }
     pushMatrix();
     translate(0,40);
     fill(98,245,31);
-    textFont(orcFont);
+    //textFont(orcFont);
     noStroke();
     fill(255,255,255);
     rect(0, -40, width, 480+40);
 
     // chama funcoes para desenhar o sonar
-    drawRadar(); 
-    drawLine();
+    drawRadar();
     drawObject();
     drawText();
     popMatrix();
@@ -87,29 +92,40 @@ void drawRadar() {
 
 // funcao drawObject()
 void drawObject() {
+    
+    if(medidas.size()<60){
+      medidas.add(40);
+    }
+    else if (medidas.size()>=60 && medidas.size()<120){
+      medidas.add(20);
+    }
+    else if (medidas.size()>=120 && medidas.size()<180){
+      medidas.add(40);
+    }
+    else{
+      medidas.clear();
+    }
+    
     pushMatrix();
     translate(480,480);
     strokeWeight(15); 
-    stroke(0,0,255); // azul
+    stroke(80,80,80); // azul
     // calcula distancia em pixels
     pixsDistance = iDistance*10.0; 
     // limita faixa de apresentacao
     if(iDistance < 50) {
         // desenha objeto        
         point(pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
+        strokeWeight(5);
     }
-    popMatrix();
-}   
-
-
-// funcao drawLine()
-void drawLine() {
-    pushMatrix();
-    strokeWeight(1);
-    stroke(255,0,0);
-    translate(480,480);
-    // desenha linha do sonar
-    line(0,0,470*cos(radians(iAngle)),-470*sin(radians(iAngle)));
+    
+    for (int i=0; i < medidas.size(); i++) {
+        pixsDistance = medidas.get(i)*10.0;
+        iAngle = i;
+        line(0,0,pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
+        
+    }
+   
     popMatrix();
 }
 
@@ -136,7 +152,7 @@ void drawText() {
     textSize(25);
     fill(255,255,255);
     // imprime dados do sonar
-    text("SAGARANA                           TURMA 1 - BANCADA A6", 50, 525);
+    text("SAGARANA                                                                                                      TURMA 1 - BANCADA A6", 50, 525);
     textSize(18);
     popMatrix(); 
 }
@@ -145,31 +161,31 @@ void drawText() {
 // funcoes para conexao com a porta serial
 // ========================================================================
 
-void serialEvent (Serial myPort) { 
-    // inicia leitura da porta serial
-    try {
-        // leitura de dados da porta serial ate o caractere '#' na variavel data
-        data = myPort.readStringUntil('#');
-        print(data);  // imprime "data" (debug)
-        // remove caractere final '#'
-        data = data.substring(0,data.length()-1); 
-        // encontra indice do caractere ',' e guarda em "index1" 
-        index1   = data.indexOf(",");
-        // le dados da posicao 0 ate a posicao index1 e guarda em "angle"
-        angle    = data.substring(0, index1);
-        // le dados da posicao "index+1 ate o final e guarda em "distance"
-        distance = data.substring(index1+1, data.length()); 
-        println(" -> angle= " + angle + " distance= " + distance);
+//void serialEvent (Serial myPort) { 
+//    // inicia leitura da porta serial
+//    try {
+//        // leitura de dados da porta serial ate o caractere '#' na variavel data
+//        data = myPort.readStringUntil('#');
+//        print(data);  // imprime "data" (debug)
+//        // remove caractere final '#'
+//        data = data.substring(0,data.length()-1); 
+//        // encontra indice do caractere ',' e guarda em "index1" 
+//        index1   = data.indexOf(",");
+//        // le dados da posicao 0 ate a posicao index1 e guarda em "angle"
+//        angle    = data.substring(0, index1);
+//        // le dados da posicao "index+1 ate o final e guarda em "distance"
+//        distance = data.substring(index1+1, data.length()); 
+//        println(" -> angle= " + angle + " distance= " + distance);
 
-        // converte variaveis tipo String para tipo inteiro
-        iAngle    = int(angle);    // angulo em graus
-        iDistance = int(distance); // distancia em cm
-        println("angulo= " + iAngle + "° distancia= " + iDistance + "cm");
-    }
-    catch(RuntimeException e) {
-        e.printStackTrace();
-    }
-}
+//        // converte variaveis tipo String para tipo inteiro
+//        iAngle    = int(angle);    // angulo em graus
+//        iDistance = int(distance); // distancia em cm
+//        println("angulo= " + iAngle + "° distancia= " + iDistance + "cm");
+//    }
+//    catch(RuntimeException e) {
+//        e.printStackTrace();
+//    }
+//}
 
 // funcao keyPressed
 // processa tecla acionada (envia para a porta serial)
