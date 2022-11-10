@@ -19,7 +19,7 @@ end interface_esp32_uc;
 
 architecture fsm_arch of interface_esp32_uc is
     type tipo_estado is (inicial, preparacao, 
-                         aguarda_unidade, armazena_unidade, aguarda_dezena, aramzena_dezena, aguarda_centena, aramazena_centena, final);
+                         aguarda_unidade, armazena_unidade, aguarda_dezena, armazena_dezena, aguarda_centena, armazena_centena, final);
     signal Eatual, Eprox: tipo_estado;
 begin
 
@@ -44,7 +44,7 @@ begin
         when aguarda_unidade =>  if pronto_rx='0' then Eprox <= aguarda_unidade;
                                 else             Eprox <= armazena_unidade;
                                 end if;
-		  when armazena_unidade => Eprox <= aguarda_dezena
+		  when armazena_unidade => Eprox <= aguarda_dezena;
 		  when aguarda_dezena =>  if pronto_rx='0' then Eprox <= aguarda_dezena;
                                 else             Eprox <= armazena_dezena;
                                 end if;
@@ -65,7 +65,7 @@ begin
       sel_envio <= "01" when aguarda_unidade | armazena_unidade, 
 						 "10" when aguarda_dezena  | armazena_dezena,
 						 "11" when aguarda_centena | armazena_centena,
-						 "00" others;
+						 "00" when others;
 	
   with Eatual select
 		armazena_u <= '1' when armazena_unidade,

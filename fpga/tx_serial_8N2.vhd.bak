@@ -96,7 +96,7 @@ begin
 				   db_estado => db_estado
            );
 
-    U2_FD: tx_serial_8N2_fd 
+    U2_FD: tx_serial_7E2_fd 
            port map (
                clock        => clock, 
                reset        => s_reset, 

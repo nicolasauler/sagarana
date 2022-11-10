@@ -11,8 +11,7 @@ entity interface_esp32_fd is
 		  armazena_d  : in std_logic;
 		  armazena_c  : in std_logic;
 		  pronto_rx   : out std_logic;
-        distancia   : out std_logic_vector(23 downto 0);
-        start       : out std_logic
+        distancia   : out std_logic_vector(23 downto 0)
     );
 end interface_esp32_fd;
 
@@ -94,3 +93,4 @@ begin
 			D => s_dado_recebido,
 			Q => distancia(23 downto 16)
 		);
+end architecture;

@@ -47,7 +47,7 @@ architecture rx_serial_8N2_arch of rx_serial_8N2 is
 		  limpa        : in  std_logic;
 		  dado_serial  : in std_logic;
         dado_recebido: out std_logic_vector(7 downto 0);
-        fim          : out std_logic
+        fim          : out std_logic;
     );
 	end component;
     
