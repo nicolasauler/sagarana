@@ -24,10 +24,16 @@ String noObject; //diz se o objeto foi detectado ou não
 float  pixsDistance;
 int    iAngle, iDistance;
 int    index1=0; //posicao para limitar o valor do angulo
-int    index2=0; //posicao para limitar o valor de distancai
+int    index2=0; //posicao para limitar o valor de distancia
+int larguraObjeto = 0;
+int y = 180;
 PFont  orcFont; //fonte de texto
+String text = "";
+String defaultText = "SAGARANA                                                                                                      TURMA 1 - BANCADA A6";
+String problemText = "CUIDADO !!!                               HÁ MAIS DE UM OBJETO NO NOSSO CAMPO DE VISÃO !!!";
 
 ArrayList<Integer> medidas = new ArrayList<Integer>();
+ArrayList<Integer> medidas2 = new ArrayList<Integer>();
 
 // keystroke
 int whichKey = -1;  // variavel mantem tecla acionada
@@ -39,6 +45,7 @@ int whichKey = -1;  // variavel mantem tecla acionada
 void setup() {
     size (960, 600);
     //translate(0,20); 
+    text = defaultText;
     smooth();
     
     //orcFont = loadFont("OCRAExtended-24.vlw");
@@ -96,14 +103,35 @@ void drawObject() {
     if(medidas.size()<60){
       medidas.add(40);
     }
-    else if (medidas.size()>=60 && medidas.size()<120){
+    else if (medidas.size()>=60 && medidas.size()<80){
       medidas.add(20);
     }
-    else if (medidas.size()>=120 && medidas.size()<180){
+    else if (medidas.size()>=80 && medidas.size()<180){
       medidas.add(40);
     }
     else{
       medidas.clear();
+    }
+    
+    if(medidas2.size()<30){
+      medidas2.add(40);
+    }
+    else if (medidas2.size()>=30 && medidas2.size()<50){
+      medidas2.add(20);
+    }
+    else if (medidas2.size()>=50 && medidas2.size()<100){
+      medidas2.add(40);
+    }
+    else if (medidas2.size()>=100 && medidas2.size()<120){
+      medidas2.add(20);
+    }
+    else if (medidas2.size()>=120 && medidas2.size()<180){
+      medidas2.add(40);
+    }
+ 
+    else{
+      medidas.clear();
+      medidas2.clear();
     }
     
     pushMatrix();
@@ -119,14 +147,34 @@ void drawObject() {
         strokeWeight(5);
     }
     
-    for (int i=0; i < medidas.size(); i++) {
-        pixsDistance = medidas.get(i)*10.0;
+    for (int i=0; i < medidas2.size(); i++) {
+        pixsDistance = medidas2.get(i)*10.0;
         iAngle = i;
         line(0,0,pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
-        
+        if (i == 179){
+          for (int j=0; j < 180; j++){
+            if (medidas2.get(j) >= 17 && medidas2.get(j) <= 23){
+              larguraObjeto = larguraObjeto + 1;
+              
+            }
+            else{
+              text = defaultText;
+            }
+          }
+        }
+    }
+       
+    if (larguraObjeto >= 34){
+      text = problemText;
+      drawBadScreen();
+      larguraObjeto = 0;
     }
    
     popMatrix();
+}
+
+void drawBadScreen(){
+  print("Cuidado! Existe mais de um objeto no nosso campo de visão!!!");
 }
 
 // funcao drawText()
@@ -150,9 +198,14 @@ void drawText() {
     text("30cm",790,470);
     text("40cm",890,470);
     textSize(25);
-    fill(255,255,255);
+    if (text == defaultText){
+      fill(255,255,255);
+    }
+    else{
+      fill(255,0,0);
+    }
     // imprime dados do sonar
-    text("SAGARANA                                                                                                      TURMA 1 - BANCADA A6", 50, 525);
+    text(text,50, 525);
     textSize(18);
     popMatrix(); 
 }
