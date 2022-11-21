@@ -6,15 +6,15 @@ entity sagarana_uc is
 		clock : in std_logic;
 		reset : in std_logic;
 		ligar: in std_logic;
-		pronto_medicao: in std_logic;
+		pronto_dados: in std_logic;
 		pronto_transmissao: in std_logic;
 		sel_transmissao: in std_logic;
-		pronto2s: in std_logic;
+		prontoPausa: in std_logic;
 		recebe_serial: in std_logic_vector(1 downto 0);
 		conta_pos: out std_logic;
-		zera2s: out std_logic;
+		zeraPausa: out std_logic;
 		transmite: out std_logic;
-		medir: out std_logic;
+		sol_dados: out std_logic;
 		sel_caractere: out std_logic_vector (1 downto 0);
 		set_ff: out std_logic;
 		reset_ff: out std_logic;
@@ -26,7 +26,7 @@ end entity sagarana_uc;
 
 architecture sagarana_uc_arch of sagarana_uc is
 
-    type tipo_estado is (inicial, preparacao, conta2s, espera2s, medida, aguarda_medida, transmite_centena,
+    type tipo_estado is (inicial, preparacao, contaPausa, esperaPausa, solicita_dados, aguarda_dados, transmite_centena,
 	 espera_centena, transmite_dezena, espera_dezena, transmite_unidade, espera_unidade,transmite_especial, espera_especial, muda_transmissao, fim_pos, espera_r);
 								
     signal Eatual, Eprox: tipo_estado;
@@ -44,7 +44,7 @@ begin
     end process;
 	 
 	 -- logica de proximo estado
-    process (Eatual, ligar, pronto_medicao, pronto_transmissao, sel_transmissao, pronto2s, recebe_serial)
+    process (Eatual, ligar, pronto_dados, pronto_transmissao, sel_transmissao, prontoPausa, recebe_serial)
 	 
     begin
 	 
@@ -52,19 +52,19 @@ begin
 		
         when inicial => Eprox <= preparacao;
 		  
-		  when preparacao => Eprox <= conta2s;
+		  when preparacao => Eprox <= contaPausa;
 		  
-		  when conta2s => Eprox <= espera2s;
+		  when contaPausa => Eprox <= esperaPausa;
 		  
-		  when espera2s => if recebe_serial = "01" then Eprox <= espera_r; 
+		  when esperaPausa => if recebe_serial = "01" then Eprox <= espera_r; 
 		  
-								elsif pronto2s = '1' then Eprox <= medida; else Eprox <= espera2s; end if;
+								elsif prontoPausa = '1' then Eprox <= solicita_dados; else Eprox <= esperaPausa; end if;
 								
-		  when espera_r => if recebe_serial = "10" then Eprox <= conta2s; else Eprox <= espera_r; end if;
+		  when espera_r => if recebe_serial = "10" then Eprox <= contaPausa; else Eprox <= espera_r; end if;
 		  
-		  when medida => Eprox <= aguarda_medida;
+		  when solicita_dados => Eprox <= aguarda_dados;
 		  
-		  when aguarda_medida => if pronto_medicao = '0' then Eprox <= aguarda_medida; else Eprox <= transmite_centena; end if;
+		  when aguarda_dados => if pronto_dados = '0' then Eprox <= aguarda_dados; else Eprox <= transmite_centena; end if;
 		  
         when transmite_centena => Eprox <= espera_centena;
 		  
@@ -84,7 +84,7 @@ begin
 		  
 		  when muda_transmissao => Eprox <= transmite_centena;
 		  
-		  when fim_pos => Eprox <= conta2s;
+		  when fim_pos => Eprox <= contaPausa;
 		  
         when others => Eprox <= inicial;
 		  
@@ -97,13 +97,13 @@ begin
 		conta_pos <= '1' when fim_pos, '0' when others;
 		
   with Eatual select
-		zera2s <= '1' when conta2s, '0' when others;
+		zeraPausa <= '1' when contaPausa, '0' when others;
 		
   with Eatual select
 		reseta_tudo <= '1' when preparacao, '0' when others;
 		
   with Eatual select
-      medir <= '1' when medida, '0' when others;
+      sol_dados <= '1' when solicita_dados, '0' when others;
 		
   with Eatual select
 	   transmite <= '1' when transmite_centena | transmite_dezena | transmite_unidade | transmite_especial, '0' when others;
@@ -119,7 +119,7 @@ begin
       set_ff <= '1' when muda_transmissao, '0' when others;
 		
   with Eatual select				 
-      reset_ff <= '1' when conta2s, '0' when others;
+      reset_ff <= '1' when contaPausa, '0' when others;
   
   with Eatual select
 		fim_posicao <= '1' when fim_pos, '0' when others; 
@@ -128,10 +128,10 @@ begin
   with Eatual select		
 		db_estado <= "0000" when inicial,
 						 "0001" when preparacao,
-					    "0010" when conta2s,
-						 "0011" when espera2s,
-						 "0100" when medida,
-						 "0101" when aguarda_medida,
+					    "0010" when contaPausa,
+						 "0011" when esperaPausa,
+						 "0100" when solicita_dados,
+						 "0101" when aguarda_dados,
 						 "0110" when transmite_centena,
 						 "0111" when espera_centena,
 						 "1000" when transmite_dezena,

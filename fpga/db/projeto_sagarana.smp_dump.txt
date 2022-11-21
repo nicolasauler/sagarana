@@ -1,0 +1,60 @@
+
+State Machine - |projeto_sagarana|sagarana_uc:UC|Eatual
+Name Eatual.espera_r Eatual.fim_pos Eatual.muda_transmissao Eatual.espera_especial Eatual.transmite_especial Eatual.espera_unidade Eatual.transmite_unidade Eatual.espera_dezena Eatual.transmite_dezena Eatual.espera_centena Eatual.transmite_centena Eatual.aguarda_dados Eatual.solicita_dados Eatual.esperaPausa Eatual.contaPausa Eatual.preparacao Eatual.inicial 
+Eatual.inicial 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Eatual.preparacao 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Eatual.contaPausa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+Eatual.esperaPausa 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+Eatual.solicita_dados 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+Eatual.aguarda_dados 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+Eatual.transmite_centena 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+Eatual.espera_centena 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+Eatual.transmite_dezena 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+Eatual.espera_dezena 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+Eatual.transmite_unidade 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+Eatual.espera_unidade 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.transmite_especial 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.espera_especial 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.muda_transmissao 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.fim_pos 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.espera_r 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_uc:U1_UC|Eatual
+Name Eatual.dado_presente Eatual.final Eatual.armazenamento Eatual.recepcao Eatual.espera Eatual.preparacao Eatual.inicial 
+Eatual.inicial 0 0 0 0 0 0 0 
+Eatual.preparacao 0 0 0 0 0 1 1 
+Eatual.espera 0 0 0 0 1 0 1 
+Eatual.recepcao 0 0 0 1 0 0 1 
+Eatual.armazenamento 0 0 1 0 0 0 1 
+Eatual.final 0 1 0 0 0 0 1 
+Eatual.dado_presente 1 0 0 0 0 0 1 
+
+State Machine - |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_uc:UC|Eatual
+Name Eatual.final Eatual.armazena_centena Eatual.aguarda_centena Eatual.armazena_dezena Eatual.aguarda_dezena Eatual.armazena_unidade Eatual.aguarda_unidade Eatual.preparacao Eatual.inicial 
+Eatual.inicial 0 0 0 0 0 0 0 0 0 
+Eatual.preparacao 0 0 0 0 0 0 0 1 1 
+Eatual.aguarda_unidade 0 0 0 0 0 0 1 0 1 
+Eatual.armazena_unidade 0 0 0 0 0 1 0 0 1 
+Eatual.aguarda_dezena 0 0 0 0 1 0 0 0 1 
+Eatual.armazena_dezena 0 0 0 1 0 0 0 0 1 
+Eatual.aguarda_centena 0 0 1 0 0 0 0 0 1 
+Eatual.armazena_centena 0 1 0 0 0 0 0 0 1 
+Eatual.final 1 0 0 0 0 0 0 0 1 
+
+State Machine - |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_uc:U1_UC|Eatual
+Name Eatual.dado_presente Eatual.final Eatual.armazenamento Eatual.recepcao Eatual.espera Eatual.preparacao Eatual.inicial 
+Eatual.inicial 0 0 0 0 0 0 0 
+Eatual.preparacao 0 0 0 0 0 1 1 
+Eatual.espera 0 0 0 0 1 0 1 
+Eatual.recepcao 0 0 0 1 0 0 1 
+Eatual.armazenamento 0 0 1 0 0 0 1 
+Eatual.final 0 1 0 0 0 0 1 
+Eatual.dado_presente 1 0 0 0 0 0 1 
+
+State Machine - |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_uc:U1_UC|Eatual
+Name Eatual.final Eatual.transmissao Eatual.espera Eatual.preparacao Eatual.inicial 
+Eatual.inicial 0 0 0 0 0 
+Eatual.preparacao 0 0 0 1 1 
+Eatual.espera 0 0 1 0 1 
+Eatual.transmissao 0 1 0 0 1 
+Eatual.final 1 0 0 0 1 

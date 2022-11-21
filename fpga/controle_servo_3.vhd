@@ -6,10 +6,10 @@ entity controle_servo_3 is
 	 port (
 	 clock : in std_logic;
 	 reset : in std_logic;
-	 posicao : in std_logic_vector(2 downto 0);
+	 posicao : in std_logic_vector(3 downto 0);
     pwm     : out std_logic;
 	 db_pwm : out std_logic;
-	 db_posicao : out std_logic_vector(2 downto 0)
+	 db_posicao : out std_logic_vector(3 downto 0)
 	 );
 end entity controle_servo_3;
 
@@ -55,15 +55,23 @@ begin
   process(posicao)
   begin
     case posicao is
-      when "000" =>    s_largura <=    35000;  -- pulso de 0.7 ms
-      when "001" =>    s_largura <=    45700;  -- pulso de 0.914 ms
-      when "010" =>    s_largura <=    56450;  -- pulso de 1.129 ms
-		when "011" =>    s_largura <=    67150;  -- pulso de 1.343 ms
-      when "100" =>    s_largura <=    77850;  -- pulso de 1.557 ms
-      when "101" =>    s_largura <=    88550;  -- pulso de 1.771 ms
-		when "110" =>    s_largura <=    99300;  -- pulso de 1.986 ms
-		when "111" =>    s_largura <=    110000; -- pulso de 2.2 ms
-      when others =>   s_largura <=     0;  -- nulo   saida 0
+		when "0000" => 	s_largura <=	 50000;
+      when "0001" =>    s_largura <=    53333;
+		when "0010" =>		s_largura <=	 57000;
+      when "0011" =>    s_largura <=    60000;
+		when "0100" =>		s_largura <=	 63333;
+      when "0101" =>    s_largura <=    67000;
+		when "0110" =>		s_largura <=	 70000;
+		when "0111" =>    s_largura <=    73333;
+		when "1000" =>		s_largura <=	 77000;
+      when "1001" =>    s_largura <=    80000;
+		when "1010" =>		s_largura <=	 83333;
+      when "1011" =>    s_largura <=    87000;
+		when "1100" =>		s_largura <=	 90000;
+		when "1101" =>    s_largura <=    93333;
+		when "1110" =>		s_largura <=	 97000;	
+		when "1111" =>    s_largura <=    100000;
+      when others =>   	s_largura <=     0;  -- nulo   saida 0
     end case;
   end process;
   

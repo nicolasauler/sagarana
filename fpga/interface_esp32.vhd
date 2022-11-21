@@ -6,8 +6,8 @@ entity interface_esp32 is
 		 clock : in std_logic;
 		 reset : in std_logic;
 		 entrada_serial : in std_logic;
-		 sel_envio : out std_logic_vector(1 downto 0);
 		 start : in std_logic;
+		 sel_envio : out std_logic_vector(1 downto 0);
 		 distancia : out std_logic_vector (23 downto 0);
 		 pronto : out std_logic;
 		 db_estado : out std_logic_vector(3 downto 0) -- estado da UC
