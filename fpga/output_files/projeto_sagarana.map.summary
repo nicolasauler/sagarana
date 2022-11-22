@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Mon Nov 21 00:45:38 2022
+Analysis & Synthesis Status : Successful - Mon Nov 21 23:04:23 2022
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : projeto_sagarana
 Top-level Entity Name : projeto_sagarana
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 227
+Total registers : 220
 Total pins : 59
 Total virtual pins : 0
 Total block memory bits : 0

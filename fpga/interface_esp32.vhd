@@ -10,7 +10,8 @@ entity interface_esp32 is
 		 sel_envio : out std_logic_vector(1 downto 0);
 		 distancia : out std_logic_vector (23 downto 0);
 		 pronto : out std_logic;
-		 db_estado : out std_logic_vector(3 downto 0) -- estado da UC
+		 db_estado : out std_logic_vector(3 downto 0); -- estado da UC
+		 estado_rx : out std_logic_vector(3 downto 0)
 	 );
 end entity interface_esp32;
 
@@ -29,7 +30,8 @@ signal s_zera, s_armazena_u, s_armazena_d, s_armazena_c, s_pronto_rx : std_logic
 		  armazena_d  : in std_logic;
 		  armazena_c  : in std_logic;
 		  pronto_rx   : out std_logic;
-        distancia   : out std_logic_vector(23 downto 0)
+        distancia   : out std_logic_vector(23 downto 0);
+		  estado_rx	  : out std_logic_vector(3 downto 0)
     );
 	end component;
 	
@@ -61,7 +63,8 @@ begin
 		  armazena_d  => s_armazena_d,
 		  armazena_c  => s_armazena_c,
 		  pronto_rx   => s_pronto_rx,
-        distancia   => distancia
+        distancia   => distancia,
+		  estado_rx   => estado_rx
 		 );
 		 
 	UC: interface_esp32_uc

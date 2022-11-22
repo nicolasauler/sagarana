@@ -46,7 +46,7 @@ signal s_out_muxpos, s_out_muxdist, s_out_mux, s_dado_recebido: std_logic_vector
 signal s_distancia: std_logic_vector(23 downto 0);
 signal saida_rom: std_logic_vector(23 downto 0);
 signal posicao_cont, s_db_posicao: std_logic_vector(3 downto 0);
-signal s_estado_interface, estado_transmissor, estado_receptor, s_hex0, s_hex1, s_hex2, s_hex3, s_hex4, s_hex5: std_logic_vector(3 downto 0);
+signal s_estado_rx_interface, s_estado_interface, estado_transmissor, estado_receptor, s_hex0, s_hex1, s_hex2, s_hex3, s_hex4, s_hex5: std_logic_vector(3 downto 0);
 signal s_envio_serial: std_logic_vector(1 downto 0) := "10";
 
 
@@ -88,7 +88,8 @@ component interface_esp32 is
 		 sel_envio : out std_logic_vector(1 downto 0);
 		 distancia : out std_logic_vector (23 downto 0);
 		 pronto : out std_logic;
-		 db_estado : out std_logic_vector(3 downto 0)
+		 db_estado : out std_logic_vector(3 downto 0);
+		 estado_rx : out std_logic_vector(3 downto 0)
 	 );
 end component;
 
@@ -178,7 +179,7 @@ begin
 
 CONT2S: contador_m
 generic map(
-        M => 100000000,  
+        M => 1000000,  
         N => 27 
 )
 port map(
@@ -278,7 +279,8 @@ port map (
 		 sel_envio => sel_envio,
 		 distancia => s_distancia,
 		 pronto => pronto_dados, 
-		 db_estado => s_estado_interface
+		 db_estado => s_estado_interface,
+		 estado_rx => s_estado_rx_interface
 	 );
 
 flipflop_rs: sr_ff
@@ -321,7 +323,7 @@ generic map(
 	)
 port map( 
 	  D3 => "1111",
-	  D2 => s_dado_recebido(3 downto 0), 
+	  D2 => "1111", 
 	  D1 => s_distancia(11 downto 8),
 	  D0 => s_distancia(11 downto 8),
 	  SEL => sel_depuracao,
@@ -334,7 +336,7 @@ generic map(
 	)
 port map( 
 	  D3 => "1111",
-	  D2 => s_dado_recebido(7 downto 4), 
+	  D2 => s_dado_recebido(3 downto 0), 
 	  D1 => s_distancia(19 downto 16),
 	  D0 => s_distancia(19 downto 16),
 	  SEL => sel_depuracao,
@@ -347,7 +349,7 @@ generic map(
 	)
 port map( 
 	  D3 => "1111",
-	  D2 => "1111", 
+	  D2 => s_dado_recebido(7 downto 4), 
 	  D1 => "1111",
 	  D0 => saida_rom(3 downto 0),
 	  SEL => sel_depuracao,
@@ -373,7 +375,7 @@ generic map(
 	)
 port map( 
 	  D3 => "1111",
-	  D2 => estado_transmissor, 
+	  D2 => s_estado_rx_interface, 
 	  D1 => s_estado_interface,
 	  D0 => saida_rom(19 downto 16),
 	  SEL => sel_depuracao,

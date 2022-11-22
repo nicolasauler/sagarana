@@ -11,7 +11,8 @@ entity interface_esp32_fd is
 		  armazena_d  : in std_logic;
 		  armazena_c  : in std_logic;
 		  pronto_rx   : out std_logic;
-        distancia   : out std_logic_vector(23 downto 0)
+        distancia   : out std_logic_vector(23 downto 0);
+		  estado_rx	  : out std_logic_vector(3 downto 0)
     );
 end interface_esp32_fd;
 
@@ -54,7 +55,7 @@ begin
 			dado_recebido => s_dado_recebido,
 			tem_dado => open,
 			pronto_rx => pronto_rx,
-			db_estado => open,
+			db_estado => estado_rx,
 			db_dado_serial => open
 		);
 		
