@@ -26,19 +26,13 @@ int    iAngle, iDistance;
 int    index1=0; //posicao para limitar o valor do angulo
 int    index2=0; //posicao para limitar o valor de distancia
 int larguraObjeto = 0;
-int y = 180;
-PFont  orcFont; //fonte de texto
 String text = "";
 String defaultText = "SAGARANA                                                                                                      TURMA 1 - BANCADA A6";
 String problemText = "CUIDADO !!!                               HÁ MAIS DE UM OBJETO NO NOSSO CAMPO DE VISÃO !!!";
 
-// arrays com medidas de teste
-ArrayList<Integer> medidas = new ArrayList<Integer>();
-ArrayList<Integer> medidas2 = new ArrayList<Integer>();
-
 // array com medidas reais
-ArrayList<Integer> medidasReais = new ArrayList<Integer>();
-ArrayList<Integer> angulosReais = new ArrayList<Integer>();
+ArrayList<Integer> medidasRecebidas = new ArrayList<Integer>();
+ArrayList<Integer> angulosRecebidos = new ArrayList<Integer>();
 
 // keystroke
 int whichKey = -1;  // variavel mantem tecla acionada
@@ -100,85 +94,45 @@ void drawRadar() {
 // funcao drawObject()
 void drawObject() {
   
-  InterfaceTest();
-  //InterfaceReal();
+  InterfaceReal();
+  delay(25);
+  
+}
+
+void testarValores(){
+ 
+  if (angulosRecebidos.size() - 1 != -1){
+    if (angulosRecebidos.get(angulosRecebidos.size() - 1) == 180){
+      print(medidasRecebidas.size());
+      medidasRecebidas.clear();
+      angulosRecebidos.clear();
+    }
+  }
+  
+  if(medidasRecebidas.size()<10){
+    medidasRecebidas.add(45);
+    angulosRecebidos.add(2*medidasRecebidas.size());
+  }
+  else if (medidasRecebidas.size()>=10 && medidasRecebidas.size()<30){
+    medidasRecebidas.add(18);
+    angulosRecebidos.add(2*medidasRecebidas.size());
+  }
+  
+  else if (medidasRecebidas.size()>=30 && medidasRecebidas.size()<50){
+    medidasRecebidas.add(39);
+    angulosRecebidos.add(2*medidasRecebidas.size());
+  }
+  
+  else if (medidasRecebidas.size()>=50 && medidasRecebidas.size()<90){
+    medidasRecebidas.add(21);
+    angulosRecebidos.add(2*medidasRecebidas.size());
+  }
   
 }
 
 void InterfaceReal(){
   
-    pushMatrix();
-    translate(480,480);
-    strokeWeight(15); 
-    stroke(80,80,80); // azul
-    // calcula distancia em pixels
-    pixsDistance = iDistance*10.0; 
-    // limita faixa de apresentacao
-    if(iDistance < 50) {
-        // desenha objeto        
-        point(pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
-        strokeWeight(5);
-    }
-    
-    for (int i=0; i < medidasReais.size(); i++) {
-        pixsDistance = medidasReais.get(i)*10.0;
-        iAngle = angulosReais.get(i);
-        line(0,0,pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
-        if (i == 179){
-          for (int j=0; j < 180; j++){
-            if (medidasReais.get(j) >= 17 && medidasReais.get(j) <= 23){
-              larguraObjeto = larguraObjeto + 1;
-            }
-            else{
-              text = defaultText;
-            }
-          }
-        }
-    }
-       
-    if (larguraObjeto >= 34){
-      text = problemText;
-      drawBadScreen();
-      larguraObjeto = 0;
-    }
-    
-    popMatrix();
-}
-void InterfaceTest(){
-  
-    if(medidas.size()<60){
-      medidas.add(40);
-    }
-    else if (medidas.size()>=60 && medidas.size()<80){
-      medidas.add(20);
-    }
-    else if (medidas.size()>=80 && medidas.size()<180){
-      medidas.add(40);
-    }
-    else{
-      medidas.clear();
-    }
-    
-    if(medidas2.size()<30){
-      medidas2.add(40);
-    }
-    else if (medidas2.size()>=30 && medidas2.size()<50){
-      medidas2.add(20);
-    }
-    else if (medidas2.size()>=50 && medidas2.size()<100){
-      medidas2.add(40);
-    }
-    else if (medidas2.size()>=100 && medidas2.size()<120){
-      medidas2.add(20);
-    }
-    else if (medidas2.size()>=120 && medidas2.size()<180){
-      medidas2.add(40);
-    }
- 
-    else{
-      medidas.clear();
-      medidas2.clear();
-    }
+  //testarValores();
     
     pushMatrix();
     translate(480,480);
@@ -187,21 +141,28 @@ void InterfaceTest(){
     // calcula distancia em pixels
     pixsDistance = iDistance*10.0; 
     // limita faixa de apresentacao
-    if(iDistance < 50) {
+    if(iDistance <= 40) {
         // desenha objeto        
         point(pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
         strokeWeight(5);
     }
     
-    for (int i=0; i < medidas2.size(); i++) {
-        pixsDistance = medidas2.get(i)*10.0;
-        iAngle = i;
+    for (int i=0; i < medidasRecebidas.size(); i++) {
+      
+        if (medidasRecebidas.get(i) > 40){
+            medidasRecebidas.set(i,40);
+        }
+        
+        pixsDistance = medidasRecebidas.get(i)*10.0;
+        iAngle = angulosRecebidos.get(i);
+        
         line(0,0,pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
-        if (i == 179){
-          for (int j=0; j < 180; j++){
-            if (medidas2.get(j) >= 17 && medidas2.get(j) <= 23){
+        
+        if (i == 89){
+        
+          for (int j=0; j < 90; j++){
+            if (medidasRecebidas.get(j) >= 17 && medidasRecebidas.get(j) <= 23){
               larguraObjeto = larguraObjeto + 1;
-              
             }
             else{
               text = defaultText;
@@ -209,6 +170,8 @@ void InterfaceTest(){
           }
         }
     }
+    
+    //largura de 1 objeto = 20cm
        
     if (larguraObjeto >= 34){
       text = problemText;
@@ -217,7 +180,6 @@ void InterfaceTest(){
     }
     
     popMatrix();
-  
 }
 
 void drawBadScreen(){
@@ -282,9 +244,8 @@ void serialEvent (Serial myPort) {
         iDistance = int(distance); // distancia em cm
         println("angulo= " + iAngle + "° distancia= " + iDistance + "cm");
         
-        //PARTE NOVA
-        medidasReais.add(iDistance);
-        angulosReais.add(iAngle);
+        medidasRecebidas.add(iDistance);
+        angulosRecebidos.add(iAngle);
         
     }
     catch(RuntimeException e) {
