@@ -2,6 +2,9 @@
 import processing.serial.*;      // importa biblioteca de comunicacao serial
 import java.awt.event.KeyEvent;  // importa biblioteca para leitura de dados da porta serial
 import java.io.IOException;
+import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 // interface serial
 Serial myPort; // definicao do objeto serial
@@ -32,10 +35,11 @@ String problemText = "CUIDADO !!!                               HÁ MAIS DE UM O
 
 // array com medidas reais
 ArrayList<Integer> medidasRecebidas = new ArrayList<Integer>();
-ArrayList<Integer> angulosRecebidos = new ArrayList<Integer>();
+ArrayList<Integer> angulosRecebidos = new ArrayList<Integer>(Arrays.asList(20,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,41,42,44,45,46,47,48,59,51,52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69,71,72,73,74,75,76,77,78,79,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,98,99,101,102,103,104,105,106,107,108,109,111,112,113,114,115,116,117,118,119,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,149,141,142,143,144,145,146,147,148,149,151,152,153,154,155,156,157,158,159,160));
 
 // keystroke
 int whichKey = -1;  // variavel mantem tecla acionada
+PImage img;
 
 
 // ========================================================================
@@ -45,7 +49,7 @@ void setup() {
     size (960, 600);
     text = defaultText;
     smooth();
-    
+    img = loadImage("alerta.png");
     // interface serial
     //myPort = new Serial(this, porta, baudrate, parity, databits, stopbits);  // inicia comunicacao serial 
     // leitura de dados da porta serial até o caractere '#' (para leitura de "angulo,distancia#"
@@ -69,25 +73,31 @@ void draw() {
     rect(0, -40, width, 480+40);
     // chama funcoes para desenhar o sonar
     drawRadar();
-    drawObject();
+    drawObject(); //chamar na função do serial?
     drawText();
     popMatrix();
 }
 
 // funcao drawRadar()
 void drawRadar() {
+    if (larguraObjeto >= 34){
+      text = problemText;
+      background(img);
+      stroke(255,255,255);
+    }
+    else{
+      stroke(0,0,0);
+    }
     pushMatrix();
     translate(480,480);
     noFill();
-  
     strokeWeight(1.5);
-    //stroke(98,245,31);
-    stroke(0,0,0);
-    // arcos
-    arc(0,0,800,800,PI,TWO_PI);
-    arc(0,0,600,600,PI,TWO_PI);
-    arc(0,0,400,400,PI,TWO_PI);
-    arc(0,0,200,200,PI,TWO_PI);
+    arc(0,0,800,800,10*PI/9,17*TWO_PI/18);
+    arc(0,0,600,600,10*PI/9,17*TWO_PI/18);
+    arc(0,0,400,400,10*PI/9,17*TWO_PI/18);
+    arc(0,0,200,200,10*PI/9,17*TWO_PI/18);
+    line(0,0,375.87704,-136.80809);
+    line(0,0,-375.87704,-136.80809);
     popMatrix();
 }
 
@@ -100,39 +110,33 @@ void drawObject() {
 }
 
 void testarValores(){
- 
-  if (angulosRecebidos.size() - 1 != -1){
-    if (angulosRecebidos.get(angulosRecebidos.size() - 1) == 180){
-      print(medidasRecebidas.size());
-      medidasRecebidas.clear();
-      angulosRecebidos.clear();
-    }
-  }
+
   
   if(medidasRecebidas.size()<10){
     medidasRecebidas.add(45);
-    angulosRecebidos.add(2*medidasRecebidas.size());
   }
-  else if (medidasRecebidas.size()>=10 && medidasRecebidas.size()<30){
+  
+  else if (medidasRecebidas.size()>=10 && medidasRecebidas.size()<50){
     medidasRecebidas.add(18);
-    angulosRecebidos.add(2*medidasRecebidas.size());
   }
   
-  else if (medidasRecebidas.size()>=30 && medidasRecebidas.size()<50){
-    medidasRecebidas.add(39);
-    angulosRecebidos.add(2*medidasRecebidas.size());
+  else if (medidasRecebidas.size()>=50 && medidasRecebidas.size()<78){
+    medidasRecebidas.add(42);
   }
   
-  else if (medidasRecebidas.size()>=50 && medidasRecebidas.size()<90){
-    medidasRecebidas.add(21);
-    angulosRecebidos.add(2*medidasRecebidas.size());
+  else if (medidasRecebidas.size()>=78 && medidasRecebidas.size()<118){
+    medidasRecebidas.add(18);
+  }
+  
+  else if (medidasRecebidas.size()>=118 && medidasRecebidas.size()<128){
+    medidasRecebidas.add(45);
   }
   
 }
 
 void InterfaceReal(){
   
-  //testarValores();
+    testarValores();
     
     pushMatrix();
     translate(480,480);
@@ -158,32 +162,34 @@ void InterfaceReal(){
         
         line(0,0,pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
         
-        if (i == 89){
         
-          for (int j=0; j < 90; j++){
+        if (i == 127){
+        
+          for (int j=0; j < i; j++){
             if (medidasRecebidas.get(j) >= 17 && medidasRecebidas.get(j) <= 23){
               larguraObjeto = larguraObjeto + 1;
             }
-            else{
+            if (j==26 && larguraObjeto < 34){
+              larguraObjeto = 0;
               text = defaultText;
+            }
+            else if (j==26 && larguraObjeto >=34){
+              larguraObjeto = 0;
+              text = problemText;
             }
           }
         }
     }
     
     //largura de 1 objeto = 20cm
-       
-    if (larguraObjeto >= 34){
-      text = problemText;
-      drawBadScreen();
-      larguraObjeto = 0;
-    }
+      
+     if (medidasRecebidas.size() == 128){
+        medidasRecebidas.clear();
+        //angulosRecebidos.clear();
+        Collections.reverse(angulosRecebidos);
+      }
     
     popMatrix();
-}
-
-void drawBadScreen(){
-  print("Cuidado! Existe mais de um objeto no nosso campo de visão!!!");
 }
 
 // funcao drawText()
@@ -201,7 +207,12 @@ void drawText() {
     noStroke();
     rect(0, 481, width, 540);
     textSize(12);
-    fill(0,0,0);
+    if (larguraObjeto >= 34){
+      fill(255,255,255);
+    }
+    else{
+      fill(0,0,0);
+    }
     text("10cm",590,470);
     text("20cm",690,470);
     text("30cm",790,470);
