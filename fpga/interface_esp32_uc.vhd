@@ -41,7 +41,7 @@ begin
                                 else              Eprox <= inicial;
                                 end if;
         when preparacao =>      Eprox <= aguarda_unidade;
-        when aguarda_unidade =>  if pronto_rx='0' then Eprox <= aguarda_unidade;
+        when aguarda_unidade => if pronto_rx='0' then Eprox <= aguarda_unidade;
                                 else             Eprox <= armazena_unidade;
                                 end if;
 		  when armazena_unidade => Eprox <= aguarda_dezena;

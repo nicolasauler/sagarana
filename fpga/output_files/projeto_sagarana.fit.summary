@@ -1,13 +1,13 @@
-Fitter Status : Successful - Mon Nov 21 23:05:26 2022
+Fitter Status : Successful - Thu Nov 24 22:09:52 2022
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : projeto_sagarana
 Top-level Entity Name : projeto_sagarana
 Family : Cyclone V
 Device : 5CEBA4F23C7
 Timing Models : Final
-Logic utilization (in ALMs) : 208 / 18,480 ( 1 % )
-Total registers : 267
-Total pins : 59 / 224 ( 26 % )
+Logic utilization (in ALMs) : 258 / 18,480 ( 1 % )
+Total registers : 300
+Total pins : 60 / 224 ( 27 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 3,153,920 ( 0 % )
 Total RAM Blocks : 0 / 308 ( 0 % )

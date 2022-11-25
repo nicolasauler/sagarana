@@ -14,6 +14,8 @@ entity sagarana_uc is
 		conta_pos: out std_logic;
 		zeraPausa: out std_logic;
 		transmite: out std_logic;
+		armazena: out std_logic;
+		reset_interface: out std_logic;
 		sol_dados: out std_logic;
 		sel_caractere: out std_logic_vector (1 downto 0);
 		set_ff: out std_logic;
@@ -26,7 +28,7 @@ end entity sagarana_uc;
 
 architecture sagarana_uc_arch of sagarana_uc is
 
-    type tipo_estado is (inicial, preparacao, contaPausa, esperaPausa, solicita_dados, aguarda_dados, transmite_centena,
+    type tipo_estado is (inicial, preparacao, contaPausa, esperaPausa, solicita_dados, aguarda_dados, armazena_dado, pula_medida, transmite_centena,
 	 espera_centena, transmite_dezena, espera_dezena, transmite_unidade, espera_unidade,transmite_especial, espera_especial, muda_transmissao, fim_pos, espera_r);
 								
     signal Eatual, Eprox: tipo_estado;
@@ -64,9 +66,13 @@ begin
 		  
 		  when solicita_dados => Eprox <= aguarda_dados;
 		  
-		  when aguarda_dados => if pronto_dados = '0' then Eprox <= aguarda_dados; else Eprox <= transmite_centena; end if;
+		  when aguarda_dados => if prontoPausa = '1' then Eprox <= pula_medida; elsif pronto_dados = '1' then Eprox <= armazena_dado; else Eprox <= aguarda_dados; end if;
 		  
-        when transmite_centena => Eprox <= espera_centena;
+		  when armazena_dado => Eprox <= transmite_centena;
+		  
+		  when pula_medida => Eprox <= transmite_centena;
+        
+		  when transmite_centena => Eprox <= espera_centena;
 		  
 		  when espera_centena => if pronto_transmissao = '0' then Eprox <= espera_centena; else Eprox <= transmite_dezena; end if;
 		  
@@ -97,10 +103,16 @@ begin
 		conta_pos <= '1' when fim_pos, '0' when others;
 		
   with Eatual select
-		zeraPausa <= '1' when contaPausa, '0' when others;
+		zeraPausa <= '1' when contaPausa | solicita_dados, '0' when others;
 		
   with Eatual select
 		reseta_tudo <= '1' when preparacao, '0' when others;
+		
+  with Eatual select
+		armazena <= '1' when armazena_dado, '0' when others;
+		
+  with Eatual select
+		reset_interface <= '1' when pula_medida, '0' when others;
 		
   with Eatual select
       sol_dados <= '1' when solicita_dados, '0' when others;
@@ -126,21 +138,22 @@ begin
 						
 		
   with Eatual select		
-		db_estado <= "0000" when inicial,
+		db_estado <= "0000" when inicial, --lembrar que 0 pode ser "espera_r" tbm, mas acho que esse estado vai deixar de existir :)
 						 "0001" when preparacao,
 					    "0010" when contaPausa,
 						 "0011" when esperaPausa,
 						 "0100" when solicita_dados,
 						 "0101" when aguarda_dados,
-						 "0110" when transmite_centena,
-						 "0111" when espera_centena,
-						 "1000" when transmite_dezena,
-						 "1001" when espera_dezena,
-						 "1010" when transmite_especial,
-						 "1011" when espera_especial,
-						 "1100" when muda_transmissao,
-						 "1101" when fim_pos,
-						 "1110" when espera_r,
+						 "0110" when armazena_dado,
+						 "0111" when pula_medida,
+						 "1000" when transmite_centena,
+						 "1001" when espera_centena,
+						 "1010" when transmite_dezena,
+						 "1011" when espera_dezena,
+						 "1100" when transmite_especial,
+						 "1101" when espera_especial,
+						 "1110" when muda_transmissao,
+						 "1111" when fim_pos,
 						 "0000" when others;
 
 end architecture sagarana_uc_arch;

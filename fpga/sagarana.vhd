@@ -23,13 +23,14 @@ entity projeto_sagarana is
 		  hex4: out std_logic_vector(6 downto 0);
 		  hex5: out std_logic_vector(6 downto 0);
 		  db_serial: out std_logic_vector(1 downto 0);
-		  db_modo: out std_logic
+		  db_modo: out std_logic;
+		  db_entrada_serial: out std_logic
     );
 end entity projeto_sagarana;
 
 architecture sagarana_arch of projeto_sagarana is
 
-signal s_pronto_dados, s_sol_dados, s_saida_serial, s_pwm, s_reset, s_conta_pos, s_zera_pausa, s_transmite, s_medir, s_set_ff, s_reset_ff, s_pronto_pausa, s_pronto_medicao, s_pronto_transmissao, s_sel_transmissao : std_logic;
+signal s_armazena, s_rst_interface, s_pronto_dados, s_sol_dados, s_saida_serial, s_pwm, s_reset, s_conta_pos, s_zera_pausa, s_transmite, s_medir, s_set_ff, s_reset_ff, s_pronto_pausa, s_pronto_medicao, s_pronto_transmissao, s_sel_transmissao : std_logic;
 signal s_sel_caractere : std_logic_vector(1 downto 0);
 signal s_db_estado : std_logic_vector (3 downto 0);
 signal s_serial: std_logic_vector(1 downto 0);
@@ -49,6 +50,8 @@ component sagarana_fd is
 		  sel_caractere: in std_logic_vector(1 downto 0); 
 		  set_ff: in std_logic;
 		  reset_ff: in std_logic;
+		  armazena: in std_logic;
+		  reset_interface: in std_logic;
 		  db_estado: in std_logic_vector(3 downto 0);
 		  envio_serial: out std_logic_vector(1 downto 0);
 		  pwm: out std_logic;
@@ -83,6 +86,8 @@ component sagarana_uc is
 		conta_pos: out std_logic;
 		zeraPausa: out std_logic;
 		transmite: out std_logic;
+		armazena: out std_logic;
+		reset_interface: out std_logic;
 		sol_dados: out std_logic;
 		sel_caractere: out std_logic_vector (1 downto 0);
 		set_ff: out std_logic;
@@ -110,6 +115,8 @@ port map(
 		  sel_caractere => s_sel_caractere, 
 		  set_ff => s_set_ff,
 		  reset_ff => s_reset_ff,
+		  armazena => s_armazena,
+		  reset_interface => s_rst_interface,
 		  db_estado => s_db_estado,
 		  envio_serial => s_serial,
 		  pwm => pwm,
@@ -144,6 +151,8 @@ port map(
 		conta_pos => s_conta_pos,
 		zeraPausa => s_zera_pausa,
 		transmite => s_transmite,
+		armazena => s_armazena,
+		reset_interface => s_rst_interface,
 		sol_dados => s_sol_dados,
 		sel_caractere => s_sel_caractere,
 		set_ff => s_set_ff,
@@ -155,6 +164,7 @@ port map(
 
 saida_serial <= s_saida_serial;
 db_saida_serial <= s_saida_serial;
+db_entrada_serial <= entrada_serial;
 		
 
 end architecture sagarana_arch;

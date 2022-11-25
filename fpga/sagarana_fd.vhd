@@ -18,6 +18,8 @@ entity sagarana_fd is
 		  sel_caractere: in std_logic_vector(1 downto 0); 
 		  set_ff: in std_logic;
 		  reset_ff: in std_logic;
+		  armazena: in std_logic;
+		  reset_interface: in std_logic;
 		  db_estado: in std_logic_vector(3 downto 0);
 		  envio_serial: out std_logic_vector(1 downto 0);
 		  pwm: out std_logic;
@@ -43,9 +45,9 @@ architecture sagarana_fd_arch of sagarana_fd is
 
 signal s_edge_output, s_sel_transmissao, s_reset: std_logic;
 signal s_out_muxpos, s_out_muxdist, s_out_mux, s_dado_recebido: std_logic_vector(7 downto 0);
-signal s_distancia: std_logic_vector(23 downto 0);
+signal s_distancia, s_registrador: std_logic_vector(23 downto 0);
 signal saida_rom: std_logic_vector(23 downto 0);
-signal posicao_cont, s_db_posicao: std_logic_vector(3 downto 0);
+signal posicao_cont, s_db_posicao: std_logic_vector(6 downto 0);
 signal s_estado_rx_interface, s_estado_interface, estado_transmissor, estado_receptor, s_hex0, s_hex1, s_hex2, s_hex3, s_hex4, s_hex5: std_logic_vector(3 downto 0);
 signal s_envio_serial: std_logic_vector(1 downto 0) := "10";
 
@@ -130,10 +132,10 @@ component controle_servo_3 is
 	 port (
 	 clock : in std_logic;
 	 reset : in std_logic;
-	 posicao : in std_logic_vector(3 downto 0);
+	 posicao : in std_logic_vector(6 downto 0);
     pwm     : out std_logic;
 	 db_pwm : out std_logic;
-	 db_posicao : out std_logic_vector(3 downto 0)
+	 db_posicao : out std_logic_vector(6 downto 0)
 	 );
 end component;
 
@@ -168,18 +170,43 @@ component edge_detector is
     );
 end component;
 
-component rom_angulos_16x24 is
+component rom_angulos_128x24 is
     port (
-        endereco : in  std_logic_vector(3 downto 0);
+        endereco : in  std_logic_vector(6 downto 0);
         saida    : out std_logic_vector(23 downto 0)
     ); 
 end component;
 
+component registrador_n is
+    generic (
+       constant N: integer := 8 
+    );
+    port (
+       clock  : in  std_logic;
+       clear  : in  std_logic;
+       enable : in  std_logic;
+       D      : in  std_logic_vector (N-1 downto 0);
+       Q      : out std_logic_vector (N-1 downto 0) 
+    );
+end component;
+
 begin
+
+REGISTRADOR: registrador_n
+generic map(
+		  N => 24
+)
+port map(
+		  clock => clock,
+		  clear => reset,
+		  enable => armazena,
+		  D => s_distancia,
+		  Q => s_registrador
+);
 
 CONT2S: contador_m
 generic map(
-        M => 1000000,  
+        M => 5000000,  
         N => 27 
 )
 port map(
@@ -203,7 +230,7 @@ port map(
 
 CONTPOS: contadorg_updown_m
 generic map(
-		M => 16
+		M => 128
 )
 port map(
 		clock  => clock,
@@ -218,7 +245,7 @@ port map(
 		
 	
 
-ROM: rom_angulos_16x24
+ROM: rom_angulos_128x24
 port map(
 		endereco => posicao_cont,
 		saida => saida_rom
@@ -243,9 +270,9 @@ generic map(
 	)
 port map( 
 	  D3 => "00100011",
-	  D2 => s_distancia(23 downto 16), 
-	  D1 => s_distancia(15 downto 8),
-	  D0 => s_distancia(7 downto 0),
+	  D2 => s_registrador(7 downto 0), 
+	  D1 => s_registrador(15 downto 8),
+	  D0 => s_registrador(23 downto 16),
 	  SEL => sel_caractere,
 	  MUX_OUT => s_out_muxdist
  );
@@ -273,7 +300,7 @@ port map(
 interface: interface_esp32
 port map (
 		 clock => clock,
-		 reset => s_reset,
+		 reset => (s_reset or reset_interface),
 		 entrada_serial => entrada_serial,
 		 start => s_edge_output,
 		 sel_envio => sel_envio,
@@ -311,8 +338,8 @@ generic map(
 port map( 
 	  D3 => db_estado,
 	  D2 => estado_receptor, 
-	  D1 => s_distancia(3 downto 0),
-	  D0 => s_distancia(3 downto 0),
+	  D1 => s_registrador(3 downto 0),
+	  D0 => s_registrador(3 downto 0),
 	  SEL => sel_depuracao,
 	  MUX_OUT => s_hex0
  );
@@ -324,8 +351,8 @@ generic map(
 port map( 
 	  D3 => "1111",
 	  D2 => "1111", 
-	  D1 => s_distancia(11 downto 8),
-	  D0 => s_distancia(11 downto 8),
+	  D1 => s_registrador(11 downto 8),
+	  D0 => s_registrador(11 downto 8),
 	  SEL => sel_depuracao,
 	  MUX_OUT => s_hex1
  );
@@ -337,8 +364,8 @@ generic map(
 port map( 
 	  D3 => "1111",
 	  D2 => s_dado_recebido(3 downto 0), 
-	  D1 => s_distancia(19 downto 16),
-	  D0 => s_distancia(19 downto 16),
+	  D1 => s_registrador(19 downto 16),
+	  D0 => s_registrador(19 downto 16),
 	  SEL => sel_depuracao,
 	  MUX_OUT => s_hex2
  );

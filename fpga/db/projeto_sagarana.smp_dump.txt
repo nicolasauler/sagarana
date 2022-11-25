@@ -1,23 +1,25 @@
 
 State Machine - |projeto_sagarana|sagarana_uc:UC|Eatual
-Name Eatual.espera_r Eatual.fim_pos Eatual.muda_transmissao Eatual.espera_especial Eatual.transmite_especial Eatual.espera_unidade Eatual.transmite_unidade Eatual.espera_dezena Eatual.transmite_dezena Eatual.espera_centena Eatual.transmite_centena Eatual.aguarda_dados Eatual.solicita_dados Eatual.esperaPausa Eatual.contaPausa Eatual.preparacao Eatual.inicial 
-Eatual.inicial 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Eatual.preparacao 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
-Eatual.contaPausa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
-Eatual.esperaPausa 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
-Eatual.solicita_dados 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
-Eatual.aguarda_dados 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
-Eatual.transmite_centena 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
-Eatual.espera_centena 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
-Eatual.transmite_dezena 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
-Eatual.espera_dezena 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
-Eatual.transmite_unidade 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
-Eatual.espera_unidade 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
-Eatual.transmite_especial 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
-Eatual.espera_especial 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
-Eatual.muda_transmissao 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-Eatual.fim_pos 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
-Eatual.espera_r 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Name Eatual.espera_r Eatual.fim_pos Eatual.muda_transmissao Eatual.espera_especial Eatual.transmite_especial Eatual.espera_unidade Eatual.transmite_unidade Eatual.espera_dezena Eatual.transmite_dezena Eatual.espera_centena Eatual.transmite_centena Eatual.pula_medida Eatual.armazena_dado Eatual.aguarda_dados Eatual.solicita_dados Eatual.esperaPausa Eatual.contaPausa Eatual.preparacao Eatual.inicial 
+Eatual.inicial 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Eatual.preparacao 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+Eatual.contaPausa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+Eatual.esperaPausa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+Eatual.solicita_dados 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+Eatual.aguarda_dados 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+Eatual.armazena_dado 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+Eatual.pula_medida 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+Eatual.transmite_centena 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+Eatual.espera_centena 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+Eatual.transmite_dezena 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+Eatual.espera_dezena 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.transmite_unidade 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.espera_unidade 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.transmite_especial 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.espera_especial 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.muda_transmissao 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.fim_pos 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+Eatual.espera_r 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 
 State Machine - |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_uc:U1_UC|Eatual
 Name Eatual.dado_presente Eatual.final Eatual.armazenamento Eatual.recepcao Eatual.espera Eatual.preparacao Eatual.inicial 
