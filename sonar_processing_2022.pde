@@ -79,15 +79,25 @@ void drawRadar() {
     noFill();
     strokeWeight(1.5);
     arc(0,0,1000,1000,10*PI/9,17*TWO_PI/18);
-    arc(0,0,900,900,10*PI/9,17*TWO_PI/18);      
+    arc(0,0,950,950,10*PI/9,17*TWO_PI/18);
+    arc(0,0,900,900,10*PI/9,17*TWO_PI/18);  
+    arc(0,0,850,850,10*PI/9,17*TWO_PI/18);
     arc(0,0,800,800,10*PI/9,17*TWO_PI/18);
+    arc(0,0,750,750,10*PI/9,17*TWO_PI/18);
     arc(0,0,700,700,10*PI/9,17*TWO_PI/18);
+    arc(0,0,650,650,10*PI/9,17*TWO_PI/18);
     arc(0,0,600,600,10*PI/9,17*TWO_PI/18);
+    arc(0,0,550,550,10*PI/9,17*TWO_PI/18);
     arc(0,0,500,500,10*PI/9,17*TWO_PI/18);
+    arc(0,0,450,450,10*PI/9,17*TWO_PI/18);
     arc(0,0,400,400,10*PI/9,17*TWO_PI/18);
+    arc(0,0,350,350,10*PI/9,17*TWO_PI/18);
     arc(0,0,300,300,10*PI/9,17*TWO_PI/18);
+    arc(0,0,250,250,10*PI/9,17*TWO_PI/18);
     arc(0,0,200,200,10*PI/9,17*TWO_PI/18);
+    arc(0,0,150,150,10*PI/9,17*TWO_PI/18);
     arc(0,0,100,100,10*PI/9,17*TWO_PI/18);
+    arc(0,0,50,50,10*PI/9,17*TWO_PI/18);
     line(0,0,469.8463,-171.0101);
     line(0,0,-469.8463,-171.0101);
     popMatrix();
@@ -105,22 +115,22 @@ void testarValores(){
 
   
   if(medidasRecebidas.size()<10){
-    medidasRecebidas.add(45);
+    medidasRecebidas.add(200);
   }
   
   else if (medidasRecebidas.size()>=10 && medidasRecebidas.size()<30){
-    medidasRecebidas.add(21);
+    medidasRecebidas.add(200);
   }
   else if (medidasRecebidas.size()>=30 && medidasRecebidas.size()<50){
     medidasRecebidas.add(19);
   }
   
   else if (medidasRecebidas.size()>=50 && medidasRecebidas.size()<88){
-    medidasRecebidas.add(100);
+    medidasRecebidas.add(240);
   }
   
   else if (medidasRecebidas.size()>=88 && medidasRecebidas.size()<108){
-    medidasRecebidas.add(19);
+    medidasRecebidas.add(200);
   }
   
   else if (medidasRecebidas.size()>=108 && medidasRecebidas.size()<128){
@@ -137,13 +147,11 @@ void InterfaceReal(){
     translate(480,480);
     strokeWeight(15); 
     stroke(80,80,80); // azul
-    // calcula distancia em pixels
-    pixsDistance = iDistance*10.0; 
     
     for (int i=0; i < medidasRecebidas.size(); i++) {
       
-        if (medidasRecebidas.get(i) > 100){
-            medidasRecebidas.set(i,100);
+        if (medidasRecebidas.get(i) > 200){
+            medidasRecebidas.set(i,200);
         }
         
         if (i != 0 && Math.abs(referenceMeasure - medidasRecebidas.get(i-1)) > 2){
@@ -151,10 +159,10 @@ void InterfaceReal(){
         }
           
         if (i != 0 && (Math.abs(medidasRecebidas.get(i) - medidasRecebidas.get(i-1)) <= 2)){ 
-          pixsDistance = referenceMeasure*5.0;
+          pixsDistance = referenceMeasure*2.5;
         }
         else{
-          pixsDistance = medidasRecebidas.get(i)*5.0;
+          pixsDistance = medidasRecebidas.get(i)*2.5;
         }
         
         iAngle = angulosRecebidos.get(i);
