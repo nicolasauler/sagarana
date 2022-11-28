@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.*;
 import java.util.Arrays;
 import java.util.List;
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 
 Serial myPort; // definicao do objeto serial
 
@@ -41,6 +43,8 @@ ArrayList<Integer> angulosRecebidos = new ArrayList<Integer>(Arrays.asList(20,21
 int whichKey = -1;  // variavel mantem tecla acionada
 PImage img;
 
+Table table;
+
 void setup() {
     size (960, 600);
     text = defaultText;
@@ -48,6 +52,7 @@ void setup() {
     img = loadImage("alerta.png");
     //myPort = new Serial(this, porta, baudrate, parity, databits, stopbits);
     //myPort.bufferUntil('#'); 
+    table = loadTable("lidar_log.csv", "header");
 
 }
 
@@ -122,11 +127,11 @@ void testarValores(){
     medidasRecebidas.add(200);
   }
   else if (medidasRecebidas.size()>=30 && medidasRecebidas.size()<50){
-    medidasRecebidas.add(19);
+    medidasRecebidas.add(200);
   }
   
   else if (medidasRecebidas.size()>=50 && medidasRecebidas.size()<88){
-    medidasRecebidas.add(240);
+    medidasRecebidas.add(200);
   }
   
   else if (medidasRecebidas.size()>=88 && medidasRecebidas.size()<108){
@@ -134,7 +139,7 @@ void testarValores(){
   }
   
   else if (medidasRecebidas.size()>=108 && medidasRecebidas.size()<128){
-    medidasRecebidas.add(21);
+    medidasRecebidas.add(200);
   }
   
 }
@@ -188,19 +193,28 @@ void InterfaceReal(){
             if (medidasRecebidas.get(j) >= referenceWidth-3 && medidasRecebidas.get(j) <= referenceWidth+3){
               countWidth = countWidth + 1;
             }
-            if (j==127 && countWidth < 2*referenceWidth){
+            if (j==127){
               qtdeObjects = countWidth/referenceWidth;
-              countWidth = 0;
-              text = defaultText;
+              TableRow newRow = table.addRow();
+              newRow.setString("Horário", java.time.LocalDateTime.now().toString());
+              newRow.setInt("Objetos", qtdeObjects);
+              newRow.setInt("Largura", countWidth);
+              saveTable(table, "lidar_log.csv");
+                
+              if (countWidth < 2*referenceWidth){
+                countWidth = 0;
+                text = defaultText;
+              }
+            
+              else{
+                countWidth = 0;
+                problemText = "CUIDADO !!!                                           EXISTEM " + qtdeObjects + " OBJETOS NO NOSSO CAMPO DE VISÃO !!!";
+                text = problemText;
+              }
+              
             }
-            else if (j==127 && countWidth >= 2*referenceWidth){
-              qtdeObjects = countWidth/referenceWidth;
-              problemText = "CUIDADO !!!                                           EXISTEM " + qtdeObjects + " OBJETOS NO NOSSO CAMPO DE VISÃO !!!";
-              text = problemText;
-              countWidth = 0;
-            }
-          }
-        }
+         }
+      }
     }
     
       
