@@ -1,5 +1,5 @@
 Assembler report for projeto_sagarana
-Mon Nov 21 00:47:09 2022
+Mon Nov 28 15:22:15 2022
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/output_files/projeto_sagarana.sof
+  5. Assembler Device Options: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/output_files/projeto_sagarana.sof
   6. Assembler Messages
 
 
@@ -38,11 +38,11 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Nov 21 00:47:09 2022 ;
+; Assembler Status      ; Successful - Mon Nov 28 15:22:15 2022 ;
 ; Revision Name         ; projeto_sagarana                      ;
 ; Top-level Entity Name ; projeto_sagarana                      ;
 ; Family                ; Cyclone V                             ;
-; Device                ; 5CEBA5F23C7                           ;
+; Device                ; 5CEBA4F23C7                           ;
 +-----------------------+---------------------------------------+
 
 
@@ -53,24 +53,24 @@ agreement for further details.
 +--------+---------+---------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                          ;
-+----------------------------------------------------------------------------------------------------+
-; File Name                                                                                          ;
-+----------------------------------------------------------------------------------------------------+
-; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/output_files/projeto_sagarana.sof ;
-+----------------------------------------------------------------------------------------------------+
-
-
 +------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/output_files/projeto_sagarana.sof ;
-+----------------+-------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                     ;
-+----------------+-------------------------------------------------------------------------------------------------------------+
-; Device         ; 5CEBA5F23C7                                                                                                 ;
-; JTAG usercode  ; 0x007F7A50                                                                                                  ;
-; Checksum       ; 0x007F7A50                                                                                                  ;
-+----------------+-------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                                    ;
++------------------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                                    ;
++------------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/output_files/projeto_sagarana.sof ;
++------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/output_files/projeto_sagarana.sof ;
++----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                               ;
++----------------+---------------------------------------------------------------------------------------------------------------------------------------+
+; Device         ; 5CEBA4F23C7                                                                                                                           ;
+; JTAG usercode  ; 0x0056BB7B                                                                                                                            ;
+; Checksum       ; 0x0056BB7B                                                                                                                            ;
++----------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -79,14 +79,14 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Nov 21 00:46:54 2022
+    Info: Processing started: Mon Nov 28 15:22:11 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off projeto_sagarana -c projeto_sagarana
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4815 megabytes
-    Info: Processing ended: Mon Nov 21 00:47:09 2022
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:13
+    Info: Peak virtual memory: 4810 megabytes
+    Info: Processing ended: Mon Nov 28 15:22:15 2022
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 

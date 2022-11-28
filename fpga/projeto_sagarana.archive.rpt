@@ -1,5 +1,5 @@
 Archive Project report for projeto_sagarana
-Mon Nov 21 11:58:56 2022
+Fri Nov 25 14:50:19 2022
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ agreement for further details.
 +----------------------------------------------------------------+
 ; Archive Project Summary                                        ;
 +------------------------+---------------------------------------+
-; Archive Project Status ; Successful - Mon Nov 21 11:58:56 2022 ;
+; Archive Project Status ; Successful - Fri Nov 25 14:50:19 2022 ;
 ; Revision Name          ; projeto_sagarana                      ;
 ; Top-level Entity Name  ; projeto_sagarana                      ;
 ; Family                 ; Cyclone V                             ;
@@ -59,53 +59,46 @@ Info: ----------------------------------------------------------
 Info: Generated report 'projeto_sagarana.archive.rpt'
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/16.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4739 megabytes
-    Info: Processing ended: Mon Nov 21 11:58:56 2022
-    Info: Elapsed time: 00:00:06
+    Info: Peak virtual memory: 4737 megabytes
+    Info: Processing ended: Fri Nov 25 14:50:19 2022
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 
-+---------------------------+
-; Files Archived            ;
-+---------------------------+
-; File Name                 ;
-+---------------------------+
-; analisa_m.vhd             ;
-; assignment_defaults.qdf   ;
-; contador_bcd_3digitos.vhd ;
-; contador_cm.vhd           ;
-; contador_cm_fd.vhd        ;
-; contador_cm_uc.vhd        ;
-; contador_m.vhd            ;
-; contadorg_updown_m.vhd    ;
-; controle_servo_3.vhd      ;
-; deslocador_n.vhd          ;
-; edge_detector.vhd         ;
-; edge_detector_descida.vhd ;
-; gerador_pulso.vhd         ;
-; hex7seg.vhd               ;
-; interface_esp32.vhd       ;
-; interface_esp32_fd.vhd    ;
-; interface_esp32_uc.vhd    ;
-; mux_4x1_n.vhd             ;
-; mux_8x1_n.vhd             ;
-; projeto_sagarana.qpf      ;
-; projeto_sagarana.qsf      ;
-; registrador_n.vhd         ;
-; rom_angulos_8x24.vhd      ;
-; rx_serial_8N2.vhd         ;
-; rx_serial_8N2_fd.vhd      ;
-; rx_serial_tick_uc.vhd     ;
-; sagarana.vhd              ;
-; sagarana_fd.vhd           ;
-; sagarana_uc.vhd           ;
-; sonar.vhd                 ;
-; sonar_fd.vhd              ;
-; sonar_uc.vhd              ;
-; sr_ff.vhd                 ;
-; tx_serial_8N2.vhd         ;
-; tx_serial_8N2_fd.vhd      ;
-; tx_serial_tick_uc.vhd     ;
-+---------------------------+
++------------------------------------------+
+; Files Archived                           ;
++------------------------------------------+
+; File Name                                ;
++------------------------------------------+
+; assignment_defaults.qdf                  ;
+; contador_m.vhd                           ;
+; contadorg_updown_m.vhd                   ;
+; controle_servo_3.vhd                     ;
+; deslocador_n.vhd                         ;
+; edge_detector.vhd                        ;
+; edge_detector_descida.vhd                ;
+; gerador_pulso.vhd                        ;
+; hex7seg.vhd                              ;
+; interface_esp32.vhd                      ;
+; interface_esp32_fd.vhd                   ;
+; interface_esp32_uc.vhd                   ;
+; mux_4x1_n.vhd                            ;
+; projeto_sagarana.qpf                     ;
+; projeto_sagarana.qsf                     ;
+; projeto_sagarana_assignment_defaults.qdf ;
+; registrador_n.vhd                        ;
+; rom_angulos_128x24.vhd                   ;
+; rx_serial_8N2.vhd                        ;
+; rx_serial_8N2_fd.vhd                     ;
+; rx_serial_tick_uc.vhd                    ;
+; sagarana.vhd                             ;
+; sagarana_fd.vhd                          ;
+; sagarana_uc.vhd                          ;
+; sr_ff.vhd                                ;
+; testador_paridade.vhd                    ;
+; tx_serial_8N2.vhd                        ;
+; tx_serial_8N2_fd.vhd                     ;
+; tx_serial_tick_uc.vhd                    ;
++------------------------------------------+
 
 

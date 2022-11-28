@@ -1,16 +1,11 @@
 Quartus Prime Archive log --	C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana.qarlog
 
 Archive:	C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana.qar
-Date:		Mon Nov 21 11:58:56 2022
+Date:		Fri Nov 25 14:50:19 2022
 Quartus Prime		16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 	=========== Files Selected: ===========
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/analisa_m.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/assignment_defaults.qdf
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/contador_bcd_3digitos.vhd
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/contador_cm.vhd
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/contador_cm_fd.vhd
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/contador_cm_uc.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/contador_m.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/contadorg_updown_m.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/controle_servo_3.vhd
@@ -23,25 +18,35 @@ C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/interface_esp32
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/interface_esp32_fd.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/interface_esp32_uc.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/mux_4x1_n.vhd
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/mux_8x1_n.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana.qpf
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana.qsf
+C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_assignment_defaults.qdf
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/registrador_n.vhd
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/rom_angulos_8x24.vhd
+C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/rom_angulos_128x24.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/rx_serial_8N2.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/rx_serial_8N2_fd.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/rx_serial_tick_uc.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/sagarana.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/sagarana_fd.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/sagarana_uc.vhd
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/sonar.vhd
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/sonar_fd.vhd
-C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/sonar_uc.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/sr_ff.vhd
+C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/testador_paridade.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/tx_serial_8N2.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/tx_serial_8N2_fd.vhd
 C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/tx_serial_tick_uc.vhd
-	======= Total: 36 files to archive =======
+	======= Total: 29 files to archive =======
 
 	================ Status: ===============
 All files archived successfully.
+
+
+******* Archived project restoration attempt on Sat Nov 26 11:55:05 2022
+Source archive file:	C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana.qar
+Archive was extracted into	C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/
+		 - successfully.
+
+
+******* Archived project restoration attempt on Mon Nov 28 13:58:25 2022
+Source archive file:	C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana.qar
+Archive was extracted into	C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/
+		 - successfully.

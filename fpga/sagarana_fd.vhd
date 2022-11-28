@@ -10,31 +10,34 @@ entity sagarana_fd is
         reset_uc: in std_logic;
 		  conta_pos: in std_logic;
 		  zeraPausa: in std_logic;
+		  zeraPula: in std_logic;
 		  transmite: in std_logic;
 		  sol_dados: in std_logic;
-		  sel_mode_serial: in std_logic;
 		  entrada_serial : in std_logic;
+		  entrada_serial_pc : in std_logic;
 		  sel_depuracao: in std_logic_vector(1 downto 0);
 		  sel_caractere: in std_logic_vector(1 downto 0); 
 		  set_ff: in std_logic;
 		  reset_ff: in std_logic;
+		  armazena: in std_logic;
+		  reset_interface: in std_logic;
 		  db_estado: in std_logic_vector(3 downto 0);
-		  envio_serial: out std_logic_vector(1 downto 0);
 		  pwm: out std_logic;
 		  saida_serial: out std_logic;
 		  prontoPausa: out std_logic;
+		  prontoPula: out std_logic;
 		  pronto_dados: out std_logic;
 		  pronto_transmissao: out std_logic;
 		  sel_transmissao: out std_logic;
 		  sel_envio: out std_logic_vector(1 downto 0);
 		  db_pwm: out std_logic;
+		  iniciar: out std_logic;
 		  hex0: out std_logic_vector(6 downto 0);
 		  hex1: out std_logic_vector(6 downto 0);
 		  hex2: out std_logic_vector(6 downto 0);
 		  hex3: out std_logic_vector(6 downto 0);
 		  hex4: out std_logic_vector(6 downto 0);
 		  hex5: out std_logic_vector(6 downto 0);
-		  db_envio_serial: out std_logic_vector(1 downto 0);
 		  db_modo: out std_logic
     );
 end entity sagarana_fd;
@@ -43,12 +46,11 @@ architecture sagarana_fd_arch of sagarana_fd is
 
 signal s_edge_output, s_sel_transmissao, s_reset: std_logic;
 signal s_out_muxpos, s_out_muxdist, s_out_mux, s_dado_recebido: std_logic_vector(7 downto 0);
-signal s_distancia: std_logic_vector(23 downto 0);
+signal s_distancia, s_registrador: std_logic_vector(23 downto 0);
 signal saida_rom: std_logic_vector(23 downto 0);
-signal posicao_cont, s_db_posicao: std_logic_vector(3 downto 0);
-signal s_estado_interface, estado_transmissor, estado_receptor, s_hex0, s_hex1, s_hex2, s_hex3, s_hex4, s_hex5: std_logic_vector(3 downto 0);
-signal s_envio_serial: std_logic_vector(1 downto 0) := "10";
-
+signal posicao_cont, s_db_posicao: std_logic_vector(6 downto 0);
+signal s_estado_rx_interface, s_estado_interface, estado_transmissor, estado_receptor, s_hex0, s_hex1, s_hex2, s_hex3, s_hex4, s_hex5: std_logic_vector(3 downto 0);
+signal s_iniciar: std_logic := '0';
 
 component mux_4x1_n is
     generic (
@@ -88,7 +90,8 @@ component interface_esp32 is
 		 sel_envio : out std_logic_vector(1 downto 0);
 		 distancia : out std_logic_vector (23 downto 0);
 		 pronto : out std_logic;
-		 db_estado : out std_logic_vector(3 downto 0)
+		 db_estado : out std_logic_vector(3 downto 0);
+		 estado_rx : out std_logic_vector(3 downto 0)
 	 );
 end component;
 
@@ -129,10 +132,10 @@ component controle_servo_3 is
 	 port (
 	 clock : in std_logic;
 	 reset : in std_logic;
-	 posicao : in std_logic_vector(3 downto 0);
+	 posicao : in std_logic_vector(6 downto 0);
     pwm     : out std_logic;
 	 db_pwm : out std_logic;
-	 db_posicao : out std_logic_vector(3 downto 0)
+	 db_posicao : out std_logic_vector(6 downto 0)
 	 );
 end component;
 
@@ -167,18 +170,43 @@ component edge_detector is
     );
 end component;
 
-component rom_angulos_16x24 is
+component rom_angulos_128x24 is
     port (
-        endereco : in  std_logic_vector(3 downto 0);
+        endereco : in  std_logic_vector(6 downto 0);
         saida    : out std_logic_vector(23 downto 0)
     ); 
 end component;
 
+component registrador_n is
+    generic (
+       constant N: integer := 8 
+    );
+    port (
+       clock  : in  std_logic;
+       clear  : in  std_logic;
+       enable : in  std_logic;
+       D      : in  std_logic_vector (N-1 downto 0);
+       Q      : out std_logic_vector (N-1 downto 0) 
+    );
+end component;
+
 begin
 
-CONT2S: contador_m
+REGISTRADOR: registrador_n
 generic map(
-        M => 100000000,  
+		  N => 24
+)
+port map(
+		  clock => clock,
+		  clear => reset,
+		  enable => armazena,
+		  D => s_distancia,
+		  Q => s_registrador
+);
+
+CONTPAUSA: contador_m
+generic map(
+        M => 1500000,  
         N => 27 
 )
 port map(
@@ -187,6 +215,20 @@ port map(
         conta => '1',
         Q     => open,
         fim   => prontoPausa,
+        meio  => open
+    );
+	 
+CONTPULA: contador_m
+generic map(
+        M => 50000000,  
+        N => 27 
+)
+port map(
+        clock => clock,
+        zera  => zeraPula,
+        conta => '1',
+        Q     => open,
+        fim   => prontoPula,
         meio  => open
     );
 
@@ -202,7 +244,7 @@ port map(
 
 CONTPOS: contadorg_updown_m
 generic map(
-		M => 16
+		M => 128
 )
 port map(
 		clock  => clock,
@@ -217,7 +259,7 @@ port map(
 		
 	
 
-ROM: rom_angulos_16x24
+ROM: rom_angulos_128x24
 port map(
 		endereco => posicao_cont,
 		saida => saida_rom
@@ -242,9 +284,9 @@ generic map(
 	)
 port map( 
 	  D3 => "00100011",
-	  D2 => s_distancia(23 downto 16), 
-	  D1 => s_distancia(15 downto 8),
-	  D0 => s_distancia(7 downto 0),
+	  D2 => s_registrador(7 downto 0), 
+	  D1 => s_registrador(15 downto 8),
+	  D0 => s_registrador(23 downto 16),
 	  SEL => sel_caractere,
 	  MUX_OUT => s_out_muxdist
  );
@@ -272,13 +314,14 @@ port map(
 interface: interface_esp32
 port map (
 		 clock => clock,
-		 reset => s_reset,
+		 reset => (s_reset or reset_interface),
 		 entrada_serial => entrada_serial,
 		 start => s_edge_output,
 		 sel_envio => sel_envio,
 		 distancia => s_distancia,
 		 pronto => pronto_dados, 
-		 db_estado => s_estado_interface
+		 db_estado => s_estado_interface,
+		 estado_rx => s_estado_rx_interface
 	 );
 
 flipflop_rs: sr_ff
@@ -294,7 +337,7 @@ receptor: rx_serial_8N2
      port map(
         clock => clock,
         reset => s_reset,
-        dado_serial => entrada_serial,
+        dado_serial => entrada_serial_pc,
         dado_recebido => s_dado_recebido,
         tem_dado => open,
         pronto_rx => open,
@@ -309,8 +352,8 @@ generic map(
 port map( 
 	  D3 => db_estado,
 	  D2 => estado_receptor, 
-	  D1 => s_distancia(3 downto 0),
-	  D0 => s_distancia(3 downto 0),
+	  D1 => s_registrador(3 downto 0),
+	  D0 => s_registrador(3 downto 0),
 	  SEL => sel_depuracao,
 	  MUX_OUT => s_hex0
  );
@@ -321,9 +364,9 @@ generic map(
 	)
 port map( 
 	  D3 => "1111",
-	  D2 => s_dado_recebido(3 downto 0), 
-	  D1 => s_distancia(11 downto 8),
-	  D0 => s_distancia(11 downto 8),
+	  D2 => "1111", 
+	  D1 => s_registrador(11 downto 8),
+	  D0 => s_registrador(11 downto 8),
 	  SEL => sel_depuracao,
 	  MUX_OUT => s_hex1
  );
@@ -334,9 +377,9 @@ generic map(
 	)
 port map( 
 	  D3 => "1111",
-	  D2 => s_dado_recebido(7 downto 4), 
-	  D1 => s_distancia(19 downto 16),
-	  D0 => s_distancia(19 downto 16),
+	  D2 => s_dado_recebido(3 downto 0), 
+	  D1 => s_registrador(19 downto 16),
+	  D0 => s_registrador(19 downto 16),
 	  SEL => sel_depuracao,
 	  MUX_OUT => s_hex2
  );
@@ -347,7 +390,7 @@ generic map(
 	)
 port map( 
 	  D3 => "1111",
-	  D2 => "1111", 
+	  D2 => s_dado_recebido(7 downto 4), 
 	  D1 => "1111",
 	  D0 => saida_rom(3 downto 0),
 	  SEL => sel_depuracao,
@@ -373,7 +416,7 @@ generic map(
 	)
 port map( 
 	  D3 => "1111",
-	  D2 => estado_transmissor, 
+	  D2 => s_estado_rx_interface, 
 	  D1 => s_estado_interface,
 	  D0 => saida_rom(19 downto 16),
 	  SEL => sel_depuracao,
@@ -422,21 +465,12 @@ with s_sel_transmissao select
 					 s_out_muxdist when others;
 					 
 with s_dado_recebido select
-     s_envio_serial <= "01" when "01110000", --p
-	               "10" when "01110010", --r
-			         "00" when others;
+     s_iniciar <= '1' when "01110011", --s
+	               '0' when "01100110", --f
+			         s_iniciar when others;
 				  
-flipflop_rs_modo: sr_ff
-port map(
-		clock => clock,
-		s => s_envio_serial(0),
-		r => s_envio_serial(1) or s_reset,
-		q => db_modo,
-		qbar => open
-);
 	
-db_envio_serial <= s_envio_serial;
-envio_serial <= s_envio_serial;
+iniciar <= s_iniciar;
 sel_transmissao <= s_sel_transmissao;
 estado_transmissor(3) <= '0';
 s_reset <= reset_uc or reset;
