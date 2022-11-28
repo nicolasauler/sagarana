@@ -6,9 +6,9 @@ reset => sagarana_uc:UC.reset
 ligar => sagarana_uc:UC.ligar
 sel_db[0] => sagarana_fd:FD.sel_depuracao[0]
 sel_db[1] => sagarana_fd:FD.sel_depuracao[1]
-sel_mode_serial => sagarana_fd:FD.sel_mode_serial
 entrada_serial => sagarana_fd:FD.entrada_serial
 entrada_serial => db_entrada_serial.DATAIN
+entrada_serial_pc => sagarana_fd:FD.entrada_serial_pc
 pwm << sagarana_fd:FD.pwm
 saida_serial << sagarana_fd:FD.saida_serial
 fim_posicao << sagarana_uc:UC.fim_posicao
@@ -58,15 +58,14 @@ hex5[3] << sagarana_fd:FD.hex5[3]
 hex5[4] << sagarana_fd:FD.hex5[4]
 hex5[5] << sagarana_fd:FD.hex5[5]
 hex5[6] << sagarana_fd:FD.hex5[6]
-db_serial[0] << sagarana_fd:FD.db_envio_serial[0]
-db_serial[1] << sagarana_fd:FD.db_envio_serial[1]
 db_modo << sagarana_fd:FD.db_modo
 db_entrada_serial << entrada_serial.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |projeto_sagarana|sagarana_fd:FD
 clock => registrador_n:REGISTRADOR.clock
-clock => contador_m:CONT2S.clock
+clock => contador_m:CONTPAUSA.clock
+clock => contador_m:CONTPULA.clock
 clock => controle_servo_3:SM.clock
 clock => contadorg_updown_m:CONTPOS.clock
 clock => tx_serial_8N2:TRANSMISSOR.clock
@@ -74,17 +73,16 @@ clock => edge_detector:edge.clock
 clock => interface_esp32:interface.clock
 clock => sr_ff:flipflop_rs.clock
 clock => rx_serial_8N2:receptor.clock
-clock => sr_ff:flipflop_rs_modo.clock
 reset => s_reset.IN0
 reset => registrador_n:REGISTRADOR.clear
 reset_uc => s_reset.IN1
 conta_pos => contadorg_updown_m:CONTPOS.conta
-zeraPausa => contador_m:CONT2S.zera
+zeraPausa => contador_m:CONTPAUSA.zera
+zeraPula => contador_m:CONTPULA.zera
 transmite => tx_serial_8N2:TRANSMISSOR.partida
 sol_dados => edge_detector:edge.signal_in
-sel_mode_serial => ~NO_FANOUT~
 entrada_serial => interface_esp32:interface.entrada_serial
-entrada_serial => rx_serial_8N2:receptor.dado_serial
+entrada_serial_pc => rx_serial_8N2:receptor.dado_serial
 sel_depuracao[0] => mux_4x1_n:MUXHEX0.SEL[0]
 sel_depuracao[0] => mux_4x1_n:MUXHEX1.SEL[0]
 sel_depuracao[0] => mux_4x1_n:MUXHEX2.SEL[0]
@@ -109,17 +107,17 @@ db_estado[0] => mux_4x1_n:MUXHEX0.D3[0]
 db_estado[1] => mux_4x1_n:MUXHEX0.D3[1]
 db_estado[2] => mux_4x1_n:MUXHEX0.D3[2]
 db_estado[3] => mux_4x1_n:MUXHEX0.D3[3]
-envio_serial[0] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
-envio_serial[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 pwm <= controle_servo_3:SM.pwm
 saida_serial <= tx_serial_8N2:TRANSMISSOR.saida_serial
-prontoPausa <= contador_m:CONT2S.fim
+prontoPausa <= contador_m:CONTPAUSA.fim
+prontoPula <= contador_m:CONTPULA.fim
 pronto_dados <= interface_esp32:interface.pronto
 pronto_transmissao <= tx_serial_8N2:TRANSMISSOR.pronto
 sel_transmissao <= sr_ff:flipflop_rs.q
 sel_envio[0] <= interface_esp32:interface.sel_envio[0]
 sel_envio[1] <= interface_esp32:interface.sel_envio[1]
 db_pwm <= controle_servo_3:SM.db_pwm
+iniciar <= s_iniciar.DB_MAX_OUTPUT_PORT_TYPE
 hex0[0] <= hex7seg:hexa0.sseg[0]
 hex0[1] <= hex7seg:hexa0.sseg[1]
 hex0[2] <= hex7seg:hexa0.sseg[2]
@@ -162,9 +160,7 @@ hex5[3] <= hex7seg:hexa5.sseg[3]
 hex5[4] <= hex7seg:hexa5.sseg[4]
 hex5[5] <= hex7seg:hexa5.sseg[5]
 hex5[6] <= hex7seg:hexa5.sseg[6]
-db_envio_serial[0] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
-db_envio_serial[1] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
-db_modo <= sr_ff:flipflop_rs_modo.q
+db_modo <= s_iniciar.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |projeto_sagarana|sagarana_fd:FD|registrador_n:REGISTRADOR
@@ -290,7 +286,102 @@ Q[22] <= IQ[22].DB_MAX_OUTPUT_PORT_TYPE
 Q[23] <= IQ[23].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|projeto_sagarana|sagarana_fd:FD|contador_m:CONT2S
+|projeto_sagarana|sagarana_fd:FD|contador_m:CONTPAUSA
+clock => IQ[0].CLK
+clock => IQ[1].CLK
+clock => IQ[2].CLK
+clock => IQ[3].CLK
+clock => IQ[4].CLK
+clock => IQ[5].CLK
+clock => IQ[6].CLK
+clock => IQ[7].CLK
+clock => IQ[8].CLK
+clock => IQ[9].CLK
+clock => IQ[10].CLK
+clock => IQ[11].CLK
+clock => IQ[12].CLK
+clock => IQ[13].CLK
+clock => IQ[14].CLK
+clock => IQ[15].CLK
+clock => IQ[16].CLK
+clock => IQ[17].CLK
+clock => IQ[18].CLK
+clock => IQ[19].CLK
+clock => IQ[20].CLK
+zera => IQ[0].ACLR
+zera => IQ[1].ACLR
+zera => IQ[2].ACLR
+zera => IQ[3].ACLR
+zera => IQ[4].ACLR
+zera => IQ[5].ACLR
+zera => IQ[6].ACLR
+zera => IQ[7].ACLR
+zera => IQ[8].ACLR
+zera => IQ[9].ACLR
+zera => IQ[10].ACLR
+zera => IQ[11].ACLR
+zera => IQ[12].ACLR
+zera => IQ[13].ACLR
+zera => IQ[14].ACLR
+zera => IQ[15].ACLR
+zera => IQ[16].ACLR
+zera => IQ[17].ACLR
+zera => IQ[18].ACLR
+zera => IQ[19].ACLR
+zera => IQ[20].ACLR
+conta => IQ[0].ENA
+conta => IQ[20].ENA
+conta => IQ[19].ENA
+conta => IQ[18].ENA
+conta => IQ[17].ENA
+conta => IQ[16].ENA
+conta => IQ[15].ENA
+conta => IQ[14].ENA
+conta => IQ[13].ENA
+conta => IQ[12].ENA
+conta => IQ[11].ENA
+conta => IQ[10].ENA
+conta => IQ[9].ENA
+conta => IQ[8].ENA
+conta => IQ[7].ENA
+conta => IQ[6].ENA
+conta => IQ[5].ENA
+conta => IQ[4].ENA
+conta => IQ[3].ENA
+conta => IQ[2].ENA
+conta => IQ[1].ENA
+Q[0] <= IQ[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= IQ[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= IQ[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= IQ[3].DB_MAX_OUTPUT_PORT_TYPE
+Q[4] <= IQ[4].DB_MAX_OUTPUT_PORT_TYPE
+Q[5] <= IQ[5].DB_MAX_OUTPUT_PORT_TYPE
+Q[6] <= IQ[6].DB_MAX_OUTPUT_PORT_TYPE
+Q[7] <= IQ[7].DB_MAX_OUTPUT_PORT_TYPE
+Q[8] <= IQ[8].DB_MAX_OUTPUT_PORT_TYPE
+Q[9] <= IQ[9].DB_MAX_OUTPUT_PORT_TYPE
+Q[10] <= IQ[10].DB_MAX_OUTPUT_PORT_TYPE
+Q[11] <= IQ[11].DB_MAX_OUTPUT_PORT_TYPE
+Q[12] <= IQ[12].DB_MAX_OUTPUT_PORT_TYPE
+Q[13] <= IQ[13].DB_MAX_OUTPUT_PORT_TYPE
+Q[14] <= IQ[14].DB_MAX_OUTPUT_PORT_TYPE
+Q[15] <= IQ[15].DB_MAX_OUTPUT_PORT_TYPE
+Q[16] <= IQ[16].DB_MAX_OUTPUT_PORT_TYPE
+Q[17] <= IQ[17].DB_MAX_OUTPUT_PORT_TYPE
+Q[18] <= IQ[18].DB_MAX_OUTPUT_PORT_TYPE
+Q[19] <= IQ[19].DB_MAX_OUTPUT_PORT_TYPE
+Q[20] <= IQ[20].DB_MAX_OUTPUT_PORT_TYPE
+Q[21] <= <GND>
+Q[22] <= <GND>
+Q[23] <= <GND>
+Q[24] <= <GND>
+Q[25] <= <GND>
+Q[26] <= <GND>
+fim <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+meio <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto_sagarana|sagarana_fd:FD|contador_m:CONTPULA
 clock => IQ[0].CLK
 clock => IQ[1].CLK
 clock => IQ[2].CLK
@@ -314,6 +405,9 @@ clock => IQ[19].CLK
 clock => IQ[20].CLK
 clock => IQ[21].CLK
 clock => IQ[22].CLK
+clock => IQ[23].CLK
+clock => IQ[24].CLK
+clock => IQ[25].CLK
 zera => IQ[0].ACLR
 zera => IQ[1].ACLR
 zera => IQ[2].ACLR
@@ -337,7 +431,13 @@ zera => IQ[19].ACLR
 zera => IQ[20].ACLR
 zera => IQ[21].ACLR
 zera => IQ[22].ACLR
+zera => IQ[23].ACLR
+zera => IQ[24].ACLR
+zera => IQ[25].ACLR
 conta => IQ[0].ENA
+conta => IQ[25].ENA
+conta => IQ[24].ENA
+conta => IQ[23].ENA
 conta => IQ[22].ENA
 conta => IQ[21].ENA
 conta => IQ[20].ENA
@@ -383,9 +483,9 @@ Q[19] <= IQ[19].DB_MAX_OUTPUT_PORT_TYPE
 Q[20] <= IQ[20].DB_MAX_OUTPUT_PORT_TYPE
 Q[21] <= IQ[21].DB_MAX_OUTPUT_PORT_TYPE
 Q[22] <= IQ[22].DB_MAX_OUTPUT_PORT_TYPE
-Q[23] <= <GND>
-Q[24] <= <GND>
-Q[25] <= <GND>
+Q[23] <= IQ[23].DB_MAX_OUTPUT_PORT_TYPE
+Q[24] <= IQ[24].DB_MAX_OUTPUT_PORT_TYPE
+Q[25] <= IQ[25].DB_MAX_OUTPUT_PORT_TYPE
 Q[26] <= <GND>
 fim <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 meio <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
@@ -2158,60 +2258,45 @@ sseg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 sseg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|projeto_sagarana|sagarana_fd:FD|sr_ff:flipflop_rs_modo
-s => process_0.IN0
-s => process_0.IN0
-s => process_0.IN0
-r => process_0.IN1
-r => process_0.IN1
-r => process_0.IN1
-clock => tmp.CLK
-clock => tmp~en.CLK
-q <= tmp.DB_MAX_OUTPUT_PORT_TYPE
-qbar <= tmp.DB_MAX_OUTPUT_PORT_TYPE
-
-
 |projeto_sagarana|sagarana_uc:UC
 clock => Eatual~1.DATAIN
 reset => process_0.IN0
 ligar => process_0.IN1
+iniciar => process_0.IN1
 pronto_dados => Eprox.DATAA
 pronto_dados => Eprox.DATAA
 pronto_transmissao => Eprox.transmite_dezena.DATAB
 pronto_transmissao => Eprox.transmite_unidade.DATAB
 pronto_transmissao => Eprox.transmite_especial.DATAB
+pronto_transmissao => Selector2.IN2
 pronto_transmissao => Selector3.IN2
 pronto_transmissao => Selector4.IN2
+pronto_transmissao => Eprox.OUTPUTSELECT
+pronto_transmissao => Eprox.OUTPUTSELECT
 pronto_transmissao => Selector5.IN2
-pronto_transmissao => Eprox.OUTPUTSELECT
-pronto_transmissao => Eprox.OUTPUTSELECT
-pronto_transmissao => Selector6.IN2
 sel_transmissao => Eprox.DATAA
 sel_transmissao => Eprox.DATAA
-prontoPausa => Eprox.DATAA
-prontoPausa => Eprox.OUTPUTSELECT
-prontoPausa => Eprox.OUTPUTSELECT
-prontoPausa => Eprox.pula_medida.DATAB
-prontoPausa => Eprox.DATAA
-recebe_serial[0] => Equal0.IN1
-recebe_serial[0] => Equal1.IN0
-recebe_serial[1] => Equal0.IN0
-recebe_serial[1] => Equal1.IN1
+prontoPausa => Eprox.solicita_dados.DATAB
+prontoPausa => Selector0.IN2
+prontoPula => Eprox.OUTPUTSELECT
+prontoPula => Eprox.OUTPUTSELECT
+prontoPula => Eprox.pula_medida.DATAB
 conta_pos <= conta_pos.DB_MAX_OUTPUT_PORT_TYPE
-zeraPausa <= WideNor0.DB_MAX_OUTPUT_PORT_TYPE
-transmite <= WideNor1.DB_MAX_OUTPUT_PORT_TYPE
+zeraPausa <= zeraPausa.DB_MAX_OUTPUT_PORT_TYPE
+zeraPula <= zeraPula.DB_MAX_OUTPUT_PORT_TYPE
+transmite <= WideNor0.DB_MAX_OUTPUT_PORT_TYPE
 armazena <= armazena.DB_MAX_OUTPUT_PORT_TYPE
 reset_interface <= reset_interface.DB_MAX_OUTPUT_PORT_TYPE
 sol_dados <= sol_dados.DB_MAX_OUTPUT_PORT_TYPE
-sel_caractere[0] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
-sel_caractere[1] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+sel_caractere[0] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+sel_caractere[1] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
 set_ff <= set_ff.DB_MAX_OUTPUT_PORT_TYPE
 reset_ff <= reset_ff.DB_MAX_OUTPUT_PORT_TYPE
 reseta_tudo <= reseta_tudo.DB_MAX_OUTPUT_PORT_TYPE
-db_estado[0] <= WideOr14.DB_MAX_OUTPUT_PORT_TYPE
-db_estado[1] <= WideOr13.DB_MAX_OUTPUT_PORT_TYPE
-db_estado[2] <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
-db_estado[3] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[0] <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[1] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[2] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+db_estado[3] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
 fim_posicao <= fim_posicao.DB_MAX_OUTPUT_PORT_TYPE
 
 

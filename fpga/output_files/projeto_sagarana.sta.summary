@@ -3,131 +3,179 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1100mV 85C Model Setup 'clock'
-Slack : -5.346
-TNS   : -569.564
+Slack : -5.257
+TNS   : -602.846
+
+Type  : Slow 1100mV 85C Model Setup 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : -4.679
+TNS   : -4.679
 
 Type  : Slow 1100mV 85C Model Setup 'reset'
-Slack : -3.635
-TNS   : -53.526
+Slack : -3.543
+TNS   : -54.595
 
 Type  : Slow 1100mV 85C Model Hold 'clock'
-Slack : 0.350
+Slack : 0.362
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : 0.391
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'reset'
-Slack : 0.635
+Slack : 0.656
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Recovery 'clock'
-Slack : -3.284
-TNS   : -544.904
+Slack : -3.072
+TNS   : -539.828
 
 Type  : Slow 1100mV 85C Model Removal 'clock'
-Slack : 1.006
+Slack : 0.950
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
 Slack : -0.538
-TNS   : -232.658
+TNS   : -241.062
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'reset'
-Slack : 0.066
+Slack : 0.022
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : 0.407
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Setup 'clock'
-Slack : -5.225
-TNS   : -553.205
+Slack : -5.289
+TNS   : -591.061
+
+Type  : Slow 1100mV 0C Model Setup 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : -4.807
+TNS   : -4.807
 
 Type  : Slow 1100mV 0C Model Setup 'reset'
-Slack : -3.804
-TNS   : -56.288
+Slack : -3.780
+TNS   : -57.425
 
 Type  : Slow 1100mV 0C Model Hold 'clock'
-Slack : 0.329
+Slack : 0.335
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : 0.450
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'reset'
-Slack : 0.667
+Slack : 0.708
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Recovery 'clock'
-Slack : -3.060
-TNS   : -504.366
+Slack : -2.777
+TNS   : -488.746
 
 Type  : Slow 1100mV 0C Model Removal 'clock'
-Slack : 0.906
+Slack : 0.904
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
 Slack : -0.538
-TNS   : -236.523
+TNS   : -245.485
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'reset'
-Slack : 0.087
+Slack : 0.100
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : 0.356
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Setup 'clock'
-Slack : -2.171
-TNS   : -154.932
+Slack : -2.288
+TNS   : -159.984
+
+Type  : Fast 1100mV 85C Model Setup 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : -2.098
+TNS   : -2.098
 
 Type  : Fast 1100mV 85C Model Setup 'reset'
-Slack : -1.424
-TNS   : -18.941
+Slack : -1.416
+TNS   : -20.378
 
 Type  : Fast 1100mV 85C Model Hold 'clock'
-Slack : 0.178
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : 0.206
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'reset'
-Slack : 0.347
+Slack : 0.413
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Recovery 'clock'
-Slack : -1.896
-TNS   : -238.117
+Slack : -1.712
+TNS   : -236.531
 
 Type  : Fast 1100mV 85C Model Removal 'clock'
-Slack : 0.306
+Slack : 0.425
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'reset'
-Slack : -0.173
-TNS   : -3.940
+Slack : -0.162
+TNS   : -2.910
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
-Slack : -0.101
-TNS   : -27.888
+Slack : -0.100
+TNS   : -28.836
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : 0.469
+TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'clock'
-Slack : -1.942
-TNS   : -119.549
+Slack : -2.040
+TNS   : -122.797
+
+Type  : Fast 1100mV 0C Model Setup 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : -2.001
+TNS   : -2.001
 
 Type  : Fast 1100mV 0C Model Setup 'reset'
-Slack : -1.290
-TNS   : -16.892
+Slack : -1.259
+TNS   : -18.224
 
 Type  : Fast 1100mV 0C Model Hold 'clock'
-Slack : 0.169
+Slack : 0.171
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : 0.194
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'reset'
-Slack : 0.368
+Slack : 0.418
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Recovery 'clock'
-Slack : -1.634
-TNS   : -204.071
+Slack : -1.449
+TNS   : -197.534
 
 Type  : Fast 1100mV 0C Model Removal 'clock'
-Slack : 0.193
+Slack : 0.299
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'reset'
-Slack : -0.141
-TNS   : -3.275
+Slack : -0.116
+TNS   : -1.927
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
 Slack : -0.100
-TNS   : -28.333
+TNS   : -29.388
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[1]'
+Slack : 0.483
+TNS   : 0.000
 
 ------------------------------------------------------------

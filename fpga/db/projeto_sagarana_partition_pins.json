@@ -200,18 +200,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "db_serial[0]",
-					"strict" : false
-				},
-				{
-					"name" : "db_serial[1]",
-					"strict" : false
-				},
-				{
-					"name" : "db_modo",
-					"strict" : false
-				},
-				{
 					"name" : "db_entrada_serial",
 					"strict" : false
 				},
@@ -237,6 +225,10 @@
 				},
 				{
 					"name" : "ligar",
+					"strict" : false
+				},
+				{
+					"name" : "entrada_serial_pc",
 					"strict" : false
 				}
 			]

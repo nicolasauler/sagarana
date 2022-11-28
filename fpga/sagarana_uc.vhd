@@ -6,13 +6,15 @@ entity sagarana_uc is
 		clock : in std_logic;
 		reset : in std_logic;
 		ligar: in std_logic;
+		iniciar: in std_logic;
 		pronto_dados: in std_logic;
 		pronto_transmissao: in std_logic;
 		sel_transmissao: in std_logic;
 		prontoPausa: in std_logic;
-		recebe_serial: in std_logic_vector(1 downto 0);
+		prontoPula: in std_logic;
 		conta_pos: out std_logic;
 		zeraPausa: out std_logic;
+		zeraPula: out std_logic;
 		transmite: out std_logic;
 		armazena: out std_logic;
 		reset_interface: out std_logic;
@@ -29,7 +31,7 @@ end entity sagarana_uc;
 architecture sagarana_uc_arch of sagarana_uc is
 
     type tipo_estado is (inicial, preparacao, contaPausa, esperaPausa, solicita_dados, aguarda_dados, armazena_dado, pula_medida, transmite_centena,
-	 espera_centena, transmite_dezena, espera_dezena, transmite_unidade, espera_unidade,transmite_especial, espera_especial, muda_transmissao, fim_pos, espera_r);
+	 espera_centena, transmite_dezena, espera_dezena, transmite_unidade, espera_unidade,transmite_especial, espera_especial, muda_transmissao, fim_pos);
 								
     signal Eatual, Eprox: tipo_estado;
 	 
@@ -38,7 +40,7 @@ begin
     -- estado
     process (reset, ligar, clock)
     begin
-        if reset = '1' or ligar = '0' then
+        if reset = '1' or ligar = '0' or iniciar = '0' then
             Eatual <= inicial;
         elsif clock'event and clock = '1' then
             Eatual <= Eprox; 
@@ -46,7 +48,7 @@ begin
     end process;
 	 
 	 -- logica de proximo estado
-    process (Eatual, ligar, pronto_dados, pronto_transmissao, sel_transmissao, prontoPausa, recebe_serial)
+    process (Eatual, ligar, iniciar, pronto_dados, pronto_transmissao, sel_transmissao, prontoPausa, prontoPula)
 	 
     begin
 	 
@@ -58,15 +60,11 @@ begin
 		  
 		  when contaPausa => Eprox <= esperaPausa;
 		  
-		  when esperaPausa => if recebe_serial = "01" then Eprox <= espera_r; 
-		  
-								elsif prontoPausa = '1' then Eprox <= solicita_dados; else Eprox <= esperaPausa; end if;
+		  when esperaPausa => if prontoPausa = '1' then Eprox <= solicita_dados; else Eprox <= esperaPausa; end if;
 								
-		  when espera_r => if recebe_serial = "10" then Eprox <= contaPausa; else Eprox <= espera_r; end if;
-		  
 		  when solicita_dados => Eprox <= aguarda_dados;
 		  
-		  when aguarda_dados => if prontoPausa = '1' then Eprox <= pula_medida; elsif pronto_dados = '1' then Eprox <= armazena_dado; else Eprox <= aguarda_dados; end if;
+		  when aguarda_dados => if prontoPula = '1' then Eprox <= pula_medida; elsif pronto_dados = '1' then Eprox <= armazena_dado; else Eprox <= aguarda_dados; end if;
 		  
 		  when armazena_dado => Eprox <= transmite_centena;
 		  
@@ -103,7 +101,10 @@ begin
 		conta_pos <= '1' when fim_pos, '0' when others;
 		
   with Eatual select
-		zeraPausa <= '1' when contaPausa | solicita_dados, '0' when others;
+		zeraPausa <= '1' when contaPausa, '0' when others;
+		
+  with Eatual select
+		zeraPula <= '1' when solicita_dados, '0' when others;
 		
   with Eatual select
 		reseta_tudo <= '1' when preparacao, '0' when others;
@@ -138,7 +139,7 @@ begin
 						
 		
   with Eatual select		
-		db_estado <= "0000" when inicial, --lembrar que 0 pode ser "espera_r" tbm, mas acho que esse estado vai deixar de existir :)
+		db_estado <= "0000" when inicial,
 						 "0001" when preparacao,
 					    "0010" when contaPausa,
 						 "0011" when esperaPausa,

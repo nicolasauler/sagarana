@@ -73,10 +73,13 @@ void loop() {
   if(value.RangeStatus != 4) {
     if(characterToSend1 == 1 && characterToSend0 == 1){
         SerialPort.print(String(valueCentimeter/100));
+        //Serial.println(String(valueCentimeter/100));
     } else if (characterToSend1 == 1 && characterToSend0 == 0){
         SerialPort.print(String((valueCentimeter%100)/10));
+        //Serial.println(String((valueCentimeter%100)/10));
     } else if (characterToSend1 == 0 && characterToSend0 == 1){
         SerialPort.print(String(valueCentimeter%10));
+        //Serial.println(String(valueCentimeter%10));
     }
     // SerialPort.print(String(value.RangeMilliMeter) + " ");
     output = String(valueCentimeter) + " cm";
