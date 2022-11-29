@@ -29,7 +29,7 @@ end entity projeto_sagarana;
 
 architecture sagarana_arch of projeto_sagarana is
 
-signal s_pronto_pula, s_iniciar, s_armazena, s_rst_interface, s_pronto_dados, s_sol_dados, s_saida_serial, s_pwm, s_reset, s_conta_pos, s_zera_pausa, s_zera_pula, s_transmite, s_medir, s_set_ff, s_reset_ff, s_pronto_pausa, s_pronto_medicao, s_pronto_transmissao, s_sel_transmissao : std_logic;
+signal s_pronto_pula, s_iniciar, s_armazena, s_rst_interface, s_pronto_dados, s_sol_dados, s_saida_serial, s_reset, s_conta_pos, s_zera_pausa, s_zera_pula, s_transmite, s_set_ff, s_reset_ff, s_pronto_pausa, s_pronto_transmissao, s_sel_transmissao : std_logic;
 signal s_sel_caractere : std_logic_vector(1 downto 0);
 signal s_db_estado : std_logic_vector (3 downto 0);
 
@@ -169,6 +169,5 @@ port map(
 saida_serial <= s_saida_serial;
 db_saida_serial <= s_saida_serial;
 db_entrada_serial <= entrada_serial;
-		
 
 end architecture sagarana_arch;

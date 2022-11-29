@@ -38,7 +38,7 @@ architecture sagarana_uc_arch of sagarana_uc is
 begin
 
     -- estado
-    process (reset, ligar, clock)
+    process (reset, ligar, clock, iniciar)
     begin
         if reset = '1' or ligar = '0' or iniciar = '0' then
             Eatual <= inicial;
@@ -48,7 +48,7 @@ begin
     end process;
 	 
 	 -- logica de proximo estado
-    process (Eatual, ligar, iniciar, pronto_dados, pronto_transmissao, sel_transmissao, prontoPausa, prontoPula)
+    process (Eatual, pronto_dados, pronto_transmissao, sel_transmissao, prontoPausa, prontoPula)
 	 
     begin
 	 
