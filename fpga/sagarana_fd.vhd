@@ -194,6 +194,7 @@ begin
 
 REGISTRADOR: registrador_n
 generic map(
+<<<<<<< HEAD
 		  N => 24
 )
 port map(
@@ -207,6 +208,9 @@ port map(
 CONTPAUSA: contador_m
 generic map(
         M => 1500000,  
+=======
+        M => 1000000,  
+>>>>>>> ed23b66 (.)
         N => 27 
 )
 port map(

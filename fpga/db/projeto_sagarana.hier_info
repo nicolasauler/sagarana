@@ -402,12 +402,15 @@ clock => IQ[16].CLK
 clock => IQ[17].CLK
 clock => IQ[18].CLK
 clock => IQ[19].CLK
+<<<<<<< HEAD
 clock => IQ[20].CLK
 clock => IQ[21].CLK
 clock => IQ[22].CLK
 clock => IQ[23].CLK
 clock => IQ[24].CLK
 clock => IQ[25].CLK
+=======
+>>>>>>> ed23b66 (.)
 zera => IQ[0].ACLR
 zera => IQ[1].ACLR
 zera => IQ[2].ACLR
@@ -428,6 +431,7 @@ zera => IQ[16].ACLR
 zera => IQ[17].ACLR
 zera => IQ[18].ACLR
 zera => IQ[19].ACLR
+<<<<<<< HEAD
 zera => IQ[20].ACLR
 zera => IQ[21].ACLR
 zera => IQ[22].ACLR
@@ -441,6 +445,9 @@ conta => IQ[23].ENA
 conta => IQ[22].ENA
 conta => IQ[21].ENA
 conta => IQ[20].ENA
+=======
+conta => IQ[0].ENA
+>>>>>>> ed23b66 (.)
 conta => IQ[19].ENA
 conta => IQ[18].ENA
 conta => IQ[17].ENA
@@ -480,12 +487,21 @@ Q[16] <= IQ[16].DB_MAX_OUTPUT_PORT_TYPE
 Q[17] <= IQ[17].DB_MAX_OUTPUT_PORT_TYPE
 Q[18] <= IQ[18].DB_MAX_OUTPUT_PORT_TYPE
 Q[19] <= IQ[19].DB_MAX_OUTPUT_PORT_TYPE
+<<<<<<< HEAD
 Q[20] <= IQ[20].DB_MAX_OUTPUT_PORT_TYPE
 Q[21] <= IQ[21].DB_MAX_OUTPUT_PORT_TYPE
 Q[22] <= IQ[22].DB_MAX_OUTPUT_PORT_TYPE
 Q[23] <= IQ[23].DB_MAX_OUTPUT_PORT_TYPE
 Q[24] <= IQ[24].DB_MAX_OUTPUT_PORT_TYPE
 Q[25] <= IQ[25].DB_MAX_OUTPUT_PORT_TYPE
+=======
+Q[20] <= <GND>
+Q[21] <= <GND>
+Q[22] <= <GND>
+Q[23] <= <GND>
+Q[24] <= <GND>
+Q[25] <= <GND>
+>>>>>>> ed23b66 (.)
 Q[26] <= <GND>
 fim <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 meio <= Equal1.DB_MAX_OUTPUT_PORT_TYPE

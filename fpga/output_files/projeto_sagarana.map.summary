@@ -1,11 +1,21 @@
+<<<<<<< HEAD
 Analysis & Synthesis Status : Successful - Mon Nov 28 15:21:32 2022
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+=======
+Analysis & Synthesis Status : Successful - Mon Nov 21 16:29:32 2022
+Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+>>>>>>> ed23b66 (.)
 Revision Name : projeto_sagarana
 Top-level Entity Name : projeto_sagarana
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
+<<<<<<< HEAD
 Total registers : 275
 Total pins : 58
+=======
+Total registers : 220
+Total pins : 59
+>>>>>>> ed23b66 (.)
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
