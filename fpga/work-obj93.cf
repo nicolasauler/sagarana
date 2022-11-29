@@ -1,0 +1,76 @@
+v 4
+file . "tx_serial_8N2_fd.vhd" "1e0ff3400c4f1351b2b3891d2e6b2ff827fd14b3" "20221129131417.459":
+  entity tx_serial_8n2_fd at 1( 0) + 0 on 107;
+  architecture tx_serial_8n2_fd_arch of tx_serial_8n2_fd at 20( 490) + 0 on 108;
+file . "testador_paridade.vhd" "1a1693a869b8928ce385f8d7d616be0ff5874434" "20221129131417.419":
+  entity testador_paridade at 23( 956) + 0 on 103;
+  architecture rtl of testador_paridade at 35( 1232) + 0 on 104;
+file . "sagarana_uc.vhd" "215ade95f2c45a4b54d5428e998aa883b0412074" "20221129131417.361":
+  entity sagarana_uc at 1( 0) + 0 on 99;
+  architecture sagarana_uc_arch of sagarana_uc at 31( 768) + 0 on 100;
+file . "sagarana.vhd" "01afe51271d559b8d31a4ab746602b2ccf69a7b6" "20221129131417.228":
+  entity projeto_sagarana at 1( 0) + 0 on 95;
+  architecture sagarana_arch of projeto_sagarana at 30( 881) + 0 on 96;
+file . "rx_serial_8N2_fd.vhd" "d872d90c04c15356f0977d9fda0b91cd6da699b2" "20221129131417.174":
+  entity rx_serial_8n2_fd at 1( 0) + 0 on 91;
+  architecture rx_serial_8n2_fd_arch of rx_serial_8n2_fd at 21( 568) + 0 on 92;
+file . "rom_angulos_128x24.vhd" "89572b4ed9baa5725628b73c36b94d6acc9ff5ea" "20221129131417.134":
+  entity rom_angulos_128x24 at 15( 716) + 0 on 87;
+  architecture rom_arch of rom_angulos_128x24 at 26( 953) + 0 on 88;
+file . "mux_4x1_n.vhd" "1fc741c690774c036f9e2c6b6dd57742674aa65c" "20221129131417.096":
+  entity mux_4x1_n at 18( 763) + 0 on 83;
+  architecture arch_mux_4x1_n of mux_4x1_n at 35( 1267) + 0 on 84;
+file . "interface_esp32_fd.vhd" "25cebaf9a69cbb847a5b6d928d41dbd82d820abc" "20221129131417.042":
+  entity interface_esp32_fd at 1( 0) + 0 on 79;
+  architecture arch_interface_esp32_fd of interface_esp32_fd at 19( 504) + 0 on 80;
+file . "hex7seg.vhd" "463c0d7ef0979e07d6ce0bb29e56d3d5a5995f19" "20221129131417.001":
+  entity hex7seg at 17( 721) + 0 on 75;
+  architecture comportamental of hex7seg at 27( 911) + 0 on 76;
+file . "edge_detector_descida.vhd" "edf712c0ba63e17b3366f15a15d0b52666b63c28" "20221129131416.967":
+  entity edge_detector_descida at 1( 0) + 0 on 71;
+  architecture behavioral of edge_detector_descida at 12( 235) + 0 on 72;
+file . "deslocador_n.vhd" "a5b7472f0e0c305afddc771947b0d9aad36894f0" "20221129131416.933":
+  entity deslocador_n at 15( 623) + 0 on 67;
+  architecture deslocador_n_arch of deslocador_n at 33( 1115) + 0 on 68;
+file . "contadorg_updown_m.vhd" "25aacf8f193b0af8861b6f7f2eddff6012e4d40e" "20221129131416.856":
+  entity contadorg_updown_m at 22( 954) + 0 on 63;
+  architecture comportamental of contadorg_updown_m at 43( 1489) + 0 on 64;
+file . "contador_m.vhd" "53331461fe121c12591a05f962fa3e7c49ff37ab" "20221129131416.832":
+  entity contador_m at 18( 750) + 0 on 61;
+  architecture contador_m_arch of contador_m at 37( 1184) + 0 on 62;
+file . "controle_servo_3.vhd" "f122fa76df9364359ed2fb240fb8f42176e5919b" "20221129131416.880":
+  entity controle_servo_3 at 1( 0) + 0 on 65;
+  architecture controle_servo_3_arch of controle_servo_3 at 16( 337) + 0 on 66;
+file . "edge_detector.vhd" "59f6defa784fa00c7363e35d5062f5a0aacd9fa4" "20221129131416.953":
+  entity edge_detector at 18( 768) + 0 on 69;
+  architecture behavioral of edge_detector at 29( 987) + 0 on 70;
+file . "gerador_pulso.vhd" "133b455cabf7b0f0b25f7419000546a7d13108a1" "20221129131416.981":
+  entity gerador_pulso at 1( 0) + 0 on 73;
+  architecture fsm_arch of gerador_pulso at 19( 376) + 0 on 74;
+file . "interface_esp32.vhd" "2c8be2b369bd1c9188fe8968033795a16764a717" "20221129131417.022":
+  entity interface_esp32 at 1( 0) + 0 on 77;
+  architecture interface_esp32_arch of interface_esp32 at 18( 462) + 0 on 78;
+file . "interface_esp32_uc.vhd" "22fa94c0a4c5f6c820a07c72dfd1d20dc813f3db" "20221129131417.065":
+  entity interface_esp32_uc at 1( 0) + 0 on 81;
+  architecture fsm_arch of interface_esp32_uc at 20( 516) + 0 on 82;
+file . "registrador_n.vhd" "6bcbba7da8ea7f8fcb6f2e534ef5639c24c6a0a9" "20221129131417.115":
+  entity registrador_n at 20( 998) + 0 on 85;
+  architecture registrador_n of registrador_n at 36( 1364) + 0 on 86;
+file . "rx_serial_8N2.vhd" "b9f6e78929b122c3cbedbe373879323f2ae3724a" "20221129131417.151":
+  entity rx_serial_8n2 at 1( 0) + 0 on 89;
+  architecture rx_serial_8n2_arch of rx_serial_8n2 at 17( 412) + 0 on 90;
+file . "rx_serial_tick_uc.vhd" "3a1f529028cfca1ca3b9a5b413dd69170c1b4bc5" "20221129131417.197":
+  entity rx_serial_uc at 1( 0) + 0 on 93;
+  architecture rx_serial_uc_arch of rx_serial_uc at 23( 539) + 0 on 94;
+file . "sagarana_fd.vhd" "10fe9fc681fbeee2e0f99a83d4bfe90963d1f35e" "20221129131417.260":
+  entity sagarana_fd at 1( 0) + 0 on 97;
+  architecture sagarana_fd_arch of sagarana_fd at 44( 1622) + 0 on 98;
+file . "sr_ff.vhd" "afa1cea38f84740c141939125ca42991c2d2026e" "20221129131417.406":
+  entity sr_ff at 1( 0) + 0 on 101;
+  architecture behavioral of sr_ff at 11( 218) + 0 on 102;
+file . "tx_serial_8N2.vhd" "669106d8df75e99f6cad1abc3c742a1117dde7c4" "20221129131417.434":
+  entity tx_serial_8n2 at 1( 0) + 0 on 105;
+  architecture tx_serial_8n2_arch of tx_serial_8n2 at 19( 495) + 0 on 106;
+file . "tx_serial_tick_uc.vhd" "5c2f0cf4efe2932485a33428fe17a36f5f521fe7" "20221129131417.483":
+  entity tx_serial_uc at 15( 679) + 0 on 109;
+  architecture tx_serial_uc_arch of tx_serial_uc at 34( 1159) + 0 on 110;

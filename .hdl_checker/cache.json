@@ -1,0 +1,2499 @@
+{
+ "builder": {
+  "_version": "2020.1",
+  "_modelsim_ini": {
+   "name": "/home/nic/sagarana/.hdl_checker/modelsim.ini",
+   "__class__": "Path"
+  },
+  "_logger": "hdl_checker.builders.msim",
+  "_work_folder": "/home/nic/sagarana/.hdl_checker",
+  "_builtin_libraries": [
+   {
+    "name": "arriavgz_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "verilog",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "sgate",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "220model_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "ieee",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "sgate_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneive",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "lpm_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxii_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "lpm",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "vital2000",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxii",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "std",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_lnsim_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "sv_std",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_mf",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclone10lp",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_mf_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "synopsys",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_lnsim",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "modelsim_lib",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "220model",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "fiftyfivenm",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "std_developerskit",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "fiftyfivenm_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneive_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclone10lp_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   }
+  ],
+  "_added_libraries": [
+   {
+    "name": "default_library",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   }
+  ],
+  "__class__": "MSim"
+ },
+ "config_file": [
+  {
+   "name": "/tmp/hdl_checker_project_pid11329.json",
+   "__class__": "Path"
+  },
+  1669728294.6658485,
+  "generated"
+ ],
+ "database": {
+  "sources": [
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/sagarana_fd.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669727596.4225118,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/sagarana_fd.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "math_real",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        3,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/sagarana_fd.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/sagarana_fd.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/mux_4x1_n.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/mux_4x1_n.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        18,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/gerador_pulso.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/gerador_pulso.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/gerador_pulso.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/sagarana_uc.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669726872.3525085,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/sagarana_uc.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/tbs/interface_esp32_tb.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669058395.0465212,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/tbs/interface_esp32_tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        19,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/tbs/interface_esp32_tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "interface_esp32",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": null,
+      "locations": [
+       [
+        97,
+        16
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/tbs/interface_esp32_tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        18,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/controle_servo_3.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669726412.6191733,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/controle_servo_3.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/controle_servo_3.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/edge_detector.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/edge_detector.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        18,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/rx_serial_8N2.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669058395.0465212,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/rx_serial_8N2.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669058395.0465212,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/edge_detector_descida.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/edge_detector_descida.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/interface_esp32.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669726412.6625066,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/interface_esp32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/contador_m.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/contador_m.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        18,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/contador_m.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        19,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/hex7seg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/hex7seg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        17,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/contadorg_updown_m.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/contadorg_updown_m.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        22,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/contadorg_updown_m.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        23,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/contadorg_updown_m.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "math_real",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        24,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/sagarana.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669726929.1758423,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/sagarana.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/sagarana.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/rom_angulos_128x24.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669726412.6725066,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/rom_angulos_128x24.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        16,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/rom_angulos_128x24.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        15,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/rx_serial_tick_uc.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/rx_serial_tick_uc.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/testador_paridade.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669728289.7791817,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/testador_paridade.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/interface_esp32_uc.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669726412.6625066,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/interface_esp32_uc.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/registrador_n.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/registrador_n.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        20,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/deslocador_n.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/deslocador_n.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        15,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/tx_serial_tick_uc.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/tx_serial_tick_uc.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        15,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/interface_esp32_fd.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669726412.6625066,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/interface_esp32_fd.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669058395.0498545,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/tx_serial_8N2.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1669058395.0498545,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/tx_serial_8N2.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/tx_serial_8N2.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nic/sagarana/fpga/sr_ff.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1667916555.618929,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nic/sagarana/fpga/sr_ff.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   }
+  ],
+  "inferred_libraries": [
+   {
+    "name": "/tmp/tmp7zzv3_cf.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/home/nic/sagarana/fpga/sagarana_fd.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp8s90luzp.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpvxen7ds2.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp9s8urtuw.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/home/nic/sagarana/fpga/sagarana_uc.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpwvfoa47o.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpctoiklk0.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpwop3s29w.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpf8qxhw4_.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpwmavxij8.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpvjojww5s.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmprdoxey1o.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpwxf7dm32.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp7czho8v0.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpqawpmiy4.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpbnqtvp6e.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpkb2mw6se.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpe2cp0cp3.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpg8tj4o72.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpwtp6b34_.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpd0g54usu.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpqaqg1hec.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpzh_h6btg.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp518yjupv.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmprzhfn26p.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpkf0yrfcd.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpbqmwaglt.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp81mwmtfl.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpd2ckmk68.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpmd794aop.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpqqaf68fr.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpmqaenqj8.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpnwl3zro2.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpg81yb7_c.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmphpg4g6r1.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpcse5t8uf.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmptqti80_k.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp5gu1stwx.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpqvhbqutp.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/home/nic/sagarana/fpga/sagarana.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp944pz21i.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpv1ueuefu.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpgur8wj9l.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpmixne3_5.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpfpkfho9m.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/home/nic/sagarana/fpga/testador_paridade.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp3_scl89k.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpqofdtayl.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmphzhj9_i2.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp_un0px6j.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp9cxh7s6h.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp1xafawy9.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmppqheaa15.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpbqynrc65.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp9swtbd60.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpjx06ucrg.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp79v0498h.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpabprlhxc.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpwpir9ho_.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp1oln5x4i.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/home/nic/sagarana/fpga/tx_serial_8N2.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpigy0f6fh.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpwxijvu4d.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmpgiv3c9kw.vhd",
+    "__class__": "Path"
+   }
+  ],
+  "design_units": [
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/sagarana.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "projeto_sagarana",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      4,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/interface_esp32.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "interface_esp32",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      3,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/sagarana_uc.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "sagarana_uc",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      3,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/contador_m.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "contador_m",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      21,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/edge_detector.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "edge_detector",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      20,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/rx_serial_tick_uc.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "rx_serial_uc",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      3,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/contadorg_updown_m.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "contadorg_updown_m",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      26,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/registrador_n.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "registrador_n",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      22,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/mux_4x1_n.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "mux_4x1_n",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      20,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/sr_ff.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "sr_ff",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      4,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/tx_serial_8N2.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tx_serial_8N2",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      4,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/sagarana_fd.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "sagarana_fd",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      5,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/deslocador_n.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "deslocador_n",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      17,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/rx_serial_8N2.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "rx_serial_8N2",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      3,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/gerador_pulso.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "gerador_pulso",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      4,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/tbs/interface_esp32_tb.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "interface_esp32_tb",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      21,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "rx_serial_8N2_fd",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      4,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/edge_detector_descida.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "edge_detector_descida",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      3,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tx_serial_8N2_fd",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      5,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/tx_serial_tick_uc.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tx_serial_uc",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      17,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/interface_esp32_uc.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "interface_esp32_uc",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      3,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/interface_esp32_fd.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "interface_esp32_fd",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      3,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/rom_angulos_128x24.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "rom_angulos_128x24",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      18,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/hex7seg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "hex7seg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      19,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/testador_paridade.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "testador_paridade",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      3,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nic/sagarana/fpga/controle_servo_3.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "controle_servo_3",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      4,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   }
+  ],
+  "__class__": "Database"
+ },
+ "__version__": "0.7.4"
+}

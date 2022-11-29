@@ -19,7 +19,7 @@ end entity;
 
 architecture tx_serial_8N2_fd_arch of tx_serial_8N2_fd is
      
-    component deslocador_n
+    component deslocador_n is
     generic (
         constant N : integer
     );
@@ -34,7 +34,7 @@ architecture tx_serial_8N2_fd_arch of tx_serial_8N2_fd is
     );
     end component;
 
-    component contador_m
+    component contador_m is
     generic (
         constant M : integer := 50;  
         constant N : integer := 6 

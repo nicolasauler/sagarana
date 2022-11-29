@@ -1,0 +1,1555 @@
+Analysis & Synthesis report for projeto_sagarana
+<<<<<<< HEAD
+Mon Nov 28 15:21:32 2022
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+=======
+Mon Nov 21 16:29:32 2022
+Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+>>>>>>> ed23b66 (.)
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |projeto_sagarana|sagarana_uc:UC|Eatual
+  9. State Machine - |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_uc:U1_UC|Eatual
+ 10. State Machine - |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_uc:UC|Eatual
+ 11. State Machine - |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_uc:U1_UC|Eatual
+ 12. State Machine - |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_uc:U1_UC|Eatual
+ 13. User-Specified and Inferred Latches
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Parameter Settings for User Entity Instance: sagarana_fd:FD|registrador_n:REGISTRADOR
+ 20. Parameter Settings for User Entity Instance: sagarana_fd:FD|contador_m:CONTPAUSA
+ 21. Parameter Settings for User Entity Instance: sagarana_fd:FD|contador_m:CONTPULA
+ 22. Parameter Settings for User Entity Instance: sagarana_fd:FD|contadorg_updown_m:CONTPOS
+ 23. Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXPOS
+ 24. Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXDIST
+ 25. Parameter Settings for User Entity Instance: sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1
+ 26. Parameter Settings for User Entity Instance: sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|contador_m:U2
+ 27. Parameter Settings for User Entity Instance: sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|contador_m:U3_TICK
+ 28. Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1
+ 29. Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|contador_m:U2
+ 30. Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|registrador_n:U3
+ 31. Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|contador_m:U3_TICK
+ 32. Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_U
+ 33. Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_D
+ 34. Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_C
+ 35. Parameter Settings for User Entity Instance: sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1
+ 36. Parameter Settings for User Entity Instance: sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|contador_m:U2
+ 37. Parameter Settings for User Entity Instance: sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3
+ 38. Parameter Settings for User Entity Instance: sagarana_fd:FD|rx_serial_8N2:receptor|contador_m:U3_TICK
+ 39. Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX0
+ 40. Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX1
+ 41. Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX2
+ 42. Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX3
+ 43. Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX4
+ 44. Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX5
+ 45. Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX5"
+ 46. Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX4"
+ 47. Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX3"
+ 48. Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX2"
+ 49. Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX1"
+ 50. Port Connectivity Checks: "sagarana_fd:FD|rx_serial_8N2:receptor"
+ 51. Port Connectivity Checks: "sagarana_fd:FD|sr_ff:flipflop_rs"
+ 52. Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|contador_m:U3_TICK"
+ 53. Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|registrador_n:U3"
+ 54. Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|contador_m:U2"
+ 55. Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1"
+ 56. Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR"
+ 57. Port Connectivity Checks: "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|contador_m:U3_TICK"
+ 58. Port Connectivity Checks: "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|contador_m:U2"
+ 59. Port Connectivity Checks: "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1"
+ 60. Port Connectivity Checks: "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR"
+ 61. Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXDIST"
+ 62. Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXPOS"
+ 63. Port Connectivity Checks: "sagarana_fd:FD|contadorg_updown_m:CONTPOS"
+ 64. Port Connectivity Checks: "sagarana_fd:FD|controle_servo_3:SM"
+ 65. Port Connectivity Checks: "sagarana_fd:FD|contador_m:CONTPULA"
+ 66. Port Connectivity Checks: "sagarana_fd:FD|contador_m:CONTPAUSA"
+ 67. Post-Synthesis Netlist Statistics for Top Partition
+ 68. Elapsed Time Per Partition
+ 69. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+<<<<<<< HEAD
+; Analysis & Synthesis Status     ; Successful - Mon Nov 28 15:21:32 2022       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+=======
+; Analysis & Synthesis Status     ; Successful - Mon Nov 21 16:29:32 2022       ;
+; Quartus Prime Version           ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
+>>>>>>> ed23b66 (.)
+; Revision Name                   ; projeto_sagarana                            ;
+; Top-level Entity Name           ; projeto_sagarana                            ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+<<<<<<< HEAD
+; Total registers                 ; 275                                         ;
+; Total pins                      ; 58                                          ;
+=======
+; Total registers                 ; 220                                         ;
+; Total pins                      ; 59                                          ;
+>>>>>>> ed23b66 (.)
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; projeto_sagarana   ; projeto_sagarana   ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
+<<<<<<< HEAD
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                      ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; rom_angulos_128x24.vhd           ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rom_angulos_128x24.vhd ;         ;
+; tx_serial_8N2_fd.vhd             ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2_fd.vhd   ;         ;
+; tx_serial_8N2.vhd                ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2.vhd      ;         ;
+; rx_serial_8N2_fd.vhd             ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2_fd.vhd   ;         ;
+; rx_serial_8N2.vhd                ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2.vhd      ;         ;
+; tx_serial_tick_uc.vhd            ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_tick_uc.vhd  ;         ;
+; sr_ff.vhd                        ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sr_ff.vhd              ;         ;
+; rx_serial_tick_uc.vhd            ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_tick_uc.vhd  ;         ;
+; registrador_n.vhd                ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/registrador_n.vhd      ;         ;
+; mux_4x1_n.vhd                    ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/mux_4x1_n.vhd          ;         ;
+; hex7seg.vhd                      ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/hex7seg.vhd            ;         ;
+; edge_detector.vhd                ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/edge_detector.vhd      ;         ;
+; deslocador_n.vhd                 ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/deslocador_n.vhd       ;         ;
+; controle_servo_3.vhd             ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd   ;         ;
+; contadorg_updown_m.vhd           ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/contadorg_updown_m.vhd ;         ;
+; contador_m.vhd                   ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/contador_m.vhd         ;         ;
+; sagarana_uc.vhd                  ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_uc.vhd        ;         ;
+; sagarana_fd.vhd                  ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd        ;         ;
+; interface_esp32.vhd              ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32.vhd    ;         ;
+; interface_esp32_fd.vhd           ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32_fd.vhd ;         ;
+; interface_esp32_uc.vhd           ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32_uc.vhd ;         ;
+; sagarana.vhd                     ; yes             ; User VHDL File  ; C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana.vhd           ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------+---------+
+=======
++---------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                          ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                   ; Library ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
+; tx_serial_8N2_fd.vhd             ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd   ;         ;
+; tx_serial_8N2.vhd                ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/tx_serial_8N2.vhd      ;         ;
+; rx_serial_8N2_fd.vhd             ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd   ;         ;
+; rx_serial_8N2.vhd                ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/rx_serial_8N2.vhd      ;         ;
+; tx_serial_tick_uc.vhd            ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/tx_serial_tick_uc.vhd  ;         ;
+; sr_ff.vhd                        ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/sr_ff.vhd              ;         ;
+; rx_serial_tick_uc.vhd            ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/rx_serial_tick_uc.vhd  ;         ;
+; rom_angulos_8x24.vhd             ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/rom_angulos_8x24.vhd   ;         ;
+; registrador_n.vhd                ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/registrador_n.vhd      ;         ;
+; mux_4x1_n.vhd                    ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/mux_4x1_n.vhd          ;         ;
+; hex7seg.vhd                      ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/hex7seg.vhd            ;         ;
+; edge_detector.vhd                ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/edge_detector.vhd      ;         ;
+; deslocador_n.vhd                 ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/deslocador_n.vhd       ;         ;
+; controle_servo_3.vhd             ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/controle_servo_3.vhd   ;         ;
+; contadorg_updown_m.vhd           ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/contadorg_updown_m.vhd ;         ;
+; contador_m.vhd                   ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/contador_m.vhd         ;         ;
+; sagarana_uc.vhd                  ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/sagarana_uc.vhd        ;         ;
+; sagarana_fd.vhd                  ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/sagarana_fd.vhd        ;         ;
+; interface_esp32.vhd              ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/interface_esp32.vhd    ;         ;
+; interface_esp32_fd.vhd           ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/interface_esp32_fd.vhd ;         ;
+; interface_esp32_uc.vhd           ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/interface_esp32_uc.vhd ;         ;
+; sagarana.vhd                     ; yes             ; User VHDL File  ; /home/nic/sagarana/fpga/sagarana.vhd           ;         ;
++----------------------------------+-----------------+-----------------+------------------------------------------------+---------+
+>>>>>>> ed23b66 (.)
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+<<<<<<< HEAD
+; Estimate of Logic utilization (ALMs needed) ; 276         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 474         ;
+;     -- 7 input functions                    ; 3           ;
+;     -- 6 input functions                    ; 68          ;
+;     -- 5 input functions                    ; 41          ;
+;     -- 4 input functions                    ; 95          ;
+;     -- <=3 input functions                  ; 267         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 275         ;
+=======
+; Estimate of Logic utilization (ALMs needed) ; 210         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 378         ;
+;     -- 7 input functions                    ; 5           ;
+;     -- 6 input functions                    ; 32          ;
+;     -- 5 input functions                    ; 26          ;
+;     -- 4 input functions                    ; 112         ;
+;     -- <=3 input functions                  ; 203         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 220         ;
+>>>>>>> ed23b66 (.)
+;                                             ;             ;
+; I/O pins                                    ; 58          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+<<<<<<< HEAD
+; Maximum fan-out                             ; 275         ;
+; Total fan-out                               ; 2775        ;
+; Average fan-out                             ; 3.21        ;
+=======
+; Maximum fan-out                             ; 220         ;
+; Total fan-out                               ; 2181        ;
+; Average fan-out                             ; 3.05        ;
+>>>>>>> ed23b66 (.)
++---------------------------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                    ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name        ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+<<<<<<< HEAD
+; |projeto_sagarana                       ; 474 (0)             ; 275 (0)                   ; 0                 ; 0          ; 58   ; 0            ; |projeto_sagarana                                                                                                                               ; projeto_sagarana   ; work         ;
+;    |sagarana_fd:FD|                     ; 448 (12)            ; 257 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD                                                                                                                ; sagarana_fd        ; work         ;
+;       |contador_m:CONTPAUSA|            ; 26 (26)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|contador_m:CONTPAUSA                                                                                           ; contador_m         ; work         ;
+;       |contador_m:CONTPULA|             ; 31 (31)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|contador_m:CONTPULA                                                                                            ; contador_m         ; work         ;
+;       |contadorg_updown_m:CONTPOS|      ; 12 (12)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|contadorg_updown_m:CONTPOS                                                                                     ; contadorg_updown_m ; work         ;
+;       |controle_servo_3:SM|             ; 133 (133)           ; 38 (38)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|controle_servo_3:SM                                                                                            ; controle_servo_3   ; work         ;
+=======
+; |projeto_sagarana                       ; 378 (0)             ; 220 (0)                   ; 0                 ; 0          ; 59   ; 0            ; |projeto_sagarana                                                                                                                               ; projeto_sagarana   ; work         ;
+;    |sagarana_fd:FD|                     ; 356 (8)             ; 203 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD                                                                                                                ; sagarana_fd        ; work         ;
+;       |contador_m:CONT2S|               ; 25 (25)             ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|contador_m:CONT2S                                                                                              ; contador_m         ; work         ;
+;       |contadorg_updown_m:CONTPOS|      ; 6 (6)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|contadorg_updown_m:CONTPOS                                                                                     ; contadorg_updown_m ; work         ;
+;       |controle_servo_3:SM|             ; 102 (102)           ; 36 (36)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|controle_servo_3:SM                                                                                            ; controle_servo_3   ; work         ;
+>>>>>>> ed23b66 (.)
+;       |edge_detector:edge|              ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|edge_detector:edge                                                                                             ; edge_detector      ; work         ;
+;       |hex7seg:hexa0|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|hex7seg:hexa0                                                                                                  ; hex7seg            ; work         ;
+;       |hex7seg:hexa1|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|hex7seg:hexa1                                                                                                  ; hex7seg            ; work         ;
+;       |hex7seg:hexa2|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|hex7seg:hexa2                                                                                                  ; hex7seg            ; work         ;
+;       |hex7seg:hexa3|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|hex7seg:hexa3                                                                                                  ; hex7seg            ; work         ;
+;       |hex7seg:hexa4|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|hex7seg:hexa4                                                                                                  ; hex7seg            ; work         ;
+;       |hex7seg:hexa5|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|hex7seg:hexa5                                                                                                  ; hex7seg            ; work         ;
+;       |interface_esp32:interface|       ; 53 (0)              ; 71 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface                                                                                      ; interface_esp32    ; work         ;
+;          |interface_esp32_fd:FD|        ; 43 (0)              ; 62 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD                                                                ; interface_esp32_fd ; work         ;
+;             |registrador_n:REG_C|       ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_C                                            ; registrador_n      ; work         ;
+;             |registrador_n:REG_D|       ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_D                                            ; registrador_n      ; work         ;
+;             |registrador_n:REG_U|       ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_U                                            ; registrador_n      ; work         ;
+;             |rx_serial_8N2:RECEPTOR|    ; 43 (0)              ; 38 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR                                         ; rx_serial_8N2      ; work         ;
+;                |contador_m:U3_TICK|     ; 13 (13)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|contador_m:U3_TICK                      ; contador_m         ; work         ;
+;                |rx_serial_8N2_fd:U2_FD| ; 22 (0)              ; 22 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD                  ; rx_serial_8N2_fd   ; work         ;
+;                   |contador_m:U2|       ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|contador_m:U2    ; contador_m         ; work         ;
+;                   |deslocador_n:U1|     ; 10 (10)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1  ; deslocador_n       ; work         ;
+;                   |registrador_n:U3|    ; 8 (8)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|registrador_n:U3 ; registrador_n      ; work         ;
+;                |rx_serial_uc:U1_UC|     ; 8 (8)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_uc:U1_UC                      ; rx_serial_uc       ; work         ;
+;          |interface_esp32_uc:UC|        ; 10 (10)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_uc:UC                                                                ; interface_esp32_uc ; work         ;
+;       |mux_4x1_n:MUXDIST|               ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXDIST                                                                                              ; mux_4x1_n          ; work         ;
+;       |mux_4x1_n:MUXHEX0|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX0                                                                                              ; mux_4x1_n          ; work         ;
+;       |mux_4x1_n:MUXHEX1|               ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX1                                                                                              ; mux_4x1_n          ; work         ;
+;       |mux_4x1_n:MUXHEX2|               ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX2                                                                                              ; mux_4x1_n          ; work         ;
+;       |mux_4x1_n:MUXHEX3|               ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX3                                                                                              ; mux_4x1_n          ; work         ;
+;       |mux_4x1_n:MUXHEX4|               ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX4                                                                                              ; mux_4x1_n          ; work         ;
+;       |mux_4x1_n:MUXHEX5|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX5                                                                                              ; mux_4x1_n          ; work         ;
+;       |registrador_n:REGISTRADOR|       ; 0 (0)               ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|registrador_n:REGISTRADOR                                                                                      ; registrador_n      ; work         ;
+;       |rom_angulos_128x24:ROM|          ; 25 (25)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|rom_angulos_128x24:ROM                                                                                         ; rom_angulos_128x24 ; work         ;
+;       |rx_serial_8N2:receptor|          ; 43 (0)              ; 38 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor                                                                                         ; rx_serial_8N2      ; work         ;
+;          |contador_m:U3_TICK|           ; 13 (13)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|contador_m:U3_TICK                                                                      ; contador_m         ; work         ;
+;          |rx_serial_8N2_fd:U2_FD|       ; 22 (0)              ; 22 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD                                                                  ; rx_serial_8N2_fd   ; work         ;
+;             |contador_m:U2|             ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|contador_m:U2                                                    ; contador_m         ; work         ;
+;             |deslocador_n:U1|           ; 10 (10)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1                                                  ; deslocador_n       ; work         ;
+;             |registrador_n:U3|          ; 8 (8)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3                                                 ; registrador_n      ; work         ;
+;          |rx_serial_uc:U1_UC|           ; 8 (8)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_uc:U1_UC                                                                      ; rx_serial_uc       ; work         ;
+;       |sr_ff:flipflop_rs|               ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|sr_ff:flipflop_rs                                                                                              ; sr_ff              ; work         ;
+;       |tx_serial_8N2:TRANSMISSOR|       ; 38 (0)              ; 29 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR                                                                                      ; tx_serial_8N2      ; work         ;
+;          |contador_m:U3_TICK|           ; 11 (11)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|contador_m:U3_TICK                                                                   ; contador_m         ; work         ;
+;          |edge_detector:U4_ED|          ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|edge_detector:U4_ED                                                                  ; edge_detector      ; work         ;
+;          |tx_serial_8N2_fd:U2_FD|       ; 22 (0)              ; 14 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD                                                               ; tx_serial_8N2_fd   ; work         ;
+;             |contador_m:U2|             ; 5 (5)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|contador_m:U2                                                 ; contador_m         ; work         ;
+;             |deslocador_n:U1|           ; 17 (17)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1                                               ; deslocador_n       ; work         ;
+;          |tx_serial_uc:U1_UC|           ; 5 (5)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_uc:U1_UC                                                                   ; tx_serial_uc       ; work         ;
+;    |sagarana_uc:UC|                     ; 26 (26)             ; 18 (18)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto_sagarana|sagarana_uc:UC                                                                                                                ; sagarana_uc        ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |projeto_sagarana|sagarana_uc:UC|Eatual                                                                                                                                                                                                                                                                                                                                                                                                   ;
++---------------------------+----------------+-------------------------+------------------------+---------------------------+-----------------------+--------------------------+----------------------+-------------------------+-----------------------+--------------------------+--------------------+----------------------+----------------------+-----------------------+--------------------+-------------------+-------------------+----------------+
+; Name                      ; Eatual.fim_pos ; Eatual.muda_transmissao ; Eatual.espera_especial ; Eatual.transmite_especial ; Eatual.espera_unidade ; Eatual.transmite_unidade ; Eatual.espera_dezena ; Eatual.transmite_dezena ; Eatual.espera_centena ; Eatual.transmite_centena ; Eatual.pula_medida ; Eatual.armazena_dado ; Eatual.aguarda_dados ; Eatual.solicita_dados ; Eatual.esperaPausa ; Eatual.contaPausa ; Eatual.preparacao ; Eatual.inicial ;
++---------------------------+----------------+-------------------------+------------------------+---------------------------+-----------------------+--------------------------+----------------------+-------------------------+-----------------------+--------------------------+--------------------+----------------------+----------------------+-----------------------+--------------------+-------------------+-------------------+----------------+
+; Eatual.inicial            ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 0              ;
+; Eatual.preparacao         ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 1                 ; 1              ;
+; Eatual.contaPausa         ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 1                 ; 0                 ; 1              ;
+; Eatual.esperaPausa        ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 1                  ; 0                 ; 0                 ; 1              ;
+; Eatual.solicita_dados     ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 1                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.aguarda_dados      ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 1                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.armazena_dado      ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 1                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.pula_medida        ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 1                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.transmite_centena  ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 1                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.espera_centena     ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 1                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.transmite_dezena   ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 1                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.espera_dezena      ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 1                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.transmite_unidade  ; 0              ; 0                       ; 0                      ; 0                         ; 0                     ; 1                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.espera_unidade     ; 0              ; 0                       ; 0                      ; 0                         ; 1                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.transmite_especial ; 0              ; 0                       ; 0                      ; 1                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.espera_especial    ; 0              ; 0                       ; 1                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.muda_transmissao   ; 0              ; 1                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
+; Eatual.fim_pos            ; 1              ; 0                       ; 0                      ; 0                         ; 0                     ; 0                        ; 0                    ; 0                       ; 0                     ; 0                        ; 0                  ; 0                    ; 0                    ; 0                     ; 0                  ; 0                 ; 0                 ; 1              ;
++---------------------------+----------------+-------------------------+------------------------+---------------------------+-----------------------+--------------------------+----------------------+-------------------------+-----------------------+--------------------------+--------------------+----------------------+----------------------+-----------------------+--------------------+-------------------+-------------------+----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_uc:U1_UC|Eatual                                                        ;
++----------------------+----------------------+--------------+----------------------+-----------------+---------------+-------------------+----------------+
+; Name                 ; Eatual.dado_presente ; Eatual.final ; Eatual.armazenamento ; Eatual.recepcao ; Eatual.espera ; Eatual.preparacao ; Eatual.inicial ;
++----------------------+----------------------+--------------+----------------------+-----------------+---------------+-------------------+----------------+
+; Eatual.inicial       ; 0                    ; 0            ; 0                    ; 0               ; 0             ; 0                 ; 0              ;
+; Eatual.preparacao    ; 0                    ; 0            ; 0                    ; 0               ; 0             ; 1                 ; 1              ;
+; Eatual.espera        ; 0                    ; 0            ; 0                    ; 0               ; 1             ; 0                 ; 1              ;
+; Eatual.recepcao      ; 0                    ; 0            ; 0                    ; 1               ; 0             ; 0                 ; 1              ;
+; Eatual.armazenamento ; 0                    ; 0            ; 1                    ; 0               ; 0             ; 0                 ; 1              ;
+; Eatual.final         ; 0                    ; 1            ; 0                    ; 0               ; 0             ; 0                 ; 1              ;
+; Eatual.dado_presente ; 1                    ; 0            ; 0                    ; 0               ; 0             ; 0                 ; 1              ;
++----------------------+----------------------+--------------+----------------------+-----------------+---------------+-------------------+----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_uc:UC|Eatual                                                                                                                            ;
++-------------------------+--------------+-------------------------+------------------------+------------------------+-----------------------+-------------------------+------------------------+-------------------+----------------+
+; Name                    ; Eatual.final ; Eatual.armazena_centena ; Eatual.aguarda_centena ; Eatual.armazena_dezena ; Eatual.aguarda_dezena ; Eatual.armazena_unidade ; Eatual.aguarda_unidade ; Eatual.preparacao ; Eatual.inicial ;
++-------------------------+--------------+-------------------------+------------------------+------------------------+-----------------------+-------------------------+------------------------+-------------------+----------------+
+; Eatual.inicial          ; 0            ; 0                       ; 0                      ; 0                      ; 0                     ; 0                       ; 0                      ; 0                 ; 0              ;
+; Eatual.preparacao       ; 0            ; 0                       ; 0                      ; 0                      ; 0                     ; 0                       ; 0                      ; 1                 ; 1              ;
+; Eatual.aguarda_unidade  ; 0            ; 0                       ; 0                      ; 0                      ; 0                     ; 0                       ; 1                      ; 0                 ; 1              ;
+; Eatual.armazena_unidade ; 0            ; 0                       ; 0                      ; 0                      ; 0                     ; 1                       ; 0                      ; 0                 ; 1              ;
+; Eatual.aguarda_dezena   ; 0            ; 0                       ; 0                      ; 0                      ; 1                     ; 0                       ; 0                      ; 0                 ; 1              ;
+; Eatual.armazena_dezena  ; 0            ; 0                       ; 0                      ; 1                      ; 0                     ; 0                       ; 0                      ; 0                 ; 1              ;
+; Eatual.aguarda_centena  ; 0            ; 0                       ; 1                      ; 0                      ; 0                     ; 0                       ; 0                      ; 0                 ; 1              ;
+; Eatual.armazena_centena ; 0            ; 1                       ; 0                      ; 0                      ; 0                     ; 0                       ; 0                      ; 0                 ; 1              ;
+; Eatual.final            ; 1            ; 0                       ; 0                      ; 0                      ; 0                     ; 0                       ; 0                      ; 0                 ; 1              ;
++-------------------------+--------------+-------------------------+------------------------+------------------------+-----------------------+-------------------------+------------------------+-------------------+----------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_uc:U1_UC|Eatual        ;
++----------------------+----------------------+--------------+----------------------+-----------------+---------------+-------------------+----------------+
+; Name                 ; Eatual.dado_presente ; Eatual.final ; Eatual.armazenamento ; Eatual.recepcao ; Eatual.espera ; Eatual.preparacao ; Eatual.inicial ;
++----------------------+----------------------+--------------+----------------------+-----------------+---------------+-------------------+----------------+
+; Eatual.inicial       ; 0                    ; 0            ; 0                    ; 0               ; 0             ; 0                 ; 0              ;
+; Eatual.preparacao    ; 0                    ; 0            ; 0                    ; 0               ; 0             ; 1                 ; 1              ;
+; Eatual.espera        ; 0                    ; 0            ; 0                    ; 0               ; 1             ; 0                 ; 1              ;
+; Eatual.recepcao      ; 0                    ; 0            ; 0                    ; 1               ; 0             ; 0                 ; 1              ;
+; Eatual.armazenamento ; 0                    ; 0            ; 1                    ; 0               ; 0             ; 0                 ; 1              ;
+; Eatual.final         ; 0                    ; 1            ; 0                    ; 0               ; 0             ; 0                 ; 1              ;
+; Eatual.dado_presente ; 1                    ; 0            ; 0                    ; 0               ; 0             ; 0                 ; 1              ;
++----------------------+----------------------+--------------+----------------------+-----------------+---------------+-------------------+----------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------+
+; State Machine - |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_uc:U1_UC|Eatual        ;
++--------------------+--------------+--------------------+---------------+-------------------+----------------+
+; Name               ; Eatual.final ; Eatual.transmissao ; Eatual.espera ; Eatual.preparacao ; Eatual.inicial ;
++--------------------+--------------+--------------------+---------------+-------------------+----------------+
+; Eatual.inicial     ; 0            ; 0                  ; 0             ; 0                 ; 0              ;
+; Eatual.preparacao  ; 0            ; 0                  ; 0             ; 1                 ; 1              ;
+; Eatual.espera      ; 0            ; 0                  ; 1             ; 0                 ; 1              ;
+; Eatual.transmissao ; 0            ; 1                  ; 0             ; 0                 ; 1              ;
+; Eatual.final       ; 1            ; 0                  ; 0             ; 0                 ; 1              ;
++--------------------+--------------+--------------------+---------------+-------------------+----------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; sagarana_fd:FD|s_iniciar                           ; sagarana_fd:FD|Mux0 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                 ;
++-------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                             ; Reason for Removal                     ;
++-------------------------------------------------------------------------------------------+----------------------------------------+
+; sagarana_fd:FD|controle_servo_3:SM|largura_servo[17..19]                                  ; Stuck at GND due to stuck port data_in ;
+; sagarana_fd:FD|sr_ff:flipflop_rs|tmp~en                                                   ; Lost fanout                            ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[10,11] ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 6                                                     ;                                        ;
++-------------------------------------------------------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                 ;
++----------------------------------------------------------------------------------------+---------------------------+----------------------------------------------------------------------------------------+
+; Register name                                                                          ; Reason for Removal        ; Registers Removed due to This Register                                                 ;
++----------------------------------------------------------------------------------------+---------------------------+----------------------------------------------------------------------------------------+
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[11] ; Stuck at VCC              ; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[10] ;
+;                                                                                        ; due to stuck port data_in ;                                                                                        ;
++----------------------------------------------------------------------------------------+---------------------------+----------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+<<<<<<< HEAD
+; Total registers                              ; 275   ;
+; Number of registers using Synchronous Clear  ; 94    ;
+; Number of registers using Synchronous Load   ; 13    ;
+; Number of registers using Asynchronous Clear ; 271   ;
+=======
+; Total registers                              ; 220   ;
+; Number of registers using Synchronous Clear  ; 67    ;
+; Number of registers using Synchronous Load   ; 6     ;
+; Number of registers using Asynchronous Clear ; 214   ;
+>>>>>>> ed23b66 (.)
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 127   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                  ;
++-------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                   ; Fan out ;
++-------------------------------------------------------------------------------------------------------------------------------------+---------+
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[2]                                               ; 1       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[3]                                               ; 1       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[4]                                               ; 1       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[5]                                               ; 1       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[6]                                               ; 1       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[7]                                               ; 1       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[0]                                               ; 2       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[1]                                               ; 1       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[1]                                                  ; 1       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[2]                                                  ; 2       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[3]                                                  ; 2       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[4]                                                  ; 2       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[5]                                                  ; 2       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[6]                                                  ; 2       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[7]                                                  ; 2       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[8]                                                  ; 2       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[9]                                                  ; 1       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[1]  ; 1       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[2]  ; 2       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[3]  ; 2       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[4]  ; 2       ;
+; sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[10]                                                 ; 1       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[5]  ; 2       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[6]  ; 2       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[7]  ; 2       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[8]  ; 2       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[8]                                               ; 1       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[9]  ; 1       ;
+; sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[9]                                               ; 1       ;
+; sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[10] ; 1       ;
+; Total number of inverted registers = 30                                                                                             ;         ;
++-------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+<<<<<<< HEAD
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |projeto_sagarana|sagarana_fd:FD|contadorg_updown_m:CONTPOS|IQ[0]                                                                                    ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[4]                                                 ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[4] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[1]                                              ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[9]                                              ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[3]                                              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX5|MUX_OUT[1]                                                                                        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_uc:UC|Eprox.muda_transmissao                                                                                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX1|MUX_OUT[0]                                                                                        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX2|MUX_OUT[0]                                                                                        ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX0|MUX_OUT[2]                                                                                        ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX4|MUX_OUT[2]                                                                                        ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX3|MUX_OUT[3]                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|registrador_n:REGISTRADOR ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 24    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|contador_m:CONTPAUSA ;
++----------------+---------+-------------------------------------------------------+
+; Parameter Name ; Value   ; Type                                                  ;
++----------------+---------+-------------------------------------------------------+
+; m              ; 1500000 ; Signed Integer                                        ;
+; n              ; 27      ; Signed Integer                                        ;
++----------------+---------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|contador_m:CONTPULA ;
++----------------+----------+-----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                ;
++----------------+----------+-----------------------------------------------------+
+; m              ; 50000000 ; Signed Integer                                      ;
+; n              ; 27       ; Signed Integer                                      ;
++----------------+----------+-----------------------------------------------------+
+=======
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |projeto_sagarana|sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[9]                                                 ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |projeto_sagarana|sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[8] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[1]                                              ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[8]                                              ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |projeto_sagarana|sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1|IQ[5]                                              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX5|MUX_OUT[1]                                                                                        ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_uc:UC|Eprox.fim_pos                                                                                                       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX2|MUX_OUT[1]                                                                                        ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX0|MUX_OUT[0]                                                                                        ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |projeto_sagarana|sagarana_fd:FD|mux_4x1_n:MUXHEX3|MUX_OUT[3]                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|contador_m:CONT2S ;
++----------------+---------+----------------------------------------------------+
+; Parameter Name ; Value   ; Type                                               ;
++----------------+---------+----------------------------------------------------+
+; m              ; 1000000 ; Signed Integer                                     ;
+; n              ; 27      ; Signed Integer                                     ;
++----------------+---------+----------------------------------------------------+
+>>>>>>> ed23b66 (.)
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|contadorg_updown_m:CONTPOS ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; m              ; 128   ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXPOS ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; bits           ; 8     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXDIST ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; bits           ; 8     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1 ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+; n              ; 12    ; Signed Integer                                                                                      ;
++----------------+-------+-----------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|contador_m:U2 ;
++----------------+-------+---------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                              ;
++----------------+-------+---------------------------------------------------------------------------------------------------+
+; m              ; 13    ; Signed Integer                                                                                    ;
+; n              ; 4     ; Signed Integer                                                                                    ;
++----------------+-------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|contador_m:U3_TICK ;
++----------------+-------+---------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------+
+; m              ; 434   ; Signed Integer                                                                  ;
+; n              ; 13    ; Signed Integer                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1 ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                             ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; n              ; 11    ; Signed Integer                                                                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|contador_m:U2 ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; m              ; 12    ; Signed Integer                                                                                                                                 ;
+; n              ; 4     ; Signed Integer                                                                                                                                 ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|registrador_n:U3 ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                              ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; n              ; 11    ; Signed Integer                                                                                                                                    ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|contador_m:U3_TICK ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                         ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------+
+; m              ; 434   ; Signed Integer                                                                                                               ;
+; n              ; 12    ; Signed Integer                                                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_U ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                                                         ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_D ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                                                         ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_C ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+; n              ; 8     ; Signed Integer                                                                                         ;
++----------------+-------+--------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|deslocador_n:U1 ;
++----------------+-------+--------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                             ;
++----------------+-------+--------------------------------------------------------------------------------------------------+
+; n              ; 11    ; Signed Integer                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|contador_m:U2 ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                           ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+; m              ; 12    ; Signed Integer                                                                                 ;
+; n              ; 4     ; Signed Integer                                                                                 ;
++----------------+-------+------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3 ;
++----------------+-------+---------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                              ;
++----------------+-------+---------------------------------------------------------------------------------------------------+
+; n              ; 11    ; Signed Integer                                                                                    ;
++----------------+-------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|rx_serial_8N2:receptor|contador_m:U3_TICK ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; m              ; 434   ; Signed Integer                                                               ;
+; n              ; 12    ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX0 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; bits           ; 4     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX1 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; bits           ; 4     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX2 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; bits           ; 4     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX3 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; bits           ; 4     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX4 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; bits           ; 4     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sagarana_fd:FD|mux_4x1_n:MUXHEX5 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; bits           ; 4     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX5" ;
++------+-------+----------+------------------------------------+
+; Port ; Type  ; Severity ; Details                            ;
++------+-------+----------+------------------------------------+
+; d3   ; Input ; Info     ; Stuck at VCC                       ;
++------+-------+----------+------------------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX4" ;
++------+-------+----------+------------------------------------+
+; Port ; Type  ; Severity ; Details                            ;
++------+-------+----------+------------------------------------+
+; d3   ; Input ; Info     ; Stuck at VCC                       ;
+; d2   ; Input ; Info     ; Stuck at VCC                       ;
+; d1   ; Input ; Info     ; Stuck at VCC                       ;
++------+-------+----------+------------------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX3" ;
++------+-------+----------+------------------------------------+
+; Port ; Type  ; Severity ; Details                            ;
++------+-------+----------+------------------------------------+
+; d3   ; Input ; Info     ; Stuck at VCC                       ;
+; d1   ; Input ; Info     ; Stuck at VCC                       ;
++------+-------+----------+------------------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX2" ;
++------+-------+----------+------------------------------------+
+; Port ; Type  ; Severity ; Details                            ;
++------+-------+----------+------------------------------------+
+; d3   ; Input ; Info     ; Stuck at VCC                       ;
++------+-------+----------+------------------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXHEX1" ;
++------+-------+----------+------------------------------------+
+; Port ; Type  ; Severity ; Details                            ;
++------+-------+----------+------------------------------------+
+; d3   ; Input ; Info     ; Stuck at VCC                       ;
+; d2   ; Input ; Info     ; Stuck at VCC                       ;
++------+-------+----------+------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|rx_serial_8N2:receptor"                                                        ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; tem_dado       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pronto_rx      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; db_dado_serial ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|sr_ff:flipflop_rs"                                                   ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; qbar ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|contador_m:U3_TICK" ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                  ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; conta ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; q     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; fim   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|registrador_n:U3" ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                    ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; q[10..9] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                        ;
+; q[0]     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                        ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|contador_m:U2" ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                     ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                         ;
+; meio ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                         ;
++------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1" ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                       ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; dados ; Input ; Info     ; Stuck at VCC                                                                                                                  ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR"        ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; tem_dado       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; db_dado_serial ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|contador_m:U3_TICK"                                              ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                  ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; conta ; Input  ; Info     ; Stuck at VCC                                                                                             ;
+; q     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; meio  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|contador_m:U2"      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; meio ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1"              ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; entrada_serial ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; dados[11..10]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; dados[1]       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; dados[0]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; saida[11..1]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR"                                                      ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; db_tick         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; db_saida_serial ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; db_estado       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXDIST" ;
++----------+-------+----------+--------------------------------+
+; Port     ; Type  ; Severity ; Details                        ;
++----------+-------+----------+--------------------------------+
+; d3[1..0] ; Input ; Info     ; Stuck at VCC                   ;
+; d3[7..6] ; Input ; Info     ; Stuck at GND                   ;
+; d3[4..2] ; Input ; Info     ; Stuck at GND                   ;
+; d3[5]    ; Input ; Info     ; Stuck at VCC                   ;
++----------+-------+----------+--------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|mux_4x1_n:MUXPOS" ;
++----------+-------+----------+-------------------------------+
+; Port     ; Type  ; Severity ; Details                       ;
++----------+-------+----------+-------------------------------+
+; d3[3..2] ; Input ; Info     ; Stuck at VCC                  ;
+; d3[7..6] ; Input ; Info     ; Stuck at GND                  ;
+; d3[1..0] ; Input ; Info     ; Stuck at GND                  ;
+; d3[5]    ; Input ; Info     ; Stuck at VCC                  ;
+; d3[4]    ; Input ; Info     ; Stuck at GND                  ;
++----------+-------+----------+-------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|contadorg_updown_m:CONTPOS"                                            ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; zera_s ; Input  ; Info     ; Stuck at GND                                                                        ;
+; inicio ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; fim    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; meio   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|controle_servo_3:SM"                                                       ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; db_posicao ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|contador_m:CONTPULA"                                                  ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; conta ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; q     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; meio  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sagarana_fd:FD|contador_m:CONTPAUSA"                                                 ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; conta ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; q     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; meio  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+<<<<<<< HEAD
+; arriav_ff             ; 275                         ;
+;     CLR               ; 50                          ;
+;     CLR SCLR          ; 94                          ;
+;     ENA CLR           ; 114                         ;
+;     ENA CLR SLD       ; 13                          ;
+;     plain             ; 4                           ;
+; arriav_lcell_comb     ; 484                         ;
+;     arith             ; 101                         ;
+;         1 data inputs ; 95                          ;
+;         2 data inputs ; 6                           ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 380                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 29                          ;
+;         2 data inputs ; 73                          ;
+;         3 data inputs ; 73                          ;
+;         4 data inputs ; 95                          ;
+;         5 data inputs ; 41                          ;
+;         6 data inputs ; 68                          ;
+; boundary_port         ; 58                          ;
+;                       ;                             ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 2.88                        ;
+=======
+; arriav_ff             ; 220                         ;
+;     CLR               ; 47                          ;
+;     CLR SCLR          ; 67                          ;
+;     ENA               ; 2                           ;
+;     ENA CLR           ; 94                          ;
+;     ENA CLR SLD       ; 6                           ;
+;     plain             ; 4                           ;
+; arriav_io_obuf        ; 1                           ;
+; arriav_lcell_comb     ; 391                         ;
+;     arith             ; 67                          ;
+;         1 data inputs ; 67                          ;
+;     extend            ; 5                           ;
+;         7 data inputs ; 5                           ;
+;     normal            ; 319                         ;
+;         1 data inputs ; 35                          ;
+;         2 data inputs ; 61                          ;
+;         3 data inputs ; 53                          ;
+;         4 data inputs ; 112                         ;
+;         5 data inputs ; 26                          ;
+;         6 data inputs ; 32                          ;
+; boundary_port         ; 59                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.46                        ;
+>>>>>>> ed23b66 (.)
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+<<<<<<< HEAD
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Mon Nov 28 15:21:16 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto_sagarana -c projeto_sagarana
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file testador_paridade.vhd
+    Info (12022): Found design unit 1: testador_paridade-rtl File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/testador_paridade.vhd Line: 35
+    Info (12023): Found entity 1: testador_paridade File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/testador_paridade.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file rom_angulos_128x24.vhd
+    Info (12022): Found design unit 1: rom_angulos_128x24-rom_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rom_angulos_128x24.vhd Line: 26
+    Info (12023): Found entity 1: rom_angulos_128x24 File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rom_angulos_128x24.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file tx_serial_8n2_fd.vhd
+    Info (12022): Found design unit 1: tx_serial_8N2_fd-tx_serial_8N2_fd_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2_fd.vhd Line: 20
+    Info (12023): Found entity 1: tx_serial_8N2_fd File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2_fd.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file tx_serial_8n2.vhd
+    Info (12022): Found design unit 1: tx_serial_8N2-tx_serial_8N2_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2.vhd Line: 19
+    Info (12023): Found entity 1: tx_serial_8N2 File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rx_serial_8n2_fd.vhd
+    Info (12022): Found design unit 1: rx_serial_8N2_fd-rx_serial_8N2_fd_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2_fd.vhd Line: 21
+    Info (12023): Found entity 1: rx_serial_8N2_fd File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2_fd.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rx_serial_8n2.vhd
+    Info (12022): Found design unit 1: rx_serial_8N2-rx_serial_8N2_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2.vhd Line: 17
+    Info (12023): Found entity 1: rx_serial_8N2 File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file tx_serial_tick_uc.vhd
+    Info (12022): Found design unit 1: tx_serial_uc-tx_serial_uc_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_tick_uc.vhd Line: 34
+    Info (12023): Found entity 1: tx_serial_uc File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_tick_uc.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file sr_ff.vhd
+    Info (12022): Found design unit 1: sr_ff-behavioral File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sr_ff.vhd Line: 11
+    Info (12023): Found entity 1: sr_ff File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sr_ff.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rx_serial_tick_uc.vhd
+    Info (12022): Found design unit 1: rx_serial_uc-rx_serial_uc_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_tick_uc.vhd Line: 23
+    Info (12023): Found entity 1: rx_serial_uc File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_tick_uc.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file registrador_n.vhd
+    Info (12022): Found design unit 1: registrador_n-registrador_n File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/registrador_n.vhd Line: 36
+    Info (12023): Found entity 1: registrador_n File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/registrador_n.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file mux_4x1_n.vhd
+    Info (12022): Found design unit 1: mux_4x1_n-arch_mux_4x1_n File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/mux_4x1_n.vhd Line: 35
+    Info (12023): Found entity 1: mux_4x1_n File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/mux_4x1_n.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file hex7seg.vhd
+    Info (12022): Found design unit 1: hex7seg-comportamental File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/hex7seg.vhd Line: 27
+    Info (12023): Found entity 1: hex7seg File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/hex7seg.vhd Line: 20
+Info (12021): Found 2 design units, including 1 entities, in source file gerador_pulso.vhd
+    Info (12022): Found design unit 1: gerador_pulso-fsm_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/gerador_pulso.vhd Line: 19
+    Info (12023): Found entity 1: gerador_pulso File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/gerador_pulso.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file edge_detector_descida.vhd
+    Info (12022): Found design unit 1: edge_detector_descida-Behavioral File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/edge_detector_descida.vhd Line: 12
+    Info (12023): Found entity 1: edge_detector_descida File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/edge_detector_descida.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file edge_detector.vhd
+    Info (12022): Found design unit 1: edge_detector-Behavioral File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/edge_detector.vhd Line: 29
+    Info (12023): Found entity 1: edge_detector File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/edge_detector.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file deslocador_n.vhd
+    Info (12022): Found design unit 1: deslocador_n-deslocador_n_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/deslocador_n.vhd Line: 33
+    Info (12023): Found entity 1: deslocador_n File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/deslocador_n.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file controle_servo_3.vhd
+    Info (12022): Found design unit 1: controle_servo_3-controle_servo_3_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 16
+    Info (12023): Found entity 1: controle_servo_3 File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file contadorg_updown_m.vhd
+    Info (12022): Found design unit 1: contadorg_updown_m-comportamental File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/contadorg_updown_m.vhd Line: 43
+    Info (12023): Found entity 1: contadorg_updown_m File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/contadorg_updown_m.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file contador_m.vhd
+    Info (12022): Found design unit 1: contador_m-contador_m_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/contador_m.vhd Line: 37
+    Info (12023): Found entity 1: contador_m File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/contador_m.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file sagarana_uc.vhd
+    Info (12022): Found design unit 1: sagarana_uc-sagarana_uc_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_uc.vhd Line: 31
+    Info (12023): Found entity 1: sagarana_uc File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_uc.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sagarana_fd.vhd
+    Info (12022): Found design unit 1: sagarana_fd-sagarana_fd_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 45
+    Info (12023): Found entity 1: sagarana_fd File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file interface_esp32.vhd
+    Info (12022): Found design unit 1: interface_esp32-interface_esp32_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32.vhd Line: 18
+    Info (12023): Found entity 1: interface_esp32 File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file interface_esp32_fd.vhd
+    Info (12022): Found design unit 1: interface_esp32_fd-arch_interface_esp32_fd File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32_fd.vhd Line: 19
+    Info (12023): Found entity 1: interface_esp32_fd File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32_fd.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file interface_esp32_uc.vhd
+    Info (12022): Found design unit 1: interface_esp32_uc-fsm_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32_uc.vhd Line: 20
+    Info (12023): Found entity 1: interface_esp32_uc File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32_uc.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sagarana.vhd
+    Info (12022): Found design unit 1: projeto_sagarana-sagarana_arch File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana.vhd Line: 30
+    Info (12023): Found entity 1: projeto_sagarana File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana.vhd Line: 5
+Info (12127): Elaborating entity "projeto_sagarana" for the top level hierarchy
+Info (12128): Elaborating entity "sagarana_fd" for hierarchy "sagarana_fd:FD" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana.vhd Line: 104
+Warning (10541): VHDL Signal Declaration warning at sagarana_fd.vhd(41): used implicit default value for signal "db_modo" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 41
+Warning (10036): Verilog HDL or VHDL warning at sagarana_fd.vhd(51): object "s_db_posicao" assigned a value but never read File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 51
+Warning (10036): Verilog HDL or VHDL warning at sagarana_fd.vhd(52): object "estado_transmissor" assigned a value but never read File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 52
+Info (10041): Inferred latch for "s_iniciar" at sagarana_fd.vhd(468) File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 468
+Info (12128): Elaborating entity "registrador_n" for hierarchy "sagarana_fd:FD|registrador_n:REGISTRADOR" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 195
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|contador_m:CONTPAUSA" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 207
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|contador_m:CONTPULA" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 221
+Info (12128): Elaborating entity "controle_servo_3" for hierarchy "sagarana_fd:FD|controle_servo_3:SM" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 235
+Warning (10492): VHDL Process Statement warning at controle_servo_3.vhd(50): signal "s_pwm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at controle_servo_3.vhd(51): signal "s_pwm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 51
+Info (12128): Elaborating entity "contadorg_updown_m" for hierarchy "sagarana_fd:FD|contadorg_updown_m:CONTPOS" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 245
+Info (12128): Elaborating entity "rom_angulos_128x24" for hierarchy "sagarana_fd:FD|rom_angulos_128x24:ROM" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 262
+Info (12128): Elaborating entity "mux_4x1_n" for hierarchy "sagarana_fd:FD|mux_4x1_n:MUXPOS" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 268
+Info (12128): Elaborating entity "tx_serial_8N2" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 294
+Info (12128): Elaborating entity "tx_serial_uc" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_uc:U1_UC" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2.vhd Line: 84
+Info (12128): Elaborating entity "tx_serial_8N2_fd" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2.vhd Line: 99
+Info (12128): Elaborating entity "deslocador_n" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2_fd.vhd Line: 62
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|contador_m:U2" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2_fd.vhd Line: 76
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|contador_m:U3_TICK" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2.vhd Line: 115
+Info (12128): Elaborating entity "edge_detector" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|edge_detector:U4_ED" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/tx_serial_8N2.vhd Line: 128
+Info (12128): Elaborating entity "interface_esp32" for hierarchy "sagarana_fd:FD|interface_esp32:interface" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 314
+Info (12128): Elaborating entity "interface_esp32_fd" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32.vhd Line: 56
+Info (12128): Elaborating entity "rx_serial_8N2" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32_fd.vhd Line: 50
+Info (12128): Elaborating entity "rx_serial_uc" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_uc:U1_UC" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2.vhd Line: 76
+Info (12128): Elaborating entity "rx_serial_8N2_fd" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2.vhd Line: 94
+Info (12128): Elaborating entity "deslocador_n" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2_fd.vhd Line: 70
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|contador_m:U2" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2_fd.vhd Line: 84
+Info (12128): Elaborating entity "registrador_n" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|registrador_n:U3" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2_fd.vhd Line: 98
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|contador_m:U3_TICK" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/rx_serial_8N2.vhd Line: 109
+Info (12128): Elaborating entity "registrador_n" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_U" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32_fd.vhd Line: 62
+Info (12128): Elaborating entity "interface_esp32_uc" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_uc:UC" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/interface_esp32.vhd Line: 70
+Info (12128): Elaborating entity "sr_ff" for hierarchy "sagarana_fd:FD|sr_ff:flipflop_rs" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 327
+Info (12128): Elaborating entity "mux_4x1_n" for hierarchy "sagarana_fd:FD|mux_4x1_n:MUXHEX0" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 348
+Info (12128): Elaborating entity "hex7seg" for hierarchy "sagarana_fd:FD|hex7seg:hexa0" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 427
+Info (12128): Elaborating entity "sagarana_uc" for hierarchy "sagarana_uc:UC" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana.vhd Line: 143
+Warning (10492): VHDL Process Statement warning at sagarana_uc.vhd(43): signal "iniciar" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_uc.vhd Line: 43
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "sagarana_fd:FD|controle_servo_3:SM|Ram0" is uninferred due to inappropriate RAM size File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 57
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "sagarana_fd:FD|sr_ff:flipflop_rs|q" feeding internal logic into a wire File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sr_ff.vhd Line: 8
+=======
+    Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+    Info: Processing started: Mon Nov 21 16:29:25 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto_sagarana -c projeto_sagarana
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file tx_serial_8N2_fd.vhd
+    Info (12022): Found design unit 1: tx_serial_8N2_fd-tx_serial_8N2_fd_arch File: /home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd Line: 20
+    Info (12023): Found entity 1: tx_serial_8N2_fd File: /home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file tx_serial_8N2.vhd
+    Info (12022): Found design unit 1: tx_serial_8N2-tx_serial_8N2_arch File: /home/nic/sagarana/fpga/tx_serial_8N2.vhd Line: 19
+    Info (12023): Found entity 1: tx_serial_8N2 File: /home/nic/sagarana/fpga/tx_serial_8N2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rx_serial_8N2_fd.vhd
+    Info (12022): Found design unit 1: rx_serial_8N2_fd-rx_serial_8N2_fd_arch File: /home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd Line: 21
+    Info (12023): Found entity 1: rx_serial_8N2_fd File: /home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rx_serial_8N2.vhd
+    Info (12022): Found design unit 1: rx_serial_8N2-rx_serial_8N2_arch File: /home/nic/sagarana/fpga/rx_serial_8N2.vhd Line: 17
+    Info (12023): Found entity 1: rx_serial_8N2 File: /home/nic/sagarana/fpga/rx_serial_8N2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file tx_serial_tick_uc.vhd
+    Info (12022): Found design unit 1: tx_serial_uc-tx_serial_uc_arch File: /home/nic/sagarana/fpga/tx_serial_tick_uc.vhd Line: 34
+    Info (12023): Found entity 1: tx_serial_uc File: /home/nic/sagarana/fpga/tx_serial_tick_uc.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file sr_ff.vhd
+    Info (12022): Found design unit 1: sr_ff-behavioral File: /home/nic/sagarana/fpga/sr_ff.vhd Line: 11
+    Info (12023): Found entity 1: sr_ff File: /home/nic/sagarana/fpga/sr_ff.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file sonar_uc.vhd
+    Info (12022): Found design unit 1: sonar_uc-sonar_uc_arch File: /home/nic/sagarana/fpga/sonar_uc.vhd Line: 27
+    Info (12023): Found entity 1: sonar_uc File: /home/nic/sagarana/fpga/sonar_uc.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sonar_fd.vhd
+    Info (12022): Found design unit 1: sonar_fd-sonar_fd_arch File: /home/nic/sagarana/fpga/sonar_fd.vhd Line: 43
+    Info (12023): Found entity 1: sonar_fd File: /home/nic/sagarana/fpga/sonar_fd.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file sonar.vhd
+    Info (12022): Found design unit 1: sonar-sonar_arch File: /home/nic/sagarana/fpga/sonar.vhd Line: 33
+    Info (12023): Found entity 1: sonar File: /home/nic/sagarana/fpga/sonar.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file rx_serial_tick_uc.vhd
+    Info (12022): Found design unit 1: rx_serial_uc-rx_serial_uc_arch File: /home/nic/sagarana/fpga/rx_serial_tick_uc.vhd Line: 23
+    Info (12023): Found entity 1: rx_serial_uc File: /home/nic/sagarana/fpga/rx_serial_tick_uc.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file rom_angulos_8x24.vhd
+    Info (12022): Found design unit 1: rom_angulos_16x24-rom_arch File: /home/nic/sagarana/fpga/rom_angulos_8x24.vhd Line: 28
+    Info (12023): Found entity 1: rom_angulos_16x24 File: /home/nic/sagarana/fpga/rom_angulos_8x24.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file registrador_n.vhd
+    Info (12022): Found design unit 1: registrador_n-registrador_n File: /home/nic/sagarana/fpga/registrador_n.vhd Line: 36
+    Info (12023): Found entity 1: registrador_n File: /home/nic/sagarana/fpga/registrador_n.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file mux_8x1_n.vhd
+    Info (12022): Found design unit 1: mux_8x1_n-behav File: /home/nic/sagarana/fpga/mux_8x1_n.vhd Line: 37
+    Info (12023): Found entity 1: mux_8x1_n File: /home/nic/sagarana/fpga/mux_8x1_n.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file mux_4x1_n.vhd
+    Info (12022): Found design unit 1: mux_4x1_n-arch_mux_4x1_n File: /home/nic/sagarana/fpga/mux_4x1_n.vhd Line: 35
+    Info (12023): Found entity 1: mux_4x1_n File: /home/nic/sagarana/fpga/mux_4x1_n.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file hex7seg.vhd
+    Info (12022): Found design unit 1: hex7seg-comportamental File: /home/nic/sagarana/fpga/hex7seg.vhd Line: 27
+    Info (12023): Found entity 1: hex7seg File: /home/nic/sagarana/fpga/hex7seg.vhd Line: 20
+Info (12021): Found 2 design units, including 1 entities, in source file gerador_pulso.vhd
+    Info (12022): Found design unit 1: gerador_pulso-fsm_arch File: /home/nic/sagarana/fpga/gerador_pulso.vhd Line: 19
+    Info (12023): Found entity 1: gerador_pulso File: /home/nic/sagarana/fpga/gerador_pulso.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file edge_detector_descida.vhd
+    Info (12022): Found design unit 1: edge_detector_descida-Behavioral File: /home/nic/sagarana/fpga/edge_detector_descida.vhd Line: 12
+    Info (12023): Found entity 1: edge_detector_descida File: /home/nic/sagarana/fpga/edge_detector_descida.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file edge_detector.vhd
+    Info (12022): Found design unit 1: edge_detector-Behavioral File: /home/nic/sagarana/fpga/edge_detector.vhd Line: 29
+    Info (12023): Found entity 1: edge_detector File: /home/nic/sagarana/fpga/edge_detector.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file deslocador_n.vhd
+    Info (12022): Found design unit 1: deslocador_n-deslocador_n_arch File: /home/nic/sagarana/fpga/deslocador_n.vhd Line: 33
+    Info (12023): Found entity 1: deslocador_n File: /home/nic/sagarana/fpga/deslocador_n.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file controle_servo_3.vhd
+    Info (12022): Found design unit 1: controle_servo_3-controle_servo_3_arch File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 16
+    Info (12023): Found entity 1: controle_servo_3 File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file contadorg_updown_m.vhd
+    Info (12022): Found design unit 1: contadorg_updown_m-comportamental File: /home/nic/sagarana/fpga/contadorg_updown_m.vhd Line: 43
+    Info (12023): Found entity 1: contadorg_updown_m File: /home/nic/sagarana/fpga/contadorg_updown_m.vhd Line: 27
+Info (12021): Found 2 design units, including 1 entities, in source file contador_m.vhd
+    Info (12022): Found design unit 1: contador_m-contador_m_arch File: /home/nic/sagarana/fpga/contador_m.vhd Line: 37
+    Info (12023): Found entity 1: contador_m File: /home/nic/sagarana/fpga/contador_m.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file contador_cm_uc.vhd
+    Info (12022): Found design unit 1: contador_cm_uc-contador_cm_uc_arch File: /home/nic/sagarana/fpga/contador_cm_uc.vhd Line: 22
+    Info (12023): Found entity 1: contador_cm_uc File: /home/nic/sagarana/fpga/contador_cm_uc.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file contador_cm_fd.vhd
+    Info (12022): Found design unit 1: contador_cm_fd-contador_cm_fd_arch File: /home/nic/sagarana/fpga/contador_cm_fd.vhd Line: 20
+    Info (12023): Found entity 1: contador_cm_fd File: /home/nic/sagarana/fpga/contador_cm_fd.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file contador_cm.vhd
+    Info (12022): Found design unit 1: contador_cm-contador_cm_arch File: /home/nic/sagarana/fpga/contador_cm.vhd Line: 21
+    Info (12023): Found entity 1: contador_cm File: /home/nic/sagarana/fpga/contador_cm.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file contador_bcd_3digitos.vhd
+    Info (12022): Found design unit 1: contador_bcd_3digitos-comportamental File: /home/nic/sagarana/fpga/contador_bcd_3digitos.vhd Line: 17
+    Info (12023): Found entity 1: contador_bcd_3digitos File: /home/nic/sagarana/fpga/contador_bcd_3digitos.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file analisa_m.vhd
+    Info (12022): Found design unit 1: analisa_m-comportamental File: /home/nic/sagarana/fpga/analisa_m.vhd Line: 19
+    Info (12023): Found entity 1: analisa_m File: /home/nic/sagarana/fpga/analisa_m.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file sagarana_uc.vhd
+    Info (12022): Found design unit 1: sagarana_uc-sagarana_uc_arch File: /home/nic/sagarana/fpga/sagarana_uc.vhd Line: 27
+    Info (12023): Found entity 1: sagarana_uc File: /home/nic/sagarana/fpga/sagarana_uc.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sagarana_fd.vhd
+    Info (12022): Found design unit 1: sagarana_fd-sagarana_fd_arch File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 42
+    Info (12023): Found entity 1: sagarana_fd File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file interface_esp32.vhd
+    Info (12022): Found design unit 1: interface_esp32-interface_esp32_arch File: /home/nic/sagarana/fpga/interface_esp32.vhd Line: 17
+    Info (12023): Found entity 1: interface_esp32 File: /home/nic/sagarana/fpga/interface_esp32.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file interface_esp32_fd.vhd
+    Info (12022): Found design unit 1: interface_esp32_fd-arch_interface_esp32_fd File: /home/nic/sagarana/fpga/interface_esp32_fd.vhd Line: 18
+    Info (12023): Found entity 1: interface_esp32_fd File: /home/nic/sagarana/fpga/interface_esp32_fd.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file interface_esp32_uc.vhd
+    Info (12022): Found design unit 1: interface_esp32_uc-fsm_arch File: /home/nic/sagarana/fpga/interface_esp32_uc.vhd Line: 20
+    Info (12023): Found entity 1: interface_esp32_uc File: /home/nic/sagarana/fpga/interface_esp32_uc.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sagarana.vhd
+    Info (12022): Found design unit 1: projeto_sagarana-sagarana_arch File: /home/nic/sagarana/fpga/sagarana.vhd Line: 30
+    Info (12023): Found entity 1: projeto_sagarana File: /home/nic/sagarana/fpga/sagarana.vhd Line: 5
+Info (12127): Elaborating entity "projeto_sagarana" for the top level hierarchy
+Info (12128): Elaborating entity "sagarana_fd" for hierarchy "sagarana_fd:FD" File: /home/nic/sagarana/fpga/sagarana.vhd Line: 98
+Warning (10036): Verilog HDL or VHDL warning at sagarana_fd.vhd(48): object "s_db_posicao" assigned a value but never read File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 48
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|contador_m:CONT2S" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 179
+Info (12128): Elaborating entity "controle_servo_3" for hierarchy "sagarana_fd:FD|controle_servo_3:SM" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 193
+Warning (10492): VHDL Process Statement warning at controle_servo_3.vhd(50): signal "s_pwm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at controle_servo_3.vhd(51): signal "s_pwm" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 51
+Info (12128): Elaborating entity "contadorg_updown_m" for hierarchy "sagarana_fd:FD|contadorg_updown_m:CONTPOS" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 203
+Info (12128): Elaborating entity "rom_angulos_16x24" for hierarchy "sagarana_fd:FD|rom_angulos_16x24:ROM" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 220
+Info (12128): Elaborating entity "mux_4x1_n" for hierarchy "sagarana_fd:FD|mux_4x1_n:MUXPOS" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 226
+Info (12128): Elaborating entity "tx_serial_8N2" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 252
+Info (12128): Elaborating entity "tx_serial_uc" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_uc:U1_UC" File: /home/nic/sagarana/fpga/tx_serial_8N2.vhd Line: 84
+Info (12128): Elaborating entity "tx_serial_8N2_fd" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD" File: /home/nic/sagarana/fpga/tx_serial_8N2.vhd Line: 99
+Info (12128): Elaborating entity "deslocador_n" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|deslocador_n:U1" File: /home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd Line: 62
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|tx_serial_8N2_fd:U2_FD|contador_m:U2" File: /home/nic/sagarana/fpga/tx_serial_8N2_fd.vhd Line: 76
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|contador_m:U3_TICK" File: /home/nic/sagarana/fpga/tx_serial_8N2.vhd Line: 115
+Info (12128): Elaborating entity "edge_detector" for hierarchy "sagarana_fd:FD|tx_serial_8N2:TRANSMISSOR|edge_detector:U4_ED" File: /home/nic/sagarana/fpga/tx_serial_8N2.vhd Line: 128
+Info (12128): Elaborating entity "interface_esp32" for hierarchy "sagarana_fd:FD|interface_esp32:interface" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 272
+Info (12128): Elaborating entity "interface_esp32_fd" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD" File: /home/nic/sagarana/fpga/interface_esp32.vhd Line: 54
+Info (12128): Elaborating entity "rx_serial_8N2" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR" File: /home/nic/sagarana/fpga/interface_esp32_fd.vhd Line: 49
+Info (12128): Elaborating entity "rx_serial_uc" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_uc:U1_UC" File: /home/nic/sagarana/fpga/rx_serial_8N2.vhd Line: 76
+Info (12128): Elaborating entity "rx_serial_8N2_fd" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD" File: /home/nic/sagarana/fpga/rx_serial_8N2.vhd Line: 94
+Info (12128): Elaborating entity "deslocador_n" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|deslocador_n:U1" File: /home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd Line: 70
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|contador_m:U2" File: /home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd Line: 84
+Info (12128): Elaborating entity "registrador_n" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|rx_serial_8N2_fd:U2_FD|registrador_n:U3" File: /home/nic/sagarana/fpga/rx_serial_8N2_fd.vhd Line: 98
+Info (12128): Elaborating entity "contador_m" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|rx_serial_8N2:RECEPTOR|contador_m:U3_TICK" File: /home/nic/sagarana/fpga/rx_serial_8N2.vhd Line: 109
+Info (12128): Elaborating entity "registrador_n" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_fd:FD|registrador_n:REG_U" File: /home/nic/sagarana/fpga/interface_esp32_fd.vhd Line: 61
+Info (12128): Elaborating entity "interface_esp32_uc" for hierarchy "sagarana_fd:FD|interface_esp32:interface|interface_esp32_uc:UC" File: /home/nic/sagarana/fpga/interface_esp32.vhd Line: 67
+Info (12128): Elaborating entity "sr_ff" for hierarchy "sagarana_fd:FD|sr_ff:flipflop_rs" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 284
+Info (12128): Elaborating entity "mux_4x1_n" for hierarchy "sagarana_fd:FD|mux_4x1_n:MUXHEX0" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 305
+Info (12128): Elaborating entity "hex7seg" for hierarchy "sagarana_fd:FD|hex7seg:hexa0" File: /home/nic/sagarana/fpga/sagarana_fd.vhd Line: 384
+Info (12128): Elaborating entity "sagarana_uc" for hierarchy "sagarana_uc:UC" File: /home/nic/sagarana/fpga/sagarana.vhd Line: 134
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "sagarana_fd:FD|sr_ff:flipflop_rs|q" feeding internal logic into a wire File: /home/nic/sagarana/fpga/sr_ff.vhd Line: 8
+>>>>>>> ed23b66 (.)
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch sagarana_fd:FD|s_iniciar has unsafe behavior File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana_fd.vhd Line: 468
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sagarana_fd:FD|rx_serial_8N2:receptor|rx_serial_8N2_fd:U2_FD|registrador_n:U3|IQ[5] File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/registrador_n.vhd Line: 42
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+<<<<<<< HEAD
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[16]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[16]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[16]~1" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[15]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[15]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[15]~5" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[14]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[14]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[14]~9" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[13]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[13]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[13]~13" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[12]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[12]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[12]~17" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[11]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[11]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[11]~21" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[10]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[10]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[10]~25" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[9]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[9]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[9]~29" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[8]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[8]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[8]~33" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[7]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[7]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[7]~37" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[6]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[6]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[6]~41" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[5]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[5]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[5]~45" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[4]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[4]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[4]~49" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[3]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[3]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[3]~53" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[2]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[2]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[2]~57" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[1]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[1]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[1]~61" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[0]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[0]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[0]~65" File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/controle_servo_3.vhd Line: 30
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "db_modo" is stuck at GND File: C:/Users/izabe/OneDrive/Documentos/GitHub/Sagarana/sagarana/fpga/projeto_sagarana_restored/sagarana.vhd Line: 25
+=======
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[16]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[16]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[16]~1" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[15]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[15]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[15]~5" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[14]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[14]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[14]~9" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[13]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[13]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[13]~13" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[12]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[12]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[12]~17" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[11]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[11]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[11]~21" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[10]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[10]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[10]~25" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[9]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[9]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[9]~29" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[8]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[8]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[8]~33" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[7]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[7]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[7]~37" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[6]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[6]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[6]~41" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[5]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[5]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[5]~45" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[4]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[4]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[4]~49" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[3]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[3]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[3]~53" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+    Warning (13310): Register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[0]" is converted into an equivalent circuit using register "sagarana_fd:FD|controle_servo_3:SM|largura_servo[0]~_emulated" and latch "sagarana_fd:FD|controle_servo_3:SM|largura_servo[0]~57" File: /home/nic/sagarana/fpga/controle_servo_3.vhd Line: 30
+>>>>>>> ed23b66 (.)
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+<<<<<<< HEAD
+Info (21057): Implemented 587 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 529 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 32 warnings
+    Info: Peak virtual memory: 4838 megabytes
+    Info: Processing ended: Mon Nov 28 15:21:32 2022
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:34
+=======
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "sel_mode_serial" File: /home/nic/sagarana/fpga/sagarana.vhd Line: 11
+Info (21057): Implemented 469 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 410 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 501 megabytes
+    Info: Processing ended: Mon Nov 21 16:29:32 2022
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:16
+>>>>>>> ed23b66 (.)
+
+

@@ -1,25 +1,3 @@
-------------------------------------------------------------------
--- Arquivo   : testador_paridade.vhd
--- Projeto   : Experiencia 3 - Recepcao Serial Assincrona
-------------------------------------------------------------------
--- Descricao : testa paridade dos dados seriais 
---     > entradas:
---     >   dado: bits de dados recebidos
---     >   paridade: bit de paridade recebido
---     > saidas:
---     >   saidas par_ok e impar_ok calculados
---     >   para uso em comunicacao serial RS232C
---     >   p.ex:
---     >     par_ok=1 transmissao com paridade par sem erro 
---     >     par_ok=0 erro na transmissao para paridade par
-------------------------------------------------------------------
--- Revisoes  :
---     Data        Versao  Autor             Descricao
---     09/09/2019  1.0     Edson Midorikawa  versao inicial
---     02/09/2022  1.1     Edson Midorikawa  revisao
-------------------------------------------------------------------
---
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 

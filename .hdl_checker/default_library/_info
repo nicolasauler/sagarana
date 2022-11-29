@@ -1,0 +1,224 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nic/sagarana
+Eprojeto_sagarana
+Z1 w1669726929
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 18
+R0
+Z5 8/home/nic/sagarana/fpga/sagarana.vhd
+Z6 F/home/nic/sagarana/fpga/sagarana.vhd
+l0
+L5 1
+VL>CoLl7cFA=EWGPZ<YmE63
+!s100 ]S=EH?IUM2YgDYXNz0QGS2
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1669726929
+!i10b 1
+Z9 !s108 1669726929.000000
+Z10 !s90 -modelsimini|/home/nic/sagarana/.hdl_checker/modelsim.ini|-quiet|-work|/home/nic/sagarana/.hdl_checker/default_library|-check_synthesis|-lint|-rangecheck|-pedanticerrors|-explicit|/home/nic/sagarana/fpga/sagarana.vhd|
+Z11 !s107 /home/nic/sagarana/fpga/sagarana.vhd|
+!i113 1
+Z12 o-quiet -work /home/nic/sagarana/.hdl_checker/default_library -check_synthesis -lint -rangecheck -pedanticerrors -explicit
+Z13 tExplicit 1 CvgOpt 0
+Asagarana_arch
+R2
+R3
+R4
+DEx4 work 16 projeto_sagarana 0 22 L>CoLl7cFA=EWGPZ<YmE63
+!i122 18
+l102
+L30 144
+V@WO@7FD:bz:]>]5PYogM50
+!s100 0FLGFd1Oo`J76=CR[KCl_0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Esagarana_fd
+Z14 w1669727596
+Z15 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+R2
+R3
+R4
+!i122 78
+R0
+Z16 8/home/nic/sagarana/fpga/sagarana_fd.vhd
+Z17 F/home/nic/sagarana/fpga/sagarana_fd.vhd
+l0
+L6 1
+V:8^lAE8W?OGk?L479OWOo0
+!s100 Uif`oRRil1g41EUDPM[W43
+R7
+32
+Z18 !s110 1669727597
+!i10b 1
+Z19 !s108 1669727596.000000
+Z20 !s90 -modelsimini|/home/nic/sagarana/.hdl_checker/modelsim.ini|-quiet|-work|/home/nic/sagarana/.hdl_checker/default_library|-check_synthesis|-lint|-rangecheck|-pedanticerrors|-explicit|/home/nic/sagarana/fpga/sagarana_fd.vhd|
+Z21 !s107 /home/nic/sagarana/fpga/sagarana_fd.vhd|
+!i113 1
+R12
+R13
+Asagarana_fd_arch
+R15
+R2
+R3
+R4
+DEx4 work 11 sagarana_fd 0 22 :8^lAE8W?OGk?L479OWOo0
+!i122 78
+l193
+L44 435
+V9[HYE]^3=NzAzO9E2T1ia2
+!s100 0J1lFM?]PR;1H0h]LdnYG3
+R7
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R12
+R13
+Esagarana_uc
+Z22 w1669726872
+R3
+R4
+!i122 79
+R0
+Z23 8/home/nic/sagarana/fpga/sagarana_uc.vhd
+Z24 F/home/nic/sagarana/fpga/sagarana_uc.vhd
+l0
+L4 1
+Va=9kO5C=A7YA5?^XQBRHN1
+!s100 K?KjBIeBN0fRW2A>om5dc0
+R7
+32
+Z25 !s110 1669727824
+!i10b 1
+Z26 !s108 1669727824.000000
+Z27 !s90 -modelsimini|/home/nic/sagarana/.hdl_checker/modelsim.ini|-quiet|-work|/home/nic/sagarana/.hdl_checker/default_library|-check_synthesis|-lint|-rangecheck|-pedanticerrors|-explicit|/home/nic/sagarana/fpga/sagarana_uc.vhd|
+Z28 !s107 /home/nic/sagarana/fpga/sagarana_uc.vhd|
+!i113 1
+R12
+R13
+Asagarana_uc_arch
+R3
+R4
+DEx4 work 11 sagarana_uc 0 22 a=9kO5C=A7YA5?^XQBRHN1
+!i122 79
+l38
+L31 130
+V04Z:c]F[mPJCeW[8JQ?L10
+!s100 >A<eDg6<QMZmPVa;<Jl4H0
+R7
+32
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 1
+R12
+R13
+Etestador_paridade
+Z29 w1669728289
+R3
+R4
+!i122 83
+R0
+Z30 8/home/nic/sagarana/fpga/testador_paridade.vhd
+Z31 F/home/nic/sagarana/fpga/testador_paridade.vhd
+l0
+L4 1
+VY7?@<heR_o?FNfK6Ta0Nz0
+!s100 Q^_EhF8?P9RBa4GfGODZM3
+R7
+32
+Z32 !s110 1669728290
+!i10b 1
+Z33 !s108 1669728290.000000
+Z34 !s90 -modelsimini|/home/nic/sagarana/.hdl_checker/modelsim.ini|-quiet|-work|/home/nic/sagarana/.hdl_checker/default_library|-check_synthesis|-lint|-rangecheck|-pedanticerrors|-explicit|/home/nic/sagarana/fpga/testador_paridade.vhd|
+Z35 !s107 /home/nic/sagarana/fpga/testador_paridade.vhd|
+!i113 1
+R12
+R13
+Artl
+R3
+R4
+DEx4 work 17 testador_paridade 0 22 Y7?@<heR_o?FNfK6Ta0Nz0
+!i122 83
+l14
+L13 18
+V0PncKE][6<AD`EWO``n0`0
+!s100 @ECh;Oc<aDio=zf2d2nJF3
+R7
+32
+R32
+!i10b 1
+R33
+R34
+R35
+!i113 1
+R12
+R13
+Etx_serial_8n2
+Z36 w1669058395
+R2
+R3
+R4
+!i122 84
+R0
+Z37 8/home/nic/sagarana/fpga/tx_serial_8N2.vhd
+Z38 F/home/nic/sagarana/fpga/tx_serial_8N2.vhd
+l0
+L5 1
+V4[6Z9O7YdP<7cE??k^e7j1
+!s100 WFcRzb;9F6^RNj87g2NdV3
+R7
+32
+Z39 !s110 1669728295
+!i10b 1
+Z40 !s108 1669728295.000000
+Z41 !s90 -modelsimini|/home/nic/sagarana/.hdl_checker/modelsim.ini|-quiet|-work|/home/nic/sagarana/.hdl_checker/default_library|-check_synthesis|-lint|-rangecheck|-pedanticerrors|-explicit|/home/nic/sagarana/fpga/tx_serial_8N2.vhd|
+!s107 /home/nic/sagarana/fpga/tx_serial_8N2.vhd|
+!i113 1
+R12
+R13
+Atx_serial_8n2_arch
+R2
+R3
+R4
+DEx4 work 13 tx_serial_8n2 0 22 4[6Z9O7YdP<7cE??k^e7j1
+!i122 84
+l78
+L19 122
+VfZb2:9f>I@[?ODHjTPMiI1
+!s100 ;f0c1E=e5?^do5:`F`mh42
+R7
+32
+R39
+!i10b 1
+R40
+R41
+Z42 !s107 /home/nic/sagarana/fpga/tx_serial_8N2.vhd|
+!i113 1
+R12
+R13
