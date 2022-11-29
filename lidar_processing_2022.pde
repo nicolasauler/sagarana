@@ -24,11 +24,11 @@ String distance=""; // valor da distância
 String data=""; //ângulo,distância#
 String noObject; //diz se o objeto foi detectado ou não
 float  pixsDistance;
-int    iAngle, iDistance, iAnteriorAngle;
+int    iAngle, iDistance, iAnteriorAngle = 0;
 int    index1=0; //posicao para limitar o valor do angulo
 int    index2=0; //posicao para limitar o valor de distancia
 int countWidth = 0;
-int referenceWidth = 20;
+int referenceWidth = 25;
 int referenceMeasure = 0;
 int qtdeObjects = 0;
 String text = "";
@@ -84,25 +84,15 @@ void drawRadar() {
     noFill();
     strokeWeight(1.5);
     arc(0,0,1000,1000,10*PI/9,17*TWO_PI/18);
-    arc(0,0,950,950,10*PI/9,17*TWO_PI/18);
     arc(0,0,900,900,10*PI/9,17*TWO_PI/18);  
-    arc(0,0,850,850,10*PI/9,17*TWO_PI/18);
     arc(0,0,800,800,10*PI/9,17*TWO_PI/18);
-    arc(0,0,750,750,10*PI/9,17*TWO_PI/18);
     arc(0,0,700,700,10*PI/9,17*TWO_PI/18);
-    arc(0,0,650,650,10*PI/9,17*TWO_PI/18);
     arc(0,0,600,600,10*PI/9,17*TWO_PI/18);
-    arc(0,0,550,550,10*PI/9,17*TWO_PI/18);
     arc(0,0,500,500,10*PI/9,17*TWO_PI/18);
-    arc(0,0,450,450,10*PI/9,17*TWO_PI/18);
     arc(0,0,400,400,10*PI/9,17*TWO_PI/18);
-    arc(0,0,350,350,10*PI/9,17*TWO_PI/18);
     arc(0,0,300,300,10*PI/9,17*TWO_PI/18);
-    arc(0,0,250,250,10*PI/9,17*TWO_PI/18);
     arc(0,0,200,200,10*PI/9,17*TWO_PI/18);
-    arc(0,0,150,150,10*PI/9,17*TWO_PI/18);
     arc(0,0,100,100,10*PI/9,17*TWO_PI/18);
-    arc(0,0,50,50,10*PI/9,17*TWO_PI/18);
     line(0,0,469.8463,-171.0101);
     line(0,0,-469.8463,-171.0101);
     popMatrix();
@@ -112,42 +102,14 @@ void drawRadar() {
 void drawObject() {
   
   InterfaceReal();
-  delay(25);
+  //delay(25);
   
 }
 
-void testarValores(){
-
-  
-  if(medidasRecebidas.size()<10){
-    medidasRecebidas.add(200);
-  }
-  
-  else if (medidasRecebidas.size()>=10 && medidasRecebidas.size()<30){
-    medidasRecebidas.add(200);
-  }
-  else if (medidasRecebidas.size()>=30 && medidasRecebidas.size()<50){
-    medidasRecebidas.add(200);
-  }
-  
-  else if (medidasRecebidas.size()>=50 && medidasRecebidas.size()<88){
-    medidasRecebidas.add(200);
-  }
-  
-  else if (medidasRecebidas.size()>=88 && medidasRecebidas.size()<108){
-    medidasRecebidas.add(200);
-  }
-  
-  else if (medidasRecebidas.size()>=108 && medidasRecebidas.size()<128){
-    medidasRecebidas.add(200);
-  }
-  
-}
 
 void InterfaceReal(){
-  
-    testarValores();
     
+    testarValores();
     pushMatrix();
     translate(480,480);
     strokeWeight(15); 
@@ -155,20 +117,11 @@ void InterfaceReal(){
     
     for (int i=0; i < medidasRecebidas.size(); i++) {
       
-        if (medidasRecebidas.get(i) > 200){
-            medidasRecebidas.set(i,200);
+        if (medidasRecebidas.get(i) > 100){
+            medidasRecebidas.set(i,100);
         }
         
-        if (i != 0 && Math.abs(referenceMeasure - medidasRecebidas.get(i-1)) > 2){
-          referenceMeasure = medidasRecebidas.get(i-1);
-        }
-          
-        if (i != 0 && (Math.abs(medidasRecebidas.get(i) - medidasRecebidas.get(i-1)) <= 2)){ 
-          pixsDistance = referenceMeasure*2.5;
-        }
-        else{
-          pixsDistance = medidasRecebidas.get(i)*2.5;
-        }
+        pixsDistance = medidasRecebidas.get(i)*5;
         
         iAngle = angulosRecebidos.get(i);
         if (i!= 0){
@@ -176,52 +129,56 @@ void InterfaceReal(){
         }
         
         strokeWeight(2);
+        
+        line(0,0,pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
+        
+        // Serve para preencher com medida os ângulos não varridos pela FPGA
         if (Math.abs(iAngle-iAnteriorAngle)==2){
-          if(angulosRecebidos.get(127) == 160){
+          if(angulosRecebidos.get(0) == 20){
             line(0,0,pixsDistance*cos(radians(iAngle-1)),-pixsDistance*sin(radians(iAngle-1)));
           }
           else{
             line(0,0,pixsDistance*cos(radians(iAngle+1)),-pixsDistance*sin(radians(iAngle+1)));
-          }
-            
+          }           
         }
-        line(0,0,pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
+        //
         
+        //Na última medição, faz a contagem e cálculo da quantidade de objetos   
         if (i == 127){
         
           for (int j=0; j <= i; j++){
-            if (medidasRecebidas.get(j) >= referenceWidth-3 && medidasRecebidas.get(j) <= referenceWidth+3){
+            if (medidasRecebidas.get(j) <= 50){
               countWidth = countWidth + 1;
             }
-            if (j==127){
-              qtdeObjects = countWidth/referenceWidth;
-              TableRow newRow = table.addRow();
-              newRow.setString("Horário", java.time.LocalDateTime.now().toString());
-              newRow.setInt("Objetos", qtdeObjects);
-              newRow.setInt("Largura", countWidth);
-              saveTable(table, "lidar_log.csv");
-                
-              if (countWidth < 2*referenceWidth){
-                countWidth = 0;
-                text = defaultText;
-              }
+          }
+          
+          qtdeObjects = countWidth/referenceWidth;
+          TableRow newRow = table.addRow();
+          newRow.setString("Horário", java.time.LocalDateTime.now().toString());
+          newRow.setInt("Objetos", qtdeObjects);
+          newRow.setInt("Largura", countWidth);
+          saveTable(table, "lidar_log.csv");
+          print("Número de medidas abaixo de 50cm é: "+ countWidth + "\n"); 
             
-              else{
-                countWidth = 0;
-                problemText = "CUIDADO !!!                                           EXISTEM " + qtdeObjects + " OBJETOS NO NOSSO CAMPO DE VISÃO !!!";
-                text = problemText;
-              }
-              
-            }
-         }
+          if (qtdeObjects < 2){
+            text = defaultText;
+          }
+        
+          else{
+            problemText = "CUIDADO !!!                                           EXISTEM " + qtdeObjects + " OBJETOS NO NOSSO CAMPO DE VISÃO !!!";
+            text = problemText;
+          }
+          
+          countWidth = 0;
       }
+      //
     }
     
       
      if (medidasRecebidas.size() == 128){
         medidasRecebidas.clear();
-        //angulosRecebidos.clear();
-        Collections.reverse(angulosRecebidos);
+        //angulosRecebidos.clear(); //está comentada por conta dos testes, na prática deve ser descomentada!
+        Collections.reverse(angulosRecebidos); //utilizado apenas para testes, na prática deve ser comentada!
       }
     
     popMatrix();
@@ -252,7 +209,7 @@ void serialEvent (Serial myPort) {
     try {
         // leitura de dados da porta serial ate o caractere '#' na variavel data
         data = myPort.readStringUntil('#');
-        print(data);  // imprime "data" (debug)
+        //print(data);  // imprime "data" (debug)
         // remove caractere final '#'
         data = data.substring(0,data.length()-1); 
         // encontra indice do caractere ',' e guarda em "index1" 
@@ -266,7 +223,7 @@ void serialEvent (Serial myPort) {
         // converte variaveis tipo String para tipo inteiro
         iAngle    = int(angle);    // angulo em graus
         iDistance = int(distance); // distancia em cm
-        println("angulo= " + iAngle + "° distancia= " + iDistance + "cm");
+        //println("angulo= " + iAngle + "° distancia= " + iDistance + "cm");
         
         medidasRecebidas.add(iDistance);
         angulosRecebidos.add(iAngle);
@@ -280,8 +237,42 @@ void serialEvent (Serial myPort) {
 // funcao keyPressed
 // processa tecla acionada (envia para a porta serial)
 void keyPressed() {
+    
+  if (key == 's'){
+    medidasRecebidas.clear();
+    angulosRecebidos.clear();
+  }
     whichKey = key;
     myPort.write(key);
     println("");
     println("Enviando tecla '" + key + "' para a porta serial. ");
+}
+
+void testarValores(){
+
+  
+  if(medidasRecebidas.size()<10){
+    medidasRecebidas.add(30);
+    //medidasRecebidas.add(100);
+  }
+  
+  else if (medidasRecebidas.size()>=10 && medidasRecebidas.size()<30){
+    medidasRecebidas.add(30);
+    //medidasRecebidas.add(100);
+  }
+  else if (medidasRecebidas.size()>=30 && medidasRecebidas.size()<55){
+    medidasRecebidas.add(30);
+    //medidasRecebidas.add(100);
+  }
+  
+  else if (medidasRecebidas.size()>=55 && medidasRecebidas.size()<80){
+    medidasRecebidas.add(30);
+    //medidasRecebidas.add(100);
+  }
+  
+  else if (medidasRecebidas.size()>=80 && medidasRecebidas.size()<128){
+    medidasRecebidas.add(30);
+    //medidasRecebidas.add(100);
+  }
+  
 }
