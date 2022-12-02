@@ -37,6 +37,11 @@ String problemText = "";
 
 ArrayList<Integer> medidasRecebidas = new ArrayList<Integer>();
 ArrayList<Integer> angulosRecebidos = new ArrayList<Integer>(Arrays.asList(20,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,41,42,44,45,46,47,48,49,51,52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69,71,72,73,74,75,76,77,78,79,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,98,99,101,102,103,104,105,106,107,108,109,111,112,113,114,115,116,117,118,119,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,141,142,143,144,145,146,147,148,149,151,152,153,154,155,156,157,158,159,160));
+int[] medidasPorAngulos = new int[101];
+int[] medidasPorAngulosAuxiliar = new int[101];
+int[] medidasPorAngulosAuxiliardoAuxiliar = new int[101];
+int indexA,indexB,indexC,indexD,indexE;
+int medidasObjetoA = 0, medidasObjetoB = 0, medidasObjetoC = 0, medidasObjetoD = 0, medidasObjetoE = 0;
 //ArrayList<Integer> angulosRecebidos = new ArrayList<Integer>();
 
 // keystroke
@@ -53,6 +58,10 @@ void setup() {
     //myPort = new Serial(this, porta, baudrate, parity, databits, stopbits);
     //myPort.bufferUntil('#'); 
     table = loadTable("lidar_log.csv", "header");
+    
+    for (int i=0; i<medidasPorAngulos.length; i++){
+      medidasPorAngulos[i]=0;
+    }
 
 }
 
@@ -106,6 +115,189 @@ void drawObject() {
   
 }
 
+int calculaQuantidadeObjetos(){
+  
+  int contadorObjetos = 0;
+  
+      for(int l=0; l<=100; l++){
+        medidasPorAngulosAuxiliar[l] = medidasPorAngulos[l];
+        medidasPorAngulosAuxiliardoAuxiliar[l] = medidasPorAngulos[l];
+      }
+      
+      Arrays.sort(medidasPorAngulos);
+      
+      for(int m=0; m<=100; m++){
+          
+       if (medidasPorAngulos[100] != 0){
+        
+        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[100]){
+          indexA = m;
+          medidasPorAngulosAuxiliar[m] = 0;
+        }
+      
+       }
+       
+       else{
+         indexA = 0;
+         medidasPorAngulos[indexA] = 0;
+       }
+        
+      }
+      
+      for(int m=0; m<=100; m++){
+        
+       if (medidasPorAngulos[99] != 0){
+        
+        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[99]){
+          indexB = m;
+          medidasPorAngulosAuxiliar[m] = 0;
+        }
+      
+       }
+       
+       else{
+         indexB = 0;
+         medidasPorAngulos[indexB] = 0;
+       }
+        
+      }
+      
+      for(int m=0; m<=100; m++){
+        
+       if (medidasPorAngulos[98] != 0){
+        
+        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[98]){
+          indexC = m;
+          medidasPorAngulosAuxiliar[m] = 0;
+        }
+      
+       }
+       
+       else{
+         indexC = 0;
+         medidasPorAngulos[indexC] = 0;
+       }
+        
+      }
+      
+      for(int m=0; m<=100; m++){
+        
+       if (medidasPorAngulos[97] != 0){
+        
+        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[97]){
+          indexD = m;
+          medidasPorAngulosAuxiliar[m] = 0;
+        }
+      
+       }
+       
+       else{
+         indexD = 0;
+         medidasPorAngulos[indexD] = 0;
+       }
+        
+      }
+      
+      for(int m=0; m<=100; m++){
+        
+       if (medidasPorAngulos[96] != 0){
+        
+        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[96]){
+          indexE = m;
+          medidasPorAngulosAuxiliar[m] = 0;
+        }
+      
+       }
+       
+       else{
+         indexE = 0;
+         medidasPorAngulos[indexE] = 0;
+       }
+        
+      }
+      print("Quantidade de medidas na distância de " +indexA+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexA]+"\n");
+      print("Quantidade de medidas na distância de " +indexB+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexB]+"\n");
+      print("Quantidade de medidas na distância de " +indexC+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexC]+"\n");
+      print("Quantidade de medidas na distância de " +indexD+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexD]+"\n");
+      print("Quantidade de medidas na distância de " +indexE+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexE]+"\n");
+      
+      for(int i = -5; i <= 5; i++){
+        if(indexA+i >=0 && indexA+i <= 100){
+          medidasObjetoA = medidasObjetoA + medidasPorAngulosAuxiliardoAuxiliar[indexA+i];
+        }
+        if(indexB+i >=0 && indexB+i <= 100){
+          medidasObjetoB = medidasObjetoB + medidasPorAngulosAuxiliardoAuxiliar[indexB+i];
+        }
+        if(indexC+i >=0 && indexC+i <= 100){
+          medidasObjetoC = medidasObjetoC + medidasPorAngulosAuxiliardoAuxiliar[indexC+i];
+        }
+        if(indexD+i >=0 && indexD+i <= 100){
+          medidasObjetoD = medidasObjetoD + medidasPorAngulosAuxiliardoAuxiliar[indexD+i];
+        }
+        if(indexE+i >=0 && indexE+i <= 100){
+          medidasObjetoE = medidasObjetoE + medidasPorAngulosAuxiliardoAuxiliar[indexE+i];
+        }
+      }
+      
+      if (indexA != 0){
+      
+        if (medidasObjetoA >= (2400/indexA)){
+          print("Existe uma pessoa a uma distância de "+indexA+" cm\n");
+          contadorObjetos = contadorObjetos + int(medidasObjetoA/(2400/indexA));
+        }
+        
+        medidasObjetoA = 0;
+      }
+      
+      if (indexB != 0){
+      
+        if (medidasObjetoB >= (2400/indexB)){
+          print("Existe uma pessoa a uma distância de "+indexB+" cm\n");
+          contadorObjetos = contadorObjetos + int(medidasObjetoB/(2400/indexB));
+        }
+        
+        medidasObjetoB = 0;
+      }
+      
+      if (indexC != 0){
+      
+        if (medidasObjetoC >= (2400/indexC)){
+          print("Existe uma pessoa a uma distância de "+indexC+" cm\n");
+          contadorObjetos = contadorObjetos + int(medidasObjetoC/(2400/indexC));
+        }
+        
+        medidasObjetoC = 0;
+      
+      }
+      
+      if (indexD != 0){
+      
+        if (medidasObjetoD >= (2400/indexD)){
+          print("Existe uma pessoa a uma distância de "+indexD+" cm\n");
+          contadorObjetos = contadorObjetos + int(medidasObjetoD/(2400/indexD));
+        }
+        
+        medidasObjetoD = 0;
+      
+      }
+      
+      if (indexE != 0){
+        
+        if (medidasObjetoE >= (2400/indexE)){
+          print("Existe uma pessoa a uma distância de "+indexE+" cm\n");
+          contadorObjetos = contadorObjetos + int(medidasObjetoE/(2400/indexE));
+        }
+        
+        medidasObjetoE = 0;
+        
+      }
+      
+     for (int i=0; i<medidasPorAngulos.length; i++){
+      medidasPorAngulos[i]=0;
+    }
+      
+      return contadorObjetos;
+}
 
 void InterfaceReal(){
     
@@ -134,6 +326,7 @@ void InterfaceReal(){
         
         // Serve para preencher com medida os ângulos não varridos pela FPGA
         if (Math.abs(iAngle-iAnteriorAngle)==2){
+          
           if(angulosRecebidos.get(0) == 20){
             line(0,0,pixsDistance*cos(radians(iAngle-1)),-pixsDistance*sin(radians(iAngle-1)));
           }
@@ -147,19 +340,11 @@ void InterfaceReal(){
         if (i == 127){
         
           for (int j=0; j <= i; j++){
-            if (medidasRecebidas.get(j) <= 50){
-              countWidth = countWidth + 1;
-            }
+            medidasPorAngulos[medidasRecebidas.get(j)] = medidasPorAngulos[medidasRecebidas.get(j)]+1;
           }
           
-          qtdeObjects = countWidth/referenceWidth;
-          TableRow newRow = table.addRow();
-          newRow.setString("Horário", java.time.LocalDateTime.now().toString());
-          newRow.setInt("Objetos", qtdeObjects);
-          newRow.setInt("Largura", countWidth);
-          saveTable(table, "lidar_log.csv");
-          print("Número de medidas abaixo de 50cm é: "+ countWidth + "\n"); 
-            
+          qtdeObjects = calculaQuantidadeObjetos();
+          
           if (qtdeObjects < 2){
             text = defaultText;
           }
@@ -169,7 +354,12 @@ void InterfaceReal(){
             text = problemText;
           }
           
-          countWidth = 0;
+          
+          TableRow newRow = table.addRow();
+          newRow.setString("Horário", java.time.LocalDateTime.now().toString());
+          newRow.setInt("Objetos", qtdeObjects);
+          saveTable(table, "lidar_log.csv");
+          
       }
       //
     }
@@ -252,26 +442,26 @@ void testarValores(){
 
   
   if(medidasRecebidas.size()<10){
-    medidasRecebidas.add(30);
+    medidasRecebidas.add(12);
     //medidasRecebidas.add(100);
   }
   
   else if (medidasRecebidas.size()>=10 && medidasRecebidas.size()<30){
-    medidasRecebidas.add(30);
+    medidasRecebidas.add(12);
     //medidasRecebidas.add(100);
   }
   else if (medidasRecebidas.size()>=30 && medidasRecebidas.size()<55){
-    medidasRecebidas.add(30);
+    medidasRecebidas.add(12);
     //medidasRecebidas.add(100);
   }
   
   else if (medidasRecebidas.size()>=55 && medidasRecebidas.size()<80){
-    medidasRecebidas.add(30);
+    medidasRecebidas.add(12);
     //medidasRecebidas.add(100);
   }
   
   else if (medidasRecebidas.size()>=80 && medidasRecebidas.size()<128){
-    medidasRecebidas.add(30);
+    medidasRecebidas.add(25);
     //medidasRecebidas.add(100);
   }
   
