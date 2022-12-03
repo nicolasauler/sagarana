@@ -5,7 +5,8 @@ import java.util.*;
 import java.util.Arrays;
 import java.util.List;
 import java.text.SimpleDateFormat;  
-import java.util.Date;  
+import java.util.Date;
+import java.lang.Math;
 
 Serial myPort; // definicao do objeto serial
 
@@ -22,27 +23,24 @@ Serial myPort; // definicao do objeto serial
 String angle=""; //valor do ângulo
 String distance=""; // valor da distância
 String data=""; //ângulo,distância#
-String noObject; //diz se o objeto foi detectado ou não
 float  pixsDistance;
+int contadorMedidas = 0;
 int    iAngle, iDistance, iAnteriorAngle = 0;
 int    index1=0; //posicao para limitar o valor do angulo
 int    index2=0; //posicao para limitar o valor de distancia
-int countWidth = 0;
-int referenceWidth = 25;
-int referenceMeasure = 0;
-int qtdeObjects = 0;
 String text = "";
 String defaultText = "SAGARANA                                                                                                      TURMA 1 - BANCADA A6";
 String problemText = "";
 
 ArrayList<Integer> medidasRecebidas = new ArrayList<Integer>();
-ArrayList<Integer> angulosRecebidos = new ArrayList<Integer>(Arrays.asList(20,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,41,42,44,45,46,47,48,49,51,52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69,71,72,73,74,75,76,77,78,79,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,98,99,101,102,103,104,105,106,107,108,109,111,112,113,114,115,116,117,118,119,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,141,142,143,144,145,146,147,148,149,151,152,153,154,155,156,157,158,159,160));
+ArrayList<Integer> angulosRecebidos;
 int[] medidasPorAngulos = new int[101];
 int[] medidasPorAngulosAuxiliar = new int[101];
-int[] medidasPorAngulosAuxiliardoAuxiliar = new int[101];
-int indexA,indexB,indexC,indexD,indexE;
-int medidasObjetoA = 0, medidasObjetoB = 0, medidasObjetoC = 0, medidasObjetoD = 0, medidasObjetoE = 0;
-//ArrayList<Integer> angulosRecebidos = new ArrayList<Integer>();
+float numObj = 0;
+ArrayList<Integer> listaDistancias = new ArrayList<Integer>();
+ArrayList<Integer> listaMedidas = new ArrayList<Integer>();
+int indiceInicial=0, indiceCentral=0, indiceFinal=0, indicador=0;
+int modoDebug = 1;
 
 // keystroke
 int whichKey = -1;  // variavel mantem tecla acionada
@@ -55,8 +53,14 @@ void setup() {
     text = defaultText;
     smooth();
     img = loadImage("alerta.png");
-    //myPort = new Serial(this, porta, baudrate, parity, databits, stopbits);
-    //myPort.bufferUntil('#'); 
+    if (modoDebug == 0){
+      myPort = new Serial(this, porta, baudrate, parity, databits, stopbits);
+      myPort.bufferUntil('#');
+      angulosRecebidos = new ArrayList<Integer>();
+    }
+    else{
+      angulosRecebidos = new ArrayList<Integer>(Arrays.asList(20,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38,39,41,42,43,44,45,46,47,48,49,51,52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69,71,72,73,74,75,76,77,78,79,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,98,99,101,102,103,104,105,106,107,108,109,111,112,113,114,115,116,117,118,119,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,141,142,143,144,145,146,147,148,149,151,152,153,154,155,156,157,158,159,160));
+    }
     table = loadTable("lidar_log.csv", "header");
     
     for (int i=0; i<medidasPorAngulos.length; i++){
@@ -79,8 +83,8 @@ void draw() {
 }
 
 void drawRadar() {
-    if (qtdeObjects >= 2){
-      problemText = "CUIDADO !!!                                           EXISTEM " + qtdeObjects + " OBJETOS NO NOSSO CAMPO DE VISÃO !!!";
+    if (int(numObj) >= 2){
+      problemText = "CUIDADO !!!                                           EXISTEM " + int(numObj) + " OBJETOS NO NOSSO CAMPO DE VISÃO !!!";
       text = problemText;
       background(img);
       stroke(255,255,255);
@@ -107,201 +111,19 @@ void drawRadar() {
     popMatrix();
 }
 
-// funcao drawObject()
 void drawObject() {
   
   InterfaceReal();
-  //delay(25);
   
 }
 
-int calculaQuantidadeObjetos(){
-  
-  int contadorObjetos = 0;
-  
-      for(int l=0; l<=100; l++){
-        medidasPorAngulosAuxiliar[l] = medidasPorAngulos[l];
-        medidasPorAngulosAuxiliardoAuxiliar[l] = medidasPorAngulos[l];
-      }
-      
-      Arrays.sort(medidasPorAngulos);
-      
-      for(int m=0; m<=100; m++){
-          
-       if (medidasPorAngulos[100] != 0){
-        
-        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[100]){
-          indexA = m;
-          medidasPorAngulosAuxiliar[m] = 0;
-        }
-      
-       }
-       
-       else{
-         indexA = 0;
-         medidasPorAngulos[indexA] = 0;
-       }
-        
-      }
-      
-      for(int m=0; m<=100; m++){
-        
-       if (medidasPorAngulos[99] != 0){
-        
-        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[99]){
-          indexB = m;
-          medidasPorAngulosAuxiliar[m] = 0;
-        }
-      
-       }
-       
-       else{
-         indexB = 0;
-         medidasPorAngulos[indexB] = 0;
-       }
-        
-      }
-      
-      for(int m=0; m<=100; m++){
-        
-       if (medidasPorAngulos[98] != 0){
-        
-        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[98]){
-          indexC = m;
-          medidasPorAngulosAuxiliar[m] = 0;
-        }
-      
-       }
-       
-       else{
-         indexC = 0;
-         medidasPorAngulos[indexC] = 0;
-       }
-        
-      }
-      
-      for(int m=0; m<=100; m++){
-        
-       if (medidasPorAngulos[97] != 0){
-        
-        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[97]){
-          indexD = m;
-          medidasPorAngulosAuxiliar[m] = 0;
-        }
-      
-       }
-       
-       else{
-         indexD = 0;
-         medidasPorAngulos[indexD] = 0;
-       }
-        
-      }
-      
-      for(int m=0; m<=100; m++){
-        
-       if (medidasPorAngulos[96] != 0){
-        
-        if (medidasPorAngulosAuxiliar[m] == medidasPorAngulos[96]){
-          indexE = m;
-          medidasPorAngulosAuxiliar[m] = 0;
-        }
-      
-       }
-       
-       else{
-         indexE = 0;
-         medidasPorAngulos[indexE] = 0;
-       }
-        
-      }
-      print("Quantidade de medidas na distância de " +indexA+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexA]+"\n");
-      print("Quantidade de medidas na distância de " +indexB+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexB]+"\n");
-      print("Quantidade de medidas na distância de " +indexC+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexC]+"\n");
-      print("Quantidade de medidas na distância de " +indexD+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexD]+"\n");
-      print("Quantidade de medidas na distância de " +indexE+" é: "+medidasPorAngulosAuxiliardoAuxiliar[indexE]+"\n");
-      
-      for(int i = -5; i <= 5; i++){
-        if(indexA+i >=0 && indexA+i <= 100){
-          medidasObjetoA = medidasObjetoA + medidasPorAngulosAuxiliardoAuxiliar[indexA+i];
-        }
-        if(indexB+i >=0 && indexB+i <= 100){
-          medidasObjetoB = medidasObjetoB + medidasPorAngulosAuxiliardoAuxiliar[indexB+i];
-        }
-        if(indexC+i >=0 && indexC+i <= 100){
-          medidasObjetoC = medidasObjetoC + medidasPorAngulosAuxiliardoAuxiliar[indexC+i];
-        }
-        if(indexD+i >=0 && indexD+i <= 100){
-          medidasObjetoD = medidasObjetoD + medidasPorAngulosAuxiliardoAuxiliar[indexD+i];
-        }
-        if(indexE+i >=0 && indexE+i <= 100){
-          medidasObjetoE = medidasObjetoE + medidasPorAngulosAuxiliardoAuxiliar[indexE+i];
-        }
-      }
-      
-      if (indexA != 0){
-      
-        if (medidasObjetoA >= (2400/indexA)){
-          print("Existe uma pessoa a uma distância de "+indexA+" cm\n");
-          contadorObjetos = contadorObjetos + int(medidasObjetoA/(2400/indexA));
-        }
-        
-        medidasObjetoA = 0;
-      }
-      
-      if (indexB != 0){
-      
-        if (medidasObjetoB >= (2400/indexB)){
-          print("Existe uma pessoa a uma distância de "+indexB+" cm\n");
-          contadorObjetos = contadorObjetos + int(medidasObjetoB/(2400/indexB));
-        }
-        
-        medidasObjetoB = 0;
-      }
-      
-      if (indexC != 0){
-      
-        if (medidasObjetoC >= (2400/indexC)){
-          print("Existe uma pessoa a uma distância de "+indexC+" cm\n");
-          contadorObjetos = contadorObjetos + int(medidasObjetoC/(2400/indexC));
-        }
-        
-        medidasObjetoC = 0;
-      
-      }
-      
-      if (indexD != 0){
-      
-        if (medidasObjetoD >= (2400/indexD)){
-          print("Existe uma pessoa a uma distância de "+indexD+" cm\n");
-          contadorObjetos = contadorObjetos + int(medidasObjetoD/(2400/indexD));
-        }
-        
-        medidasObjetoD = 0;
-      
-      }
-      
-      if (indexE != 0){
-        
-        if (medidasObjetoE >= (2400/indexE)){
-          print("Existe uma pessoa a uma distância de "+indexE+" cm\n");
-          contadorObjetos = contadorObjetos + int(medidasObjetoE/(2400/indexE));
-        }
-        
-        medidasObjetoE = 0;
-        
-      }
-      
-     for (int i=0; i<medidasPorAngulos.length; i++){
-      medidasPorAngulos[i]=0;
-    }
-      
-      return contadorObjetos;
-}
 
 void InterfaceReal(){
     
-    testarValores();
+    if (modoDebug == 1){
+      testarValores();
+    }
+    
     pushMatrix();
     translate(480,480);
     strokeWeight(15); 
@@ -319,57 +141,123 @@ void InterfaceReal(){
         if (i!= 0){
           iAnteriorAngle = angulosRecebidos.get(i-1);
         }
-        
+       
         strokeWeight(2);
         
         line(0,0,pixsDistance*cos(radians(iAngle)),-pixsDistance*sin(radians(iAngle)));
         
         // Serve para preencher com medida os ângulos não varridos pela FPGA
-        if (Math.abs(iAngle-iAnteriorAngle)==2){
-          
-          if(angulosRecebidos.get(0) == 20){
-            line(0,0,pixsDistance*cos(radians(iAngle-1)),-pixsDistance*sin(radians(iAngle-1)));
-          }
-          else{
-            line(0,0,pixsDistance*cos(radians(iAngle+1)),-pixsDistance*sin(radians(iAngle+1)));
-          }           
+        
+        if(iAngle == 31 || iAngle == 41 || iAngle == 51 || iAngle == 61 || iAngle == 71 || iAngle == 81 || iAngle == 91 || iAngle == 101 || iAngle == 111 || iAngle == 121 || iAngle == 131 || iAngle == 141 || iAngle == 151){
+          line(0,0,pixsDistance*cos(radians(iAngle-1)),-pixsDistance*sin(radians(iAngle-1)));
         }
-        //
         
         //Na última medição, faz a contagem e cálculo da quantidade de objetos   
         if (i == 127){
         
           for (int j=0; j <= i; j++){
-            medidasPorAngulos[medidasRecebidas.get(j)] = medidasPorAngulos[medidasRecebidas.get(j)]+1;
+            if(medidasRecebidas.get(j) != 100){
+              medidasPorAngulos[medidasRecebidas.get(j)] = medidasPorAngulos[medidasRecebidas.get(j)]+1;
+            }
+          }
+           for (int j=0; j <= 100; j++){
+            if(j != 100){
+              print(medidasPorAngulos[j]+",");
+            }
+            else{
+              print(medidasPorAngulos[j]);
+            }
+            if (j==50){
+              print("\n");
+            }
+          }
+                 
+          for(int m=0; m<100; m++){
+            
+            if (medidasPorAngulos[m] != 0 || medidasPorAngulos[m+1] != 0){
+              if (medidasPorAngulos[m] != 0){
+                indiceInicial = m;
+              }
+              else{
+                indiceInicial = m+1;
+              }
+            }
+            
+            while(medidasPorAngulos[m] != 0 || medidasPorAngulos[m+1] != 0){
+
+              contadorMedidas = contadorMedidas+medidasPorAngulos[m];
+              m++;
+              indicador = 1;
+              if(m==100){
+                break;
+              }
+            }
+            if (indicador == 1){
+              indiceFinal = m-1;
+              indiceCentral = (indiceInicial+indiceFinal)/2;
+              listaDistancias.add(indiceCentral);
+              listaMedidas.add(contadorMedidas);
+              
+              for(int l=0; l<listaMedidas.size(); l++){
+                if (listaMedidas.get(l) <= 2){
+                  listaMedidas.remove(l);
+                  listaDistancias.remove(l);
+                }
+              }
+              
+              contadorMedidas=0;
+              indicador = 0;
+            }
+            
           }
           
-          qtdeObjects = calculaQuantidadeObjetos();
+          numObj = 0;
           
-          if (qtdeObjects < 2){
+          for (int p=0;p<listaMedidas.size();p++){
+            
+            numObj += float(listaMedidas.get(p))/(float((112-(11/10)*listaDistancias.get(p))));
+            print("\n Número de objetos sem arredondamento:"+numObj); 
+            numObj = Math.round(numObj);
+            print("\n Número de objetos com arredondamento:"+numObj);
+          }
+          
+          print("\n Lista de distâncias: "+listaDistancias);
+          print("\n Lista de medidas:    "+ listaMedidas);
+          
+          listaDistancias.clear();
+          listaMedidas.clear();
+          
+          if (int(numObj) < 2){
             text = defaultText;
           }
         
           else{
-            problemText = "CUIDADO !!!                                           EXISTEM " + qtdeObjects + " OBJETOS NO NOSSO CAMPO DE VISÃO !!!";
+            problemText = "CUIDADO !!!                                           EXISTEM " + int(numObj) + " OBJETOS NO NOSSO CAMPO DE VISÃO !!!";
             text = problemText;
           }
           
           
           TableRow newRow = table.addRow();
           newRow.setString("Horário", java.time.LocalDateTime.now().toString());
-          newRow.setInt("Objetos", qtdeObjects);
+          newRow.setInt("Objetos", int(numObj));
           saveTable(table, "lidar_log.csv");
           
       }
-      //
     }
-    
-      
+        
      if (medidasRecebidas.size() == 128){
         medidasRecebidas.clear();
-        //angulosRecebidos.clear(); //está comentada por conta dos testes, na prática deve ser descomentada!
-        Collections.reverse(angulosRecebidos); //utilizado apenas para testes, na prática deve ser comentada!
+        if (modoDebug == 0){
+          angulosRecebidos.clear(); //está comentada por conta dos testes, na prática deve ser descomentada!
+        }
+        if(modoDebug == 1){
+          Collections.reverse(angulosRecebidos); //utilizado apenas para testes, na prática deve ser comentada!
+        }
       }
+      
+     for (int i=0; i<medidasPorAngulos.length; i++){
+       medidasPorAngulos[i]=0;
+     }
     
     popMatrix();
 }
@@ -408,7 +296,7 @@ void serialEvent (Serial myPort) {
         angle    = data.substring(0, index1);
         // le dados da posicao "index+1 ate o final e guarda em "distance"
         distance = data.substring(index1+1, data.length()); 
-        println(" -> angle= " + angle + " distance= " + distance);
+        //println(" -> angle= " + angle + " distance= " + distance);
 
         // converte variaveis tipo String para tipo inteiro
         iAngle    = int(angle);    // angulo em graus
@@ -416,7 +304,9 @@ void serialEvent (Serial myPort) {
         //println("angulo= " + iAngle + "° distancia= " + iDistance + "cm");
         
         medidasRecebidas.add(iDistance);
-        angulosRecebidos.add(iAngle);
+        if(modoDebug == 0){
+          angulosRecebidos.add(iAngle);
+        }
         
     }
     catch(RuntimeException e) {
@@ -440,29 +330,26 @@ void keyPressed() {
 
 void testarValores(){
 
-  
-  if(medidasRecebidas.size()<10){
-    medidasRecebidas.add(12);
-    //medidasRecebidas.add(100);
+  if(medidasRecebidas.size()<5){
+    medidasRecebidas.add(100);
   }
-  
-  else if (medidasRecebidas.size()>=10 && medidasRecebidas.size()<30){
-    medidasRecebidas.add(12);
-    //medidasRecebidas.add(100);
+  else if (medidasRecebidas.size()>=5 && medidasRecebidas.size()<8){
+    medidasRecebidas.add(90);
   }
-  else if (medidasRecebidas.size()>=30 && medidasRecebidas.size()<55){
-    medidasRecebidas.add(12);
-    //medidasRecebidas.add(100);
+  else if (medidasRecebidas.size()>=8 && medidasRecebidas.size()<20){
+    medidasRecebidas.add(91);
+  }  
+  else if (medidasRecebidas.size()>=20 && medidasRecebidas.size()<24){
+    medidasRecebidas.add(93);
   }
-  
-  else if (medidasRecebidas.size()>=55 && medidasRecebidas.size()<80){
-    medidasRecebidas.add(12);
-    //medidasRecebidas.add(100);
+  else if (medidasRecebidas.size()>=24 && medidasRecebidas.size()<50){
+    medidasRecebidas.add(95);
   }
-  
-  else if (medidasRecebidas.size()>=80 && medidasRecebidas.size()<128){
-    medidasRecebidas.add(25);
-    //medidasRecebidas.add(100);
+  else if (medidasRecebidas.size()>=50 && medidasRecebidas.size()<110){
+    medidasRecebidas.add(18);
+  }
+  else if (medidasRecebidas.size()>=110 && medidasRecebidas.size()<128){
+    medidasRecebidas.add(100);
   }
   
 }
