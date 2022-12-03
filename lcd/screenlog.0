@@ -1,0 +1,23 @@
+344
+load:0x40078000,len:13864
+load:0x40080400,len:3608
+entry 0x400805f0
+
+I2C scanner. Scanning ...
+Found address: 39 (0x27)
+Done.
+Found 1 device(s).
+€«¹é1344
+load:0x40078000,len:13864
+load:0x40080400,len:3608
+entry 0x400805f0
+Á0,wp_drv:0x00
+mode:DIO, clock div:1
+load:0x3fff0030,len:1344
+load:0x40078000,len:13864
+load:0x40080400,len:3608
+entry 0x400805f0
+–‚š‚bb•¹é1344
+load:0x40078000,len:13864
+load:0x40080400,len:3608
+entry 0x400805f0
